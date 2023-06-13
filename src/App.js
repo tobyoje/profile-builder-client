@@ -1,9 +1,15 @@
-import './App.scss';
+import "./styles/global.scss";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import StartPage from "./pages/StartPage/StartPage";
 
 function App() {
   return (
     <div>
-      Welcome!
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<StartPage/>} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
