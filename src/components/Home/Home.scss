@@ -1,0 +1,16 @@
+.main {
+  display: flex;
+  flex-direction: column;
+  padding: 4rem 2rem;
+
+  &__image {
+    max-height: 150px;
+    display: flex;
+  }
+&__buttons {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 4rem;
+}
+
+}
