@@ -66,14 +66,14 @@ const AddGalleryImage = () => {
     }, 1000);
 
     const newBasic = {
-      image1: "../../assets/images/image-card-sample.jpg",
-      image2: "../../assets/images/image-card-sample.jpg",
+      image1: "../../assets/images/gallery-image-sample",
+      image2: "../../assets/images/gallery-image-sample",
     };
 
     const token = sessionStorage.getItem("token");
 
     axios
-      .post("http://localhost:8080/api/user/imagecards", newBasic, {
+      .post("http://localhost:8080/api/user/gallery", newBasic, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

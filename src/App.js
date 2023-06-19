@@ -9,6 +9,7 @@ import AddSocialLinks from "./pages/AddSocialLinks/AddSocialLinks";
 import AddExternalLinks from "./pages/AddExternalLinks/AddExternalLinks";
 import AddImageCard from "./pages/AddImageCard/AddImageCard";
 import AddGalleryImage from "./pages/AddGalleryImage/AddGalleryImage";
+import AddStyles from "./pages/AddStyles/AddStyles";
 
 function App() {
   return (
@@ -24,6 +25,8 @@ function App() {
           <Route path="/external-links" element={<AddExternalLinks />} />
           <Route path="/image-cards" element={<AddImageCard />} />
           <Route path="/gallery" element={<AddGalleryImage />} />
+          <Route path="/styles" element={<AddStyles />} />
+          <Route path="/1" element={<AddStyles />} />
         </Routes>
       </BrowserRouter>
     </div>
