@@ -25,3 +25,19 @@ button {
   display: flex;
   color: #1a120b;
 }
+
+a {
+  text-decoration: none;
+}
+
+
+.input--error {
+    border: 1px solid #c94515 !important;
+  }
+  
+
+  .form-error{
+    color: #c94515;
+    margin: 0;
+    padding-bottom: 2.5rem;
+  }
