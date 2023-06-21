@@ -85,14 +85,14 @@ const AddExternalLinks = () => {
     }, 1000);
 
     const newBasic = {
-      link1: basicData.link1,
-      title1: basicData.title1,
-      link2: basicData.link2,
-      title2: basicData.title2,
-      link3: basicData.link3,
-      title3: basicData.title3,
-      link4: basicData.link4,
-      titl4: basicData.title4,
+      ext_link1: basicData.link1,
+      ext_title1: basicData.title1,
+      ext_link2: basicData.link2,
+      ext_title2: basicData.title2,
+      ext_link3: basicData.link3,
+      ext_title3: basicData.title3,
+      ext_link4: basicData.link4,
+      ext_titl4: basicData.title4,
     };
 
     const token = sessionStorage.getItem("token");
@@ -141,9 +141,7 @@ const AddExternalLinks = () => {
               }`}
             />
 
-
-
-<div className="linkfield">
+            <div className="linkfield">
               <input
                 type="text"
                 placeholder="Add your external url"
@@ -163,9 +161,6 @@ const AddExternalLinks = () => {
                 formErrors.error_pageTitle ? "input--error" : ""
               }`}
             />
-
-
-
 
             <div className="basic__formadd">
               <img className="basic__formadd--image" src={addICON} alt="" />

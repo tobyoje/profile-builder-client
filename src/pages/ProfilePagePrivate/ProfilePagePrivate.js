@@ -3,22 +3,31 @@ import Theme1 from "../../themes/Theme1/Theme1";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 
-const ProfilePage = () => {
+const ProfilePagePrivate = () => {
   const [profileData, setProfileData] = useState(null);
+  const [currentUserId, setCurrentUserId] = useState(null);
 
   const { pageLink } = useParams();
 
   useEffect(() => {
+    const token = sessionStorage.getItem("token");
+
     // Get the data from the API
     axios
-      .get(`http://localhost:8080/api/user/${pageLink}`)
-      .then((response) => {
-        setProfileData(response.data);
+      .get(`http://localhost:8080/api/user/edit/${pageLink}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(async (response) => {
+        await setProfileData(response.data);
+        setCurrentUserId(response.data.user_id);
       })
       .catch((error) => {
         console.log(error);
       });
   }, []);
+
   if (!profileData) {
     return (
       <div>
@@ -31,9 +40,9 @@ const ProfilePage = () => {
 
   return (
     <>
-      <Theme1 profileData={profileData} />
+      <Theme1 currentUserId={currentUserId} profileData={profileData} />
     </>
   );
 };
 
-export default ProfilePage;
+export default ProfilePagePrivate;

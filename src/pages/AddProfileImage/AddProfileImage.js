@@ -121,7 +121,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero1"
-                    value="../../assets/images/hero-default.jpg"
+                    value="../../assets/images/hero-1.jpg"
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero1"></label>
@@ -130,7 +130,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero2"
-                    value="../../assets/images/hero-default.jpg"
+                    value="../../assets/images/hero-2.jpg"
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero2"></label>
@@ -139,7 +139,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero3"
-                    value="../../assets/images/hero-default.jpg"
+                    value="../../assets/images/hero-3.jpg"
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero3"></label>
@@ -150,7 +150,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero4"
-                    value="../../assets/images/hero-default.jpg"
+                    value="../../assets/images/hero-4.jpg"
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero4"></label>
@@ -158,7 +158,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero5"
-                    value="../../assets/images/hero-default.jpg"
+                    value="../../assets/images/hero-5.jpg"
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero5"></label>
@@ -167,7 +167,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero6"
-                    value="../../assets/images/hero-default.jpg"
+                    value="../../assets/images/hero-1.jpg"
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero6"></label>

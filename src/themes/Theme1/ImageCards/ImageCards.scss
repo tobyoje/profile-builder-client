@@ -1,0 +1,36 @@
+.imagecards {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem;
+
+  &__heading {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+
+  &__container {
+    background-image: linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.893),
+        rgba(0, 0, 0, 0.553)
+      );
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 1rem;
+    margin: 0 0 1rem 0;
+    padding: 12rem 1rem 1rem 1rem;
+  }
+
+  &__link-title {
+    color: white;
+    margin: 0;
+  }
+
+  &__link-icon {
+    width: 1.5rem;
+  }
+}

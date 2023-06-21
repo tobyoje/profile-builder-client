@@ -99,6 +99,7 @@ const AddBasicInfo = () => {
         },
       })
       .then((response) => {
+        sessionStorage.setItem("page_link", basicData.link);
         console.log(response.data);
       })
       .catch((error) => {

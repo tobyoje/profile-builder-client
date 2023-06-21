@@ -1,5 +1,5 @@
 import SetupHeader from "../../components/SetupHeader/SetupHeader";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import "./AddStyles.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -9,6 +9,8 @@ const AddStyles = () => {
   const [formErrors, setFormErrors] = useState({});
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
+
+  //   const { pageLink } = useParams();
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
@@ -80,7 +82,11 @@ const AddStyles = () => {
     }
 
     setTimeout(() => {
-      navigate("/one");
+      // store profile link in local storage
+      // get the profile link form local storage
+      // and navigate to ("/profile-link")
+      const page_link = sessionStorage.getItem("page_link");
+      navigate(`/private/${page_link}`);
     }, 1000);
 
     const newBasic = {
@@ -127,8 +133,8 @@ const AddStyles = () => {
               name="fonts"
               onChange={(event) => handleChange(event)}
             >
-              <option value="font1">Font Style 1</option>
-              <option value="font2">Font Style 2</option>
+              <option value="Poppins">Font Style 1</option>
+              <option value="Lato">Font Style 2</option>
             </select>
 
             <div className="choose-color">

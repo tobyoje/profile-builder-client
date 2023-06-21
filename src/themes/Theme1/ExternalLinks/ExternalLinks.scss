@@ -1,0 +1,29 @@
+.extlinks {
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 2rem;
+
+  &__heading {
+    font-size: 1.4rem;
+    margin-bottom: 2rem;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    border-radius: 1rem;
+    margin: 0 0 1rem 0;
+    padding: 1rem;
+  }
+
+  &__link-title {
+    color: white;
+    margin: 0;
+  }
+
+  &__link-icon {
+    width: 1.5rem;
+  }
+}

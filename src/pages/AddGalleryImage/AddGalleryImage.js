@@ -66,8 +66,8 @@ const AddGalleryImage = () => {
     }, 1000);
 
     const newBasic = {
-      image1: "../../assets/images/gallery-image-sample",
-      image2: "../../assets/images/gallery-image-sample",
+      g_image1: "../../assets/images/gallery-image-sample",
+      g_image2: "../../assets/images/gallery-image-sample",
     };
 
     const token = sessionStorage.getItem("token");

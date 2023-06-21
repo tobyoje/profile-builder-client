@@ -10,6 +10,8 @@ import AddExternalLinks from "./pages/AddExternalLinks/AddExternalLinks";
 import AddImageCard from "./pages/AddImageCard/AddImageCard";
 import AddGalleryImage from "./pages/AddGalleryImage/AddGalleryImage";
 import AddStyles from "./pages/AddStyles/AddStyles";
+import ProfilePage from "./pages/ProfilePage/ProfilePage";
+import ProfilePagePrivate from "./pages/ProfilePagePrivate/ProfilePagePrivate";
 
 function App() {
   return (
@@ -26,7 +28,8 @@ function App() {
           <Route path="/image-cards" element={<AddImageCard />} />
           <Route path="/gallery" element={<AddGalleryImage />} />
           <Route path="/styles" element={<AddStyles />} />
-          <Route path="/1" element={<AddStyles />} />
+          <Route path="/private/:pageLink" element={<ProfilePagePrivate />} />
+          <Route path="/:pageLink" element={<ProfilePage />} />
         </Routes>
       </BrowserRouter>
     </div>

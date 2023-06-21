@@ -57,6 +57,7 @@ const LoginPage = () => {
       .post("http://localhost:8080/api/user/login", newLogin)
       .then((response) => {
         sessionStorage.setItem("token", response.data.token);
+        sessionStorage.setItem("user_id", response.data.user_id);
         console.log(response.data);
       })
       .catch((error) => {
