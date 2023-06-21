@@ -7,7 +7,8 @@ import addICON from "../../assets/icons/plus.svg";
 import uploadIcon from "../../assets/icons/upload.svg";
 
 const AddGalleryImage = () => {
-  const [basicData, setBasicData] = useState([]);
+  const [image1URL, setImage1URL] = useState("");
+  const [image2URL, setImage2URL] = useState("");
   const [formErrors, setFormErrors] = useState({});
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -35,13 +36,28 @@ const AddGalleryImage = () => {
       });
   }, []);
 
-  const handleChange = (event) => {
-    setBasicData({ ...basicData, [event.target.name]: event.target.value });
+  // const handleChange = (event) => {
+  //   setBasicData({ ...basicData, [event.target.name]: event.target.value });
+  // };
+
+  const handleFileSelect = (event, inputName) => {
+    const file = event.target.files[0];
+    const objectURL = URL.createObjectURL(file);
+
+    if (inputName === "image1") {
+      setImage1URL(objectURL);
+    } else if (inputName === "image2") {
+      setImage2URL(objectURL);
+    }
   };
 
   const handleBasic = (event) => {
     event.preventDefault();
     setFormErrors({});
+
+    console.log("Form submitted!");
+    console.log("Image 1 URL:", image1URL);
+    console.log("Image 2 URL:", image2URL);
 
     let formIsValid = true;
 
@@ -66,9 +82,11 @@ const AddGalleryImage = () => {
     }, 1000);
 
     const newBasic = {
-      g_image1: "../../assets/images/gallery-image-sample",
-      g_image2: "../../assets/images/gallery-image-sample",
+      g_image1: image1URL,
+      g_image2: image2URL,
     };
+
+    console.log(newBasic);
 
     const token = sessionStorage.getItem("token");
 
@@ -96,14 +114,14 @@ const AddGalleryImage = () => {
         <div className="basic__form">
           <form onSubmit={handleBasic}>
             <div className="upload-area1">
-              <label htmlFor="inputfile">Add Image</label>
+              <label htmlFor="inputfile1">Add Image</label>
               <img className="upload-icon" src={uploadIcon} alt="" />
               <input
                 type="file"
-                id="inputfile"
+                id="inputfile1"
                 name="image1"
                 accept="image/png, image/jpeg, image/jpg"
-                onChange={(event) => handleChange(event)}
+                onChange={(event) => handleFileSelect(event, "image1")}
                 className={`inputfile ${
                   formErrors.error_pageTitle ? "input--error" : ""
                 }`}
@@ -111,14 +129,14 @@ const AddGalleryImage = () => {
             </div>
 
             <div className="upload-area1">
-              <label htmlFor="inputfile">Add Image</label>
+              <label htmlFor="inputfile2">Add Image</label>
               <img className="upload-icon" src={uploadIcon} alt="" />
               <input
                 type="file"
-                id="inputfile"
+                id="inputfile2"
                 name="image2"
                 accept="image/png, image/jpeg, image/jpg"
-                onChange={(event) => handleChange(event)}
+                onChange={(event) => handleFileSelect(event, "image2")}
                 className={`inputfile ${
                   formErrors.error_pageTitle ? "input--error" : ""
                 }`}

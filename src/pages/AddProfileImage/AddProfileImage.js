@@ -7,6 +7,7 @@ import uploadIcon from "../../assets/icons/upload.svg";
 
 const AddProfileImage = () => {
   const [basicData, setBasicData] = useState([]);
+  const [imageData, setImageData] = useState(null);
   const [formErrors, setFormErrors] = useState({});
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -38,6 +39,10 @@ const AddProfileImage = () => {
     setBasicData({ ...basicData, [event.target.name]: event.target.value });
   };
 
+  const fileChange = (event) => {
+    setImageData(event.target.files[0]);
+  };
+
   const handleBasic = (event) => {
     event.preventDefault();
     setFormErrors({});
@@ -60,7 +65,7 @@ const AddProfileImage = () => {
     }, 1000);
 
     const newBasic = {
-      profile_image: "../../assets/images/profile-default.jpg",
+      profile_image: URL.createObjectURL(imageData),
       hero_image: basicData.heroPhoto,
     };
 
@@ -98,9 +103,9 @@ const AddProfileImage = () => {
               <input
                 type="file"
                 id="inputfile"
-                name="profilePhoto"
+                name="profile_image"
                 accept="image/png, image/jpeg, image/jpg"
-                onChange={(event) => handleChange(event)}
+                onChange={(event) => fileChange(event)}
                 className={`inputfile ${
                   formErrors.error_pageTitle ? "input--error" : ""
                 }`}
@@ -121,7 +126,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero1"
-                    value="../../assets/images/hero-1.jpg"
+                    value="http://localhost:8080/images/hero-1.jpg"
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero1"></label>
@@ -130,7 +135,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero2"
-                    value="../../assets/images/hero-2.jpg"
+                    value="http://localhost:8080/images/hero-2.jpg"
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero2"></label>
@@ -139,7 +144,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero3"
-                    value="../../assets/images/hero-3.jpg"
+                    value="http://localhost:8080/images/hero-3.jpg"
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero3"></label>
@@ -150,7 +155,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero4"
-                    value="../../assets/images/hero-4.jpg"
+                    value="http://localhost:8080/images/hero-4.jpg"
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero4"></label>
@@ -158,7 +163,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero5"
-                    value="../../assets/images/hero-5.jpg"
+                    value="http://localhost:8080/images/hero-5.jpg"
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero5"></label>
@@ -167,7 +172,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero6"
-                    value="../../assets/images/hero-1.jpg"
+                    value="http://localhost:8080/images/hero-6.jpg"
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero6"></label>

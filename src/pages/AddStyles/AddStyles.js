@@ -124,7 +124,9 @@ const AddStyles = () => {
               name="styles"
               onChange={(event) => handleChange(event)}
             >
-              <option value="style1">Style 1</option>
+              <option value="style1" selected>
+                Style 1
+              </option>
               <option value="style2">Style 2</option>
             </select>
 
@@ -133,7 +135,9 @@ const AddStyles = () => {
               name="fonts"
               onChange={(event) => handleChange(event)}
             >
-              <option value="Poppins">Font Style 1</option>
+              <option value="Poppins" selected>
+                Font Style 1
+              </option>
               <option value="Lato">Font Style 2</option>
             </select>
 

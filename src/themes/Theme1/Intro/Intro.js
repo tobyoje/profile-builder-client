@@ -70,7 +70,7 @@ const Intro = ({ profileData, currentUserId }) => {
           <img
             style={{ border: `6px solid ${profileData.color}` }}
             className="intro__profileimg"
-            src={defaultIMG}
+            src={profileData.profile_image}
             alt="profile Picture"
           />
           <h2 className="intro__name">{profileData.page_title}</h2>
