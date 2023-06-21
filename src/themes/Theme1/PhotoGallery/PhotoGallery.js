@@ -1,28 +1,42 @@
+import React from "react";
 import "./PhotoGallery.scss";
 
-const PhotoGallery = ({profileData}) => {
+const PhotoGalleryComponent = ({ profileData }) => {
+  const galleryImages = [
+    profileData.g_image1,
+    profileData.g_image2,
+    profileData.g_image3,
+    profileData.g_image4,
+    profileData.g_image5,
+    profileData.g_image6,
+  ];
+
+  const imageChunks = [];
+  for (let i = 0; i < galleryImages.length; i += 2) {
+    imageChunks.push(galleryImages.slice(i, i + 2));
+  }
+
   return (
-    <>
-      <div className="photogallery">
-        <h2 className="photogallery__heading">Photo Gallery</h2>
-
-        <div className="photogallery__container">
-          <img className="photogallery__image" src={profileData.g_image1} alt="photo" />
-          <img className="photogallery__image" src={profileData.g_image2} alt="photo" />
-        </div>
-
-        <div className="photogallery__container">
-          <img className="photogallery__image" src={profileData.g_image3} alt="photo" />
-          <img className="photogallery__image" src={profileData.g_image4} alt="photo" />
-        </div>
-
-        <div className="photogallery__container">
-          <img className="photogallery__image" src={profileData.g_image5} alt="photo" />
-          <img className="photogallery__image" src={profileData.g_image6} alt="photo" />
-        </div>
-      </div>
-    </>
+    <div className="photogallery">
+      {galleryImages.length > 0 && (
+        <>
+          <h2 className="photogallery__heading">Photo Gallery</h2>
+          {imageChunks.map((chunk, index) => (
+            <div key={index} className="photogallery__container">
+              {chunk.map((image, imageIndex) => (
+                <img
+                  key={imageIndex}
+                  className="photogallery__image"
+                  src={image}
+                  alt="photo"
+                />
+              ))}
+            </div>
+          ))}
+        </>
+      )}
+    </div>
   );
 };
 
-export default PhotoGallery;
+export default PhotoGalleryComponent;
