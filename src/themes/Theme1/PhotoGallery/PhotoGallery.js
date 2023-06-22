@@ -11,28 +11,40 @@ const PhotoGalleryComponent = ({ profileData }) => {
     profileData.g_image6,
   ];
 
-  const imageChunks = [];
-  for (let i = 0; i < galleryImages.length; i += 2) {
-    imageChunks.push(galleryImages.slice(i, i + 2));
-  }
-
   return (
     <div className="photogallery">
       {galleryImages.length > 0 && (
         <>
           <h2 className="photogallery__heading">Photo Gallery</h2>
-          {imageChunks.map((chunk, index) => (
-            <div key={index} className="photogallery__container">
-              {chunk.map((image, imageIndex) => (
-                <img
-                  key={imageIndex}
-                  className="photogallery__image"
-                  src={image}
-                  alt="photo"
-                />
-              ))}
-            </div>
-          ))}
+          {galleryImages.map((galleryImage, index) => {
+            if (!galleryImage) {
+              // Skip rendering if link is empty
+              return null;
+            }
+
+            if (index % 2 === 0) {
+              // Render two images in a row
+              return (
+                <div className="photogallery__container" key={index}>
+                  <img
+                    className="photogallery__image"
+                    src={galleryImage}
+                    alt="photo"
+                  />
+                  {galleryImages[index + 1] && (
+                    <img
+                      className="photogallery__image"
+                      src={galleryImages[index + 1]}
+                      alt="photo"
+                    />
+                  )}
+                </div>
+              );
+            }
+
+            // Skip rendering odd-indexed images (already rendered with even-indexed image)
+            return null;
+          })}
         </>
       )}
     </div>

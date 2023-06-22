@@ -8,6 +8,8 @@ import uploadIcon from "../../assets/icons/upload.svg";
 
 const AddImageCards = () => {
   const [basicData, setBasicData] = useState([]);
+  const [image1URL, setImage1URL] = useState("");
+  const [image2URL, setImage2URL] = useState("");
   const [formErrors, setFormErrors] = useState({});
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -39,6 +41,17 @@ const AddImageCards = () => {
     setBasicData({ ...basicData, [event.target.name]: event.target.value });
   };
 
+  const handleFileSelect = (event, inputName) => {
+    const file = event.target.files[0];
+    const objectURL = URL.createObjectURL(file);
+
+    if (inputName === "image1") {
+      setImage1URL(objectURL);
+    } else if (inputName === "image2") {
+      setImage2URL(objectURL);
+    }
+  };
+
   const handleBasic = (event) => {
     event.preventDefault();
     setFormErrors({});
@@ -68,22 +81,22 @@ const AddImageCards = () => {
     const newBasic = {
       ic_link1: basicData.link1,
       ic_title1: basicData.title1,
-      ic_image1: "../../assets/images/image-card-sample.jpg",
+      ic_image1: image1URL,
       ic_link2: basicData.link2,
       ic_title2: basicData.title2,
-      ic_image2: "../../assets/images/image-card-sample.jpg",
-      ic_link3: basicData.link3,
-      ic_title3: basicData.title3,
-      ic_image3: "../../assets/images/image-card-sample.jpg",
-      ic_link4: basicData.link4,
-      ic_title4: basicData.title4,
-      ic_image4: "../../assets/images/image-card-sample.jpg",
-      ic_link5: basicData.link5,
-      ic_title5: basicData.title5,
-      ic_image5: "../../assets/images/image-card-sample.jpg",
-      ic_link6: basicData.link6,
-      ic_title6: basicData.title6,
-      ic_image6: "../../assets/images/image-card-sample.jpg",
+      ic_image2: image2URL,
+      // ic_link3: basicData.link3,
+      // ic_title3: basicData.title3,
+      // ic_image3: "../../assets/images/image-card-sample.jpg",
+      // ic_link4: basicData.link4,
+      // ic_title4: basicData.title4,
+      // ic_image4: "../../assets/images/image-card-sample.jpg",
+      // ic_link5: basicData.link5,
+      // ic_title5: basicData.title5,
+      // ic_image5: "../../assets/images/image-card-sample.jpg",
+      // ic_link6: basicData.link6,
+      // ic_title6: basicData.title6,
+      // ic_image6: "../../assets/images/image-card-sample.jpg",
     };
 
     const token = sessionStorage.getItem("token");
@@ -119,7 +132,7 @@ const AddImageCards = () => {
                 id="inputfile"
                 name="image1"
                 accept="image/png, image/jpeg, image/jpg"
-                onChange={(event) => handleChange(event)}
+                onChange={(event) => handleFileSelect(event, "image1")}
                 className={`inputfile ${
                   formErrors.error_pageTitle ? "input--error" : ""
                 }`}
@@ -157,7 +170,7 @@ const AddImageCards = () => {
                 id="inputfile"
                 name="image2"
                 accept="image/png, image/jpeg, image/jpg"
-                onChange={(event) => handleChange(event)}
+                onChange={(event) => handleFileSelect(event, "image2")}
                 className={`inputfile ${
                   formErrors.error_pageTitle ? "input--error" : ""
                 }`}
