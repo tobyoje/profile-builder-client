@@ -8,7 +8,7 @@ const Home = () => {
       <div className="main">
         <img className="main__image" src={SampleIMG} alt="Featured" />
         <div className="main__buttons">
-         <Link to="/join"><button className="primary-button">TRY BETA</button></Link>
+         <Link to="/login"><button className="primary-button">TRY BETA</button></Link>
           <button className="secondary-button">VIEW DEMOS</button>
         </div>
       </div>

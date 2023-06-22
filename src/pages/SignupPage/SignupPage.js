@@ -87,7 +87,12 @@ const SignupPage = () => {
 
       <div className="signup">
         <h2 className="signup__title">Create your account</h2>
-        <p className="signup__subtitle">Already have an account? SIGN UP</p>
+        <p className="signup__subtitle">
+          Already have an account?{" "}
+          <Link to="/login">
+            <p className="signup__subtitle--cta">SIGN IN</p>
+          </Link>
+        </p>
 
         <div className="signup__form">
           <form onSubmit={handleRegister}>

@@ -12,6 +12,7 @@ import AddGalleryImage from "./pages/AddGalleryImage/AddGalleryImage";
 import AddStyles from "./pages/AddStyles/AddStyles";
 import ProfilePage from "./pages/ProfilePage/ProfilePage";
 import ProfilePagePrivate from "./pages/ProfilePagePrivate/ProfilePagePrivate";
+import SettingsPage from "./pages/SettingsPage/SettingsPage";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path="/image-cards" element={<AddImageCard />} />
           <Route path="/gallery" element={<AddGalleryImage />} />
           <Route path="/styles" element={<AddStyles />} />
+          <Route path="/settings" element={<SettingsPage />} />
           <Route path="/private/:pageLink" element={<ProfilePagePrivate />} />
           <Route path="/:pageLink" element={<ProfilePage />} />
         </Routes>

@@ -45,7 +45,7 @@ const LoginPage = () => {
     }
 
     setTimeout(() => {
-      navigate("/basic");
+      navigate("/settings");
     }, 1000);
 
     const newLogin = {
@@ -73,7 +73,12 @@ const LoginPage = () => {
 
       <div className="signup">
         <h2 className="signup__title">Your Login details</h2>
-        <p className="signup__subtitle">Don’t have an account yet? SIGN UP</p>
+        <p className="signup__subtitle">
+          Don’t have an account yet?{" "}
+          <Link to="/join">
+            <p className="signup__subtitle--cta">SIGN UP</p>{" "}
+          </Link>
+        </p>
 
         <div className="signup__form">
           <form onSubmit={handleLogin}>

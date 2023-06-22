@@ -52,7 +52,6 @@ const Intro = ({ profileData, currentUserId }) => {
                   src={settingsICON}
                   alt="settings"
                 />
-                <img className="intro__icon" src={editICON} alt="edit" />
               </div>
               <div className="intro__icons-col">
                 <img

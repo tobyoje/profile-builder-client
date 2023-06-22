@@ -1,0 +1,48 @@
+.settings {
+  padding: 3rem 2rem;
+
+  &__title {
+    font-size: 1.4rem;
+    padding-bottom: 0.4rem;
+    font-weight: 500;
+  }
+  &__subtitle {
+    font-size: 1rem;
+    color: #9b9b9b;
+  }
+
+  &__basic {
+    padding: 2rem 0;
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    height: 4.5rem;
+    border-radius: 1rem;
+    padding: 1rem 1.5rem;
+    font-size: 1.4rem;
+    color: white;
+    margin-bottom: 1rem;
+
+    &--left {
+      display: flex;
+      align-items: center;
+    }
+
+    &--counter {
+      width: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: white;
+      border-radius: 20rem;
+      height: 2.5rem;
+      width: 2.5rem;
+      color: black;
+      margin-right: 1rem;
+    }
+  }
+}
