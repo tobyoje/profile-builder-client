@@ -73,7 +73,7 @@ const SignupPage = () => {
     };
 
     axios
-      .post("http://localhost:8080/api/user/register", newUser)
+      .post(`${process.env.REACT_APP_API_BASE_URL}/api/user/register`, newUser)
       .then((response) => {
         console.log(response.data);
       });

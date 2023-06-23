@@ -10,7 +10,6 @@ const ProfilePagePrivate = () => {
   const { pageLink } = useParams();
   const navigate = useNavigate();
 
-
   useEffect(() => {
     const token = sessionStorage.getItem("token");
 
@@ -20,7 +19,7 @@ const ProfilePagePrivate = () => {
 
     // Get the data from the API
     axios
-      .get(`http://localhost:8080/api/user/edit/${pageLink}`, {
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/edit/${pageLink}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

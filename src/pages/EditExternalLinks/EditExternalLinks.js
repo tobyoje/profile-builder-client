@@ -19,23 +19,9 @@ const EditExternalLinks = () => {
       return navigate("../login");
     }
 
-    // Get the data from the API
-    // axios
-    //   .get("http://localhost:8080/api/user/current", {
-    //     headers: {
-    //       Authorization: `Bearer ${token}`,
-    //     },
-    //   })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     setUser(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
 
     axios
-      .get(`http://localhost:8080/api/user/${pageLink}`, {
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/${pageLink}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -110,7 +96,7 @@ const EditExternalLinks = () => {
 
     axios
       .put(
-        `http://localhost:8080/api/user/external-links/${pageLink}`,
+        `${process.env.REACT_APP_API_BASE_URL}/api/user/external-links/${pageLink}`,
         updatedLinks,
         {
           headers: {

@@ -26,7 +26,7 @@ const EditGalleryImage = () => {
     }
 
     axios
-      .get(`http://localhost:8080/api/user/${pageLink}`, {
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/${pageLink}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -98,7 +98,7 @@ const EditGalleryImage = () => {
 
     axios
       .put(
-        `http://localhost:8080/api/user/gallery/${pageLink}`,
+        `${process.env.REACT_APP_API_BASE_URL}/api/user/gallery/${pageLink}`,
         updatedGallery,
         {
           headers: {

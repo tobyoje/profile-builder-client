@@ -19,7 +19,7 @@ const AddSocialLinks = () => {
 
     // Get the data from the API
     axios
-      .get("http://localhost:8080/api/user/current", {
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/current`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -96,7 +96,7 @@ const AddSocialLinks = () => {
     const token = sessionStorage.getItem("token");
 
     axios
-      .post("http://localhost:8080/api/user/socials", newBasic, {
+      .post(`${process.env.REACT_APP_API_BASE_URL}/api/user/socials`, newBasic, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

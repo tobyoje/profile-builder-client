@@ -18,23 +18,8 @@ const EditSocialLinks = () => {
       return navigate("../login");
     }
 
-    // // Get the data from the API
-    // axios
-    //   .get("http://localhost:8080/api/user/current", {
-    //     headers: {
-    //       Authorization: `Bearer ${token}`,
-    //     },
-    //   })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     setUser(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-
     axios
-      .get(`http://localhost:8080/api/user/${pageLink}`, {
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/${pageLink}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -78,7 +63,7 @@ const EditSocialLinks = () => {
     const token = sessionStorage.getItem("token");
 
     axios
-      .put(`http://localhost:8080/api/user/socials/${pageLink}`, updatedSocials, {
+      .put(`${process.env.REACT_APP_API_BASE_URL}/api/user/socials/${pageLink}`, updatedSocials, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -11,7 +11,7 @@ const ProfilePage = () => {
   useEffect(() => {
     // Get the data from the API
     axios
-      .get(`http://localhost:8080/api/user/${pageLink}`)
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/${pageLink}`)
       .then((response) => {
         setProfileData(response.data);
       })

@@ -22,7 +22,7 @@ const EditStyles = () => {
 
     // Get the data from the API
     axios
-      .get(`http://localhost:8080/api/user/${pageLink}`, {
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/${pageLink}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -91,7 +91,7 @@ const EditStyles = () => {
     const token = sessionStorage.getItem("token");
 
     axios
-      .put(`http://localhost:8080/api/user/theme/${pageLink}`, updateTheme, {
+      .put(`${process.env.REACT_APP_API_BASE_URL}/api/user/theme/${pageLink}`, updateTheme, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

@@ -18,22 +18,8 @@ const EditBasicInfo = () => {
       return navigate("../login");
     }
 
-    // // Get the data from the API
-    // axios
-    //   .get("http://localhost:8080/api/user/current", {
-    //     headers: {
-    //       Authorization: `Bearer ${token}`,
-    //     },
-    //   })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
-
     axios
-      .get(`http://localhost:8080/api/user/${pageLink}`, {
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/${pageLink}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -101,11 +87,15 @@ const EditBasicInfo = () => {
     const token = sessionStorage.getItem("token");
 
     axios
-      .put(`http://localhost:8080/api/user/${pageLink}`, newBasic, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .put(
+        `${process.env.REACT_APP_API_BASE_URL}/api/user/${pageLink}`,
+        newBasic,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((response) => {
         sessionStorage.setItem("page_link", updatedLink);
         console.log(response.data);

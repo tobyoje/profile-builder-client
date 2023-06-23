@@ -21,7 +21,7 @@ const AddProfileImage = () => {
 
     // Get the data from the API
     axios
-      .get("http://localhost:8080/api/user/current", {
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/current`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -72,7 +72,7 @@ const AddProfileImage = () => {
     const token = sessionStorage.getItem("token");
 
     axios
-      .put("http://localhost:8080/api/user/setup", newBasic, {
+      .put(`${process.env.REACT_APP_API_BASE_URL}/api/user/setup`, newBasic, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -126,7 +126,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero1"
-                    value="http://localhost:8080/images/hero-1.jpg"
+                    value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-1.jpg`}
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero1"></label>
@@ -135,7 +135,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero2"
-                    value="http://localhost:8080/images/hero-2.jpg"
+                    value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-2.jpg`}
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero2"></label>
@@ -144,7 +144,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero3"
-                    value="http://localhost:8080/images/hero-3.jpg"
+                    value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-3.jpg`}
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero3"></label>
@@ -155,7 +155,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero4"
-                    value="http://localhost:8080/images/hero-4.jpg"
+                    value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-4.jpg`}
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero4"></label>
@@ -163,7 +163,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero5"
-                    value="http://localhost:8080/images/hero-5.jpg"
+                    value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-5.jpg`}
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero5"></label>
@@ -172,7 +172,7 @@ const AddProfileImage = () => {
                     type="radio"
                     name="heroPhoto"
                     id="hero6"
-                    value="http://localhost:8080/images/hero-6.jpg"
+                    value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-6.jpg`}
                     onChange={(event) => handleChange(event)}
                   />
                   <label htmlFor="hero6"></label>

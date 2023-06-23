@@ -65,7 +65,7 @@ const LoginPage = () => {
     };
 
     axios
-      .post("http://localhost:8080/api/user/login", newLogin)
+      .post(`${process.env.REACT_APP_API_BASE_URL}/api/user/login`, newLogin)
       .then((response) => {
         sessionStorage.setItem("page_link", response.data.page_link);
         sessionStorage.setItem("token", response.data.token);

@@ -24,7 +24,7 @@ const EditImageCard = () => {
 
     // Get the data from the API
     axios
-      .get(`http://localhost:8080/api/user/${pageLink}`, {
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/${pageLink}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -100,7 +100,7 @@ const EditImageCard = () => {
 
     axios
       .put(
-        `http://localhost:8080/api/user/image-cards/${pageLink}`,
+        `${process.env.REACT_APP_API_BASE_URL}/api/user/image-cards/${pageLink}`,
         UpdatedImageCards,
         {
           headers: {

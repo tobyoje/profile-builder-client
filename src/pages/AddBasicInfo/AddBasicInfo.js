@@ -21,21 +21,6 @@ const AddBasicInfo = () => {
     } else if (page_link && token) {
       navigate("/settings");
     }
-
-    // Get the data from the API
-    // axios
-    //   .get("http://localhost:8080/api/user/current", {
-    //     headers: {
-    //       Authorization: `Bearer ${token}`,
-    //     },
-    //   })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     setUser(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //   });
   }, []);
 
   const handleChange = (event) => {
@@ -98,7 +83,7 @@ const AddBasicInfo = () => {
     const token = sessionStorage.getItem("token");
 
     axios
-      .post("http://localhost:8080/api/user/setup", newBasic, {
+      .post(`${process.env.REACT_APP_API_BASE_URL}/api/user/setup`, newBasic, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -151,11 +136,9 @@ const AddBasicInfo = () => {
               placeholder="Page link"
               name="link"
               onChange={(event) => handleChange(event)}
-              className={`input ${
-                formErrors.error_link ? "input--error" : ""
-              }`}
+              className={`input ${formErrors.error_link ? "input--error" : ""}`}
             />
- {formErrors.error_link && (
+            {formErrors.error_link && (
               <p className="form-error">This field is required</p>
             )}
 
