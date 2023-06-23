@@ -32,6 +32,9 @@ const ImageCards = ({ profileData }) => {
       {profileData.ic_link1 && profileData.ic_title1 && (
         <>
           <h2 className="imagecards__heading">My Image Cards</h2>
+          
+<div className="imagecards__list">
+
           {imageDatas.map((imageData, index) => {
             if (!imageData.link || !imageData.title) {
               // Skip rendering if link or title is empty
@@ -65,6 +68,8 @@ const ImageCards = ({ profileData }) => {
               </Link>
             );
           })}
+
+</div>
         </>
       )}
     </div>
