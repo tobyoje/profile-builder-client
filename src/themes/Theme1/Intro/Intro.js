@@ -1,8 +1,6 @@
 import "./Intro.scss";
 import settingsICON from "../../../assets/icons/settings.svg";
-import editICON from "../../../assets/icons/edit.svg";
 import logoutICON from "../../../assets/icons/logout.svg";
-import defaultIMG from "../../../assets/images/profile-image.jpg";
 import twitterICON from "../../../assets/icons/twitter-white.svg";
 import instagramICON from "../../../assets/icons/instagram-white.svg";
 import facebookICON from "../../../assets/icons/facebook-white.svg";
@@ -25,6 +23,7 @@ const Intro = ({ profileData, currentUserId }) => {
   const handleLogout = () => {
     sessionStorage.removeItem("token");
     sessionStorage.removeItem("user_id");
+    sessionStorage.removeItem("page_link");
 
     setTimeout(() => {
       navigate("/login");
@@ -47,11 +46,14 @@ const Intro = ({ profileData, currentUserId }) => {
           {showButtons && (
             <>
               <div className="intro__icons-col">
-                <img
-                  className="intro__icon--first"
-                  src={settingsICON}
-                  alt="settings"
-                />
+                <Link to="/settings">
+                  {" "}
+                  <img
+                    className="intro__icon--first"
+                    src={settingsICON}
+                    alt="settings"
+                  />
+                </Link>
               </div>
               <div className="intro__icons-col">
                 <img
@@ -72,7 +74,7 @@ const Intro = ({ profileData, currentUserId }) => {
             src={profileData.profile_image}
             alt="profile Picture"
           />
-          <h2 className="intro__name">{profileData.page_title}</h2>
+          <h2 className="intro__name">{profileData.full_name}</h2>
           <p className="intro__bio">{profileData.biography}</p>
 
           <div className="intro__socials">

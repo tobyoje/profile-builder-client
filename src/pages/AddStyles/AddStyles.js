@@ -47,20 +47,20 @@ const AddStyles = () => {
 
     const errors = {};
 
-    // if (!basicData.pageTitle) {
-    //   formIsValid = false;
-    //   errors["error_pageTitle"] = true;
-    // }
+    if (!basicData.styles) {
+      formIsValid = false;
+      errors["error_styles"] = true;
+    }
 
-    // if (!basicData.fullName) {
-    //   formIsValid = false;
-    //   errors["error_fullName"] = true;
-    // }
+    if (!basicData.fonts) {
+      formIsValid = false;
+      errors["error_fonts"] = true;
+    }
 
-    // if (!basicData.link) {
-    //   formIsValid = false;
-    //   errors["error_link"] = true;
-    // }
+    if (!basicData.themeColor) {
+      formIsValid = false;
+      errors["error_themeColor"] = true;
+    }
 
     // if (!basicData.biography) {
     //   formIsValid = false;
@@ -81,14 +81,6 @@ const AddStyles = () => {
       return setFormErrors(errors);
     }
 
-    setTimeout(() => {
-      // store profile link in local storage
-      // get the profile link form local storage
-      // and navigate to ("/profile-link")
-      const page_link = sessionStorage.getItem("page_link");
-      navigate(`/private/${page_link}`);
-    }, 1000);
-
     const newBasic = {
       style: basicData.styles,
       font: basicData.fonts,
@@ -105,6 +97,13 @@ const AddStyles = () => {
       })
       .then((response) => {
         console.log(response.data);
+        setTimeout(() => {
+          // store profile link in local storage
+          // get the profile link form local storage
+          // and navigate to ("/profile-link")
+          const page_link = sessionStorage.getItem("page_link");
+          navigate(`/private/${page_link}`);
+        }, 1000);
       })
       .catch((error) => {
         console.log(error);
@@ -124,22 +123,30 @@ const AddStyles = () => {
               name="styles"
               onChange={(event) => handleChange(event)}
             >
-              <option value="style1" selected>
-                Style 1
+              <option value="" disabled selected>
+                Please select an option
               </option>
+              <option value="style1">Style 1</option>
               <option value="style2">Style 2</option>
             </select>
+            {formErrors.error_styles && (
+              <p className="form-error">You must select an option</p>
+            )}
 
             <select
               id="fonts"
               name="fonts"
               onChange={(event) => handleChange(event)}
             >
-              <option value="Poppins" selected>
-                Font Style 1
+              <option value="" disabled selected>
+                Please select an option
               </option>
+              <option value="Poppins">Font Style 1</option>
               <option value="Lato">Font Style 2</option>
             </select>
+            {formErrors.error_fonts && (
+              <p className="form-error">You must select an option</p>
+            )}
 
             <div className="choose-color">
               <h2 className="basic__subtitle basic__subtitle--bold">
@@ -203,6 +210,11 @@ const AddStyles = () => {
                   />
                   <label htmlFor="color6"></label>
                 </div>
+                {formErrors.error_themeColor && (
+                  <p className="form-error">
+                    <br></br>You must select an option
+                  </p>
+                )}
               </div>
             </div>
 

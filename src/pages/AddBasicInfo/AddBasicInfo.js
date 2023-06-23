@@ -7,30 +7,35 @@ import axios from "axios";
 const AddBasicInfo = () => {
   const [basicData, setBasicData] = useState([]);
   const [formErrors, setFormErrors] = useState({});
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
+    const page_link = sessionStorage.getItem("page_link");
 
-    if (!token) {
-      return navigate("../login");
+    if (!token && !page_link) {
+      navigate("/login");
+    } else if (page_link === "null" || page_link === "undefined") {
+      navigate("/basic");
+    } else if (page_link && token) {
+      navigate("/settings");
     }
 
     // Get the data from the API
-    axios
-      .get("http://localhost:8080/api/user/current", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-        setUser(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    // axios
+    //   .get("http://localhost:8080/api/user/current", {
+    //     headers: {
+    //       Authorization: `Bearer ${token}`,
+    //     },
+    //   })
+    //   .then((response) => {
+    //     console.log(response.data);
+    //     setUser(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //   });
   }, []);
 
   const handleChange = (event) => {
@@ -146,7 +151,14 @@ const AddBasicInfo = () => {
               placeholder="Page link"
               name="link"
               onChange={(event) => handleChange(event)}
+              className={`input ${
+                formErrors.error_link ? "input--error" : ""
+              }`}
             />
+ {formErrors.error_link && (
+              <p className="form-error">This field is required</p>
+            )}
+
             <textarea
               type=""
               placeholder="Biography or introtext ..."

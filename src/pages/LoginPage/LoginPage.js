@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./LoginPage.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 
 const LoginPage = () => {
@@ -8,6 +8,17 @@ const LoginPage = () => {
   const [formErrors, setFormErrors] = useState({});
   const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // const token = sessionStorage.getItem("token");
+    // const page_link = sessionStorage.getItem("page_link");
+    // if (page_link == "undefined" && token) {
+    //   return navigate("/login");
+    // }
+    // if (token && page_link) {
+    //   return navigate("/hii");
+    // }
+  }, []);
 
   const handleChange = (event) => {
     setLoginData({
@@ -45,7 +56,7 @@ const LoginPage = () => {
     }
 
     setTimeout(() => {
-      navigate("/settings");
+      navigate("/basic");
     }, 1000);
 
     const newLogin = {
@@ -56,6 +67,7 @@ const LoginPage = () => {
     axios
       .post("http://localhost:8080/api/user/login", newLogin)
       .then((response) => {
+        sessionStorage.setItem("page_link", response.data.page_link);
         sessionStorage.setItem("token", response.data.token);
         sessionStorage.setItem("user_id", response.data.user_id);
         console.log(response.data);
@@ -74,7 +86,7 @@ const LoginPage = () => {
       <div className="signup">
         <h2 className="signup__title">Your Login details</h2>
         <p className="signup__subtitle">
-          Don’t have an account yet?{" "}
+          Don’t have an account yet?
           <Link to="/join">
             <p className="signup__subtitle--cta">SIGN UP</p>{" "}
           </Link>

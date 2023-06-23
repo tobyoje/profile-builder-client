@@ -37,7 +37,7 @@ const AddSocialLinks = () => {
     setBasicData({ ...basicData, [event.target.name]: event.target.value });
   };
 
-  const handleBasic = (event) => {
+  const handleUpdate = (event) => {
     event.preventDefault();
     setFormErrors({});
 
@@ -112,12 +112,12 @@ const AddSocialLinks = () => {
   return (
     <>
       <SetupHeader />
-      <div className="basic">
-        <h2 className="basic__title">Add Social Links</h2>
-        <p className="basic__subtitle">Add some information for your page</p>
+      <div className="social">
+        <h2 className="social__title">Add Social Links</h2>
+        <p className="social__subtitle">Add some information for your page</p>
 
-        <div className="basic__form">
-          <form onSubmit={handleBasic}>
+        <div className="social__form">
+          <form onSubmit={handleUpdate}>
             <div className="twitterfield">
               <input
                 type="text"
@@ -209,7 +209,7 @@ const AddSocialLinks = () => {
               />
             </div>
 
-            <button className="basic__button">NEXT</button>
+            <button className="social__button">NEXT</button>
           </form>
         </div>
       </div>

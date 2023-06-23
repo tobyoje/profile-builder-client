@@ -161,11 +161,12 @@ const AddExternalLinks = () => {
                 formErrors.error_pageTitle ? "input--error" : ""
               }`}
             />
+            
 
-            <div className="basic__formadd">
+            {/* <div className="basic__formadd">
               <img className="basic__formadd--image" src={addICON} alt="" />
               <p> Add New</p>
-            </div>
+            </div> */}
 
             {formErrors.error_pageTitle && (
               <p className="form-error">This field is required</p>

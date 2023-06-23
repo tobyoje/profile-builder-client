@@ -120,7 +120,7 @@ const AddImageCards = () => {
       <SetupHeader />
       <div className="basic">
         <h2 className="basic__title">Add Image Cards</h2>
-        <p className="basic__subtitle">Add some links to your page</p>
+        <p className="basic__subtitle">Add some link cards to your page</p>
 
         <div className="basic__form">
           <form onSubmit={handleBasic}>

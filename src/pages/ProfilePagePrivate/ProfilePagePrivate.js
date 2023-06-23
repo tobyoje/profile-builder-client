@@ -1,16 +1,22 @@
 import { useEffect, useState } from "react";
 import Theme1 from "../../themes/Theme1/Theme1";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const ProfilePagePrivate = () => {
   const [profileData, setProfileData] = useState(null);
   const [currentUserId, setCurrentUserId] = useState(null);
 
   const { pageLink } = useParams();
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
+
+    if (!token) {
+      return navigate("../login");
+    }
 
     // Get the data from the API
     axios
