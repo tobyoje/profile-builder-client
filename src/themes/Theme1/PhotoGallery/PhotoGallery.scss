@@ -1,3 +1,5 @@
+@use "../../../styles/partials/mixins" as *;
+
 .photogallery {
   display: flex;
   flex-direction: column;
@@ -6,6 +8,9 @@
   &__heading {
     font-size: 1.4rem;
     margin-bottom: 2rem;
+    @include media-tablet {
+      font-size: 2rem;
+    }
   }
 
   &__container {
@@ -15,6 +20,9 @@
     align-items: center;
     border-radius: 1rem;
     margin: 0 0 1.5rem 0;
+
+    @include media-tablet {
+    }
   }
 
   &__image {
@@ -22,6 +30,11 @@
     width: 13rem;
     height: 13rem;
     border-radius: 1rem;
+
+    @include media-tablet {
+      width: 35rem;
+      height: 35rem;
+    }
 
     &:hover {
       -webkit-transform: scale(1.3);

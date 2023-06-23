@@ -1,4 +1,6 @@
 @use "./partials/resets" as *;
+@use "./partials/mixins" as *;
+@use "./partials/fonts" as *;
 
 button {
   display: flex;
@@ -30,14 +32,12 @@ a {
   text-decoration: none;
 }
 
-
 .input--error {
-    border: 1px solid #c94515 !important;
-  }
-  
+  border: 1px solid #c94515 !important;
+}
 
-  .form-error{
-    color: #c94515;
-    margin: 0;
-    padding-bottom: 2.5rem;
-  }
+.form-error {
+  color: #c94515;
+  margin: 0;
+  padding-bottom: 2.5rem;
+}

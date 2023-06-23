@@ -1,3 +1,5 @@
+@use "../../../styles/partials/mixins" as *;
+
 .intro {
   display: flex;
   flex-direction: column;
@@ -14,6 +16,10 @@
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
+
+    @include media-tablet {
+      height: 25rem;
+    }
   }
 
   &__icons-col {
@@ -34,6 +40,12 @@
     flex-direction: column;
     align-items: center;
     margin-top: -8rem;
+
+    @include media-tablet {
+      flex-direction: row;
+      margin-top: 0rem;
+      padding: 0 5rem;
+    }
   }
 
   &__profileimg {
@@ -42,16 +54,44 @@
     border-radius: 50%;
     border: 6px solid black;
     margin-bottom: 1rem;
+
+    @include media-tablet {
+      margin-top: -15rem;
+      width: 25rem;
+      height: 25rem;
+      border: 12px solid black;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @include media-tablet {
+      align-items: flex-start;
+      margin-left: 5rem;
+      padding-top: 2rem;
+      position: relative;
+    }
   }
 
   &__name {
     font-size: 2rem;
+
+    @include media-tablet {
+      font-size: 3rem;
+    }
   }
 
   &__bio {
     padding-top: 1rem;
     font-size: 1.2rem;
     text-align: center;
+
+    @include media-tablet {
+      text-align: left;
+    }
   }
 
   &__socials {
@@ -59,6 +99,21 @@
     justify-content: center;
     padding: 1.5rem 3rem;
     width: 100%;
+
+    @include media-tablet {
+      display: none;
+    }
+    &--tab {
+      display: none;
+
+      @include media-tablet {
+        display: flex;
+        padding-bottom: 4rem;
+        position: absolute;
+        right: 5rem;
+        top: 20rem;
+      }
+    }
   }
 
   &__social-container {

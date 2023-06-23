@@ -69,13 +69,107 @@ const Intro = ({ profileData, currentUserId }) => {
 
         <div className="intro__details">
           <img
-            style={{ border: `6px solid ${profileData.color}` }}
+            style={{ borderColor: `${profileData.color}` }}
             className="intro__profileimg"
             src={profileData.profile_image}
             alt="profile Picture"
           />
-          <h2 className="intro__name">{profileData.full_name}</h2>
-          <p className="intro__bio">{profileData.biography}</p>
+            <div className="intro__socials--tab">
+            {profileData.twitter && (
+              <Link to={profileData.twitter} target="_blank" rel="noreferrer">
+                <div
+                  style={{ backgroundColor: ` ${profileData.color}` }}
+                  className="intro__social-container"
+                >
+                  <img
+                    className="intro__social-icon"
+                    src={twitterICON}
+                    alt="twitter"
+                  />
+                </div>
+              </Link>
+            )}
+
+            {profileData.instagram && (
+              <Link to={profileData.instagram} target="_blank" rel="noreferrer">
+                <div
+                  style={{ backgroundColor: ` ${profileData.color}` }}
+                  className="intro__social-container"
+                >
+                  <img
+                    className="intro__social-icon"
+                    src={instagramICON}
+                    alt="instagram"
+                  />
+                </div>
+              </Link>
+            )}
+
+            {profileData.facebook && (
+              <Link to={profileData.facebook} target="_blank" rel="noreferrer">
+                <div
+                  style={{ backgroundColor: ` ${profileData.color}` }}
+                  className="intro__social-container"
+                >
+                  <img
+                    className="intro__social-icon--facebook"
+                    src={facebookICON}
+                    alt="facebook"
+                  />
+                </div>
+              </Link>
+            )}
+
+            {profileData.linkedin && (
+              <Link to={profileData.linkedin} target="_blank" rel="noreferrer">
+                <div
+                  style={{ backgroundColor: ` ${profileData.color}` }}
+                  className="intro__social-container"
+                >
+                  <img
+                    className="intro__social-icon"
+                    src={linkedinICON}
+                    alt="linkedin"
+                  />
+                </div>
+              </Link>
+            )}
+
+            {profileData.youtube && (
+              <Link to={profileData.youtube} target="_blank" rel="noreferrer">
+                <div
+                  style={{ backgroundColor: ` ${profileData.color}` }}
+                  className="intro__social-container"
+                >
+                  <img
+                    className="intro__social-icon"
+                    src={youtubeICON}
+                    alt="youtube"
+                  />
+                </div>
+              </Link>
+            )}
+
+            {profileData.email && (
+              <Link to={profileData.email} target="_blank" rel="noreferrer">
+                <div
+                  style={{ backgroundColor: ` ${profileData.color}` }}
+                  className="intro__social-container"
+                >
+                  <img
+                    className="intro__social-icon"
+                    src={emailICON}
+                    alt="email"
+                  />
+                </div>
+              </Link>
+            )}
+          </div>
+          <div className="intro__info">
+        
+            <h2 className="intro__name">{profileData.full_name}</h2>
+            <p className="intro__bio">{profileData.biography}</p>
+          </div>
 
           <div className="intro__socials">
             {profileData.twitter && (
