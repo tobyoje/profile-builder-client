@@ -7,11 +7,9 @@ import axios from "axios";
 const EditStyles = () => {
   const [basicData, setBasicData] = useState([]);
   const [formErrors, setFormErrors] = useState({});
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState({});
   const navigate = useNavigate();
   const { pageLink } = useParams();
-
-  //   const { pageLink } = useParams();
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
@@ -20,7 +18,6 @@ const EditStyles = () => {
       return navigate("../login");
     }
 
-    // Get the data from the API
     axios
       .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/${pageLink}`, {
         headers: {
@@ -41,9 +38,9 @@ const EditStyles = () => {
   };
 
   const updateTheme = {
-    style: basicData.styles,
-    font: basicData.fonts,
-    color: basicData.themeColor,
+    style: basicData.styles || user.style,
+    font: basicData.fonts || user.font,
+    color: basicData.themeColor || user.color,
   };
 
   const handleUpdate = (event) => {
@@ -91,11 +88,15 @@ const EditStyles = () => {
     const token = sessionStorage.getItem("token");
 
     axios
-      .put(`${process.env.REACT_APP_API_BASE_URL}/api/user/theme/${pageLink}`, updateTheme, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .put(
+        `${process.env.REACT_APP_API_BASE_URL}/api/user/theme/${pageLink}`,
+        updateTheme,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data);
         setTimeout(() => {

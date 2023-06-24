@@ -38,13 +38,13 @@ const EditSocialLinks = () => {
   };
 
   const updatedSocials = {
-    twitter: basicData.twitter,
-    facebook: basicData.facebook,
-    linkedin: basicData.linkedin,
-    instagram: basicData.instagram,
-    youtube: basicData.youtube,
-    github: basicData.github,
-    email: basicData.email,
+    twitter: basicData.twitter || user.twitter,
+    facebook: basicData.facebook || user.facebook,
+    linkedin: basicData.linkedin || user.linkedin,
+    instagram: basicData.instagram || user.instagram,
+    youtube: basicData.youtube || user.youtube,
+    github: basicData.github || user.github,
+    email: basicData.email || user.email,
   };
 
   const handleUpdate = (event) => {
@@ -59,15 +59,18 @@ const EditSocialLinks = () => {
     //   return setFormErrors(errors);
     // }
 
-
     const token = sessionStorage.getItem("token");
 
     axios
-      .put(`${process.env.REACT_APP_API_BASE_URL}/api/user/socials/${pageLink}`, updatedSocials, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
+      .put(
+        `${process.env.REACT_APP_API_BASE_URL}/api/user/socials/${pageLink}`,
+        updatedSocials,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
       .then((response) => {
         console.log(response.data);
         setTimeout(() => {

@@ -19,7 +19,6 @@ const EditExternalLinks = () => {
       return navigate("../login");
     }
 
-
     axios
       .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/${pageLink}`, {
         headers: {
@@ -40,14 +39,14 @@ const EditExternalLinks = () => {
   };
 
   const updatedLinks = {
-    ext_link1: basicData.link1,
-    ext_title1: basicData.title1,
-    ext_link2: basicData.link2,
-    ext_title2: basicData.title2,
-    ext_link3: basicData.link3,
-    ext_title3: basicData.title3,
-    ext_link4: basicData.link4,
-    ext_titl4: basicData.title4,
+    ext_link1: basicData.link1 || user.ext_link1,
+    ext_title1: basicData.title1 || user.ext_title1,
+    ext_link2: basicData.link2 || user.ext_link2,
+    ext_title2: basicData.title2 || user.ext_title2,
+    ext_link3: basicData.link3 || user.ext_link3,
+    ext_title3: basicData.title3 || user.ext_title3,
+    ext_link4: basicData.link4 || user.ext_link4,
+    ext_titl4: basicData.title4 || user.ext_title4,
   };
 
   const handleUpdate = (event) => {
