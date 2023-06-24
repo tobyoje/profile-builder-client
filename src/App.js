@@ -20,6 +20,7 @@ import EditExternalLinks from "./pages/EditExternalLinks/EditExternalLinks";
 import EditImageCard from "./pages/EditImageCard/EditImageCard";
 import EditGalleryImage from "./pages/EditGalleryImage/EditGalleryImage";
 import EditStyles from "./pages/EditStyles/EditStyles";
+import UploadTest from "./components/UploadTest/UploadTest";
 
 function App() {
   return (
@@ -44,6 +45,7 @@ function App() {
           <Route path="/edit-image-cards/:pageLink" element={<EditImageCard />} />
           <Route path="/edit-gallery/:pageLink" element={<EditGalleryImage />} />
           <Route path="/edit-styles/:pageLink" element={<EditStyles />} />
+          <Route path="/upload" element={<UploadTest />} />
 
 
 

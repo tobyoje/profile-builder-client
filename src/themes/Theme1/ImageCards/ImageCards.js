@@ -27,49 +27,49 @@ const ImageCards = ({ profileData }) => {
     },
   ];
 
+  console.log(imageDatas);
+
   return (
     <div className="imagecards">
       {profileData.ic_link1 && profileData.ic_title1 && (
         <>
           <h2 className="imagecards__heading">My Image Cards</h2>
-          
-<div className="imagecards__list">
 
-          {imageDatas.map((imageData, index) => {
-            if (!imageData.link || !imageData.title) {
-              // Skip rendering if link or title is empty
-              return null;
-            }
-
-            return (
-              <Link
-                to={imageData.link}
-                target="_blank"
-                rel="noreferrer"
-                key={index}
-              >
-                <div
-                  className="imagecards__container"
-                  style={{
-                    backgroundImage: `linear-gradient(
+          <div className="imagecards__list">
+            {imageDatas.map((imageData, index) => {
+              if (!imageData.link || !imageData.title) {
+                // Skip rendering if link or title is empty
+                return null;
+              }
+              console.log(imageData);
+              return (
+                <Link
+                  to={imageData.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  key={index}
+                >
+                  <div
+                    className="imagecards__container"
+                    style={{
+                      backgroundImage: `linear-gradient(
                       0deg,
                       rgba(0, 0, 0, 0.893),
                       rgba(0, 0, 0, 0.553)
-                    ), url("${imageData.image}")`,
-                  }}
-                >
-                  <p className="imagecards__link-title">{imageData.title}</p>
-                  <img
-                    className="imagecards__link-icon"
-                    src={extlinkICON}
-                    alt="link"
-                  />
-                </div>
-              </Link>
-            );
-          })}
-
-</div>
+                    ), url("${process.env.REACT_APP_API_BASE_URL}/public-images/${imageData.image}")`,
+                    }}
+                  >
+                    <p className="imagecards__link-title">{imageData.title}</p>
+                    <img
+                      className="imagecards__link-icon"
+                      src={extlinkICON}
+                      alt="link"
+                    />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </>
       )}
     </div>

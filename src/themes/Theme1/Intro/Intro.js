@@ -71,10 +71,10 @@ const Intro = ({ profileData, currentUserId }) => {
           <img
             style={{ borderColor: `${profileData.color}` }}
             className="intro__profileimg"
-            src={profileData.profile_image}
+            src={`${process.env.REACT_APP_API_BASE_URL}/public-images/${profileData.profile_image}`}
             alt="profile Picture"
           />
-            <div className="intro__socials--tab">
+          <div className="intro__socials--tab">
             {profileData.twitter && (
               <Link to={profileData.twitter} target="_blank" rel="noreferrer">
                 <div
@@ -166,7 +166,6 @@ const Intro = ({ profileData, currentUserId }) => {
             )}
           </div>
           <div className="intro__info">
-        
             <h2 className="intro__name">{profileData.full_name}</h2>
             <p className="intro__bio">{profileData.biography}</p>
           </div>

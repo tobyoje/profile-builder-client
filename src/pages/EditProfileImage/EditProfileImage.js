@@ -6,6 +6,9 @@ import axios from "axios";
 import uploadIcon from "../../assets/icons/upload.svg";
 
 const EditProfileImage = () => {
+  const [heroPhotoData, setHeroPhotoData] = useState("");
+  const [file, setFile] = useState(null);
+  const [imageName, setImageName] = useState("");
   const [basicData, setBasicData] = useState({});
   const [imageData, setImageData] = useState(null);
   const [formErrors, setFormErrors] = useState({});
@@ -35,58 +38,42 @@ const EditProfileImage = () => {
       });
   }, []);
 
-  const handleChange = (event) => {
-    setBasicData({ ...basicData, [event.target.name]: event.target.value });
-  };
-
-  const fileChange = (event) => {
-    setImageData(event.target.files[0]);
-  };
-
-  const newBasic = {
-    profile_image: basicData.heroPhoto,
-    hero_image: basicData.heroPhoto,
-  };
-
-  const handleUpdate = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setFormErrors({});
 
-    let formIsValid = true;
-
-    const errors = {};
-
-    // if (!basicData.profilePhoto) {
-    //   formIsValid = false;
-    //   errors["error_profilePhoto"] = true;
-    // }
-
-    // if (!formIsValid) {
-    //   return setFormErrors(errors);
-    // }
-
-    setTimeout(() => {
-      navigate("/settings");
-    }, 1000);
+    const newBasic = new FormData();
+    newBasic.append("image", file);
+    newBasic.append("hero_image", heroPhotoData);
 
     const token = sessionStorage.getItem("token");
 
-    axios
-      .put(
+    try {
+      const result = await axios.put(
         `${process.env.REACT_APP_API_BASE_URL}/api/user/profileimage/${pageLink}`,
         newBasic,
         {
           headers: {
             Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
           },
         }
-      )
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+      );
+      setImageName(result.data.imageName);
+      setTimeout(() => {
+        navigate("/settings");
+      }, 1000);
+      console.log(result.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
+  };
+
+  const handleChange = (event) => {
+    setHeroPhotoData(event.target.value);
   };
 
   return (
@@ -100,19 +87,20 @@ const EditProfileImage = () => {
         </p>
 
         <div className="basic__form">
-          <form onSubmit={handleUpdate}>
-            <div className="upload-area">
-              <label htmlFor="inputfile">upload your spotlight picture</label>
-              <img className="upload-icon" src={uploadIcon} alt="" />
+          <form onSubmit={handleSubmit}>
+            <div className="upload-area ">
+              <label htmlFor="inputfile">
+                upload your spotlight picture
+                <img className="upload-icon" src={uploadIcon} />
+              </label>
               <input
                 type="file"
                 id="inputfile"
-                name="profile_image"
-                accept="image/png, image/jpeg, image/jpg"
-                onChange={(event) => fileChange(event)}
                 className={`inputfile ${
                   formErrors.error_pageTitle ? "input--error" : ""
                 }`}
+                accept="image/png, image/jpeg, image/jpg"
+                onChange={handleFileChange}
               />
             </div>
             {formErrors.error_pageTitle && (

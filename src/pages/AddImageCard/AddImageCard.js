@@ -8,10 +8,12 @@ import uploadIcon from "../../assets/icons/upload.svg";
 
 const AddImageCards = () => {
   const [basicData, setBasicData] = useState([]);
-  const [image1URL, setImage1URL] = useState("");
-  const [image2URL, setImage2URL] = useState("");
+  const [file1, setFile1] = useState(null);
+  const [file2, setFile2] = useState(null);
+  const [file3, setFile3] = useState(null);
+  const [file4, setFile4] = useState(null);
+
   const [formErrors, setFormErrors] = useState({});
-  const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,99 +22,72 @@ const AddImageCards = () => {
     if (!token) {
       return navigate("../login");
     }
-
-    // Get the data from the API
-    axios
-      .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/current`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-        setUser(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }, []);
 
-  const handleChange = (event) => {
-    setBasicData({ ...basicData, [event.target.name]: event.target.value });
-  };
-
-  const handleFileSelect = (event, inputName) => {
-    const file = event.target.files[0];
-    const objectURL = URL.createObjectURL(file);
-
-    if (inputName === "image1") {
-      setImage1URL(objectURL);
-    } else if (inputName === "image2") {
-      setImage2URL(objectURL);
-    }
-  };
-
-  const handleBasic = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setFormErrors({});
 
-    let formIsValid = true;
+    const newBasic = new FormData();
+    newBasic.append("image1", file1);
+    newBasic.append("ic_link1", basicData.link1);
+    newBasic.append("ic_title1", basicData.title1);
+    newBasic.append("image2", file2);
+    newBasic.append("ic_link2", basicData.link2);
+    newBasic.append("ic_title2", basicData.title2);
+    newBasic.append("image3", file3);
+    newBasic.append("ic_link3", basicData.link3);
+    newBasic.append("ic_title3", basicData.title3);
+    newBasic.append("image4", file4);
+    newBasic.append("ic_link4", basicData.link4);
+    newBasic.append("ic_title4", basicData.title4);
 
-    const errors = {};
-
-    // if (!basicData.pageTitle) {
-    //   formIsValid = false;
-    //   errors["error_pageTitle"] = true;
-    // }
-
-    // if (!basicData.fullName) {
-    //   formIsValid = false;
-    //   errors["error_fullName"] = true;
-    // }
-
-    if (!formIsValid) {
-      return setFormErrors(errors);
-    }
-
-    setTimeout(() => {
-      navigate("/gallery");
-    }, 1000);
-
-    const newBasic = {
-      ic_link1: basicData.link1,
-      ic_title1: basicData.title1,
-      ic_image1: image1URL,
-      ic_link2: basicData.link2,
-      ic_title2: basicData.title2,
-      ic_image2: image2URL,
-      // ic_link3: basicData.link3,
-      // ic_title3: basicData.title3,
-      // ic_image3: "../../assets/images/image-card-sample.jpg",
-      // ic_link4: basicData.link4,
-      // ic_title4: basicData.title4,
-      // ic_image4: "../../assets/images/image-card-sample.jpg",
-      // ic_link5: basicData.link5,
-      // ic_title5: basicData.title5,
-      // ic_image5: "../../assets/images/image-card-sample.jpg",
-      // ic_link6: basicData.link6,
-      // ic_title6: basicData.title6,
-      // ic_image6: "../../assets/images/image-card-sample.jpg",
-    };
+    console.log(newBasic);
 
     const token = sessionStorage.getItem("token");
 
-    axios
-      .post(`${process.env.REACT_APP_API_BASE_URL}/api/user/imagecards`, newBasic, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    try {
+      const result = await axios.post(
+        `${process.env.REACT_APP_API_BASE_URL}/api/user/imagecards`,
+        newBasic,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log(newBasic);
+      setTimeout(() => {
+        navigate("/gallery");
+      }, 1000);
+      console.log(result.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleFileChange1 = (event) => {
+    setFile1(event.target.files[0]);
+  };
+
+  const handleFileChange2 = (event) => {
+    setFile2(event.target.files[0]);
+  };
+
+  const handleFileChange3 = (event) => {
+    setFile3(event.target.files[0]);
+  };
+
+  const handleFileChange4 = (event) => {
+    setFile4(event.target.files[0]);
+  };
+
+  const handleChange = (event) => {
+    setBasicData({
+      ...basicData,
+      [event.target.name]: event.target.value,
+    });
   };
 
   return (
@@ -123,19 +98,19 @@ const AddImageCards = () => {
         <p className="basic__subtitle">Add some link cards to your page</p>
 
         <div className="basic__form">
-          <form onSubmit={handleBasic}>
+          <form onSubmit={handleSubmit}>
             <div className="upload-area1">
               <label htmlFor="inputfile">Add Image</label>
               <img className="upload-icon" src={uploadIcon} alt="" />
               <input
                 type="file"
-                id="inputfile"
+                id="image1"
                 name="image1"
                 accept="image/png, image/jpeg, image/jpg"
-                onChange={(event) => handleFileSelect(event, "image1")}
-                className={`inputfile ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
+                onChange={handleFileChange1}
+                // className={`inputfile ${
+                //   formErrors.error_pageTitle ? "input--error" : ""
+                // }`}
               />
             </div>
             {formErrors.error_pageTitle && (
@@ -167,18 +142,15 @@ const AddImageCards = () => {
               <img className="upload-icon" src={uploadIcon} alt="" />
               <input
                 type="file"
-                id="inputfile"
+                id="image2"
                 name="image2"
                 accept="image/png, image/jpeg, image/jpg"
-                onChange={(event) => handleFileSelect(event, "image2")}
-                className={`inputfile ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
+                onChange={handleFileChange2}
+                // className={`inputfile ${
+                //   formErrors.error_pageTitle ? "input--error" : ""
+                // }`}
               />
             </div>
-            {formErrors.error_pageTitle && (
-              <p className="form-error">This field is required</p>
-            )}
             <div className="linkfield">
               <input
                 type="text"
@@ -194,6 +166,76 @@ const AddImageCards = () => {
               type="text"
               placeholder="Link title"
               name="title2"
+              onChange={(event) => handleChange(event)}
+              className={`input ${
+                formErrors.error_pageTitle ? "input--error" : ""
+              }`}
+            />
+
+            <div className="upload-area1">
+              <label htmlFor="inputfile">Add Image</label>
+              <img className="upload-icon" src={uploadIcon} alt="" />
+              <input
+                type="file"
+                id="inputfile"
+                name="image3"
+                accept="image/png, image/jpeg, image/jpg"
+                onChange={handleFileChange3}
+                // className={`inputfile ${
+                //   formErrors.error_pageTitle ? "input--error" : ""
+                // }`}
+              />
+            </div>
+            <div className="linkfield">
+              <input
+                type="text"
+                placeholder="https://new-link.com"
+                name="link3"
+                onChange={(event) => handleChange(event)}
+                className={`input ${
+                  formErrors.error_pageTitle ? "input--error" : ""
+                }`}
+              />
+            </div>
+            <input
+              type="text"
+              placeholder="Link title"
+              name="title3"
+              onChange={(event) => handleChange(event)}
+              className={`input ${
+                formErrors.error_pageTitle ? "input--error" : ""
+              }`}
+            />
+
+            <div className="upload-area1">
+              <label htmlFor="inputfile">Add Image</label>
+              <img className="upload-icon" src={uploadIcon} alt="" />
+              <input
+                type="file"
+                id="inputfile"
+                name="image4"
+                accept="image/png, image/jpeg, image/jpg"
+                onChange={handleFileChange4}
+                // className={`inputfile ${
+                //   formErrors.error_pageTitle ? "input--error" : ""
+                // }`}
+              />
+            </div>
+            <div className="linkfield">
+              <input
+                type="text"
+                placeholder="https://new-link.com"
+                name="link4"
+                onChange={(event) => handleChange(event)}
+                className={`input ${
+                  formErrors.error_pageTitle ? "input--error" : ""
+                }`}
+              />
+            </div>
+            <input
+              type="text"
+              placeholder="Link title"
+              name="title4"
               onChange={(event) => handleChange(event)}
               className={`input ${
                 formErrors.error_pageTitle ? "input--error" : ""

@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import SetupHeader from "../../components/SetupHeader/SetupHeader";
 import "./AddProfileImage.scss";
 import { useEffect, useState } from "react";
@@ -6,10 +6,10 @@ import axios from "axios";
 import uploadIcon from "../../assets/icons/upload.svg";
 
 const AddProfileImage = () => {
-  const [basicData, setBasicData] = useState([]);
-  const [imageData, setImageData] = useState(null);
+  const [heroPhotoData, setHeroPhotoData] = useState("");
+  const [file, setFile] = useState(null);
   const [formErrors, setFormErrors] = useState({});
-  const [user, setUser] = useState(null);
+  const [imageName, setImageName] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,71 +18,47 @@ const AddProfileImage = () => {
     if (!token) {
       return navigate("../login");
     }
-
-    // Get the data from the API
-    axios
-      .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/current`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-        setUser(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }, []);
 
-  const handleChange = (event) => {
-    setBasicData({ ...basicData, [event.target.name]: event.target.value });
-  };
-
-  const fileChange = (event) => {
-    setImageData(event.target.files[0]);
-  };
-
-  const handleBasic = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setFormErrors({});
 
-    let formIsValid = true;
+    const newBasic = new FormData();
+    newBasic.append("image", file);
+    newBasic.append("hero_image", heroPhotoData);
 
-    const errors = {};
 
-    // if (!basicData.profilePhoto) {
-    //   formIsValid = false;
-    //   errors["error_profilePhoto"] = true;
-    // }
-
-    // if (!formIsValid) {
-    //   return setFormErrors(errors);
-    // }
-
-    setTimeout(() => {
-      navigate("/social-links");
-    }, 1000);
-
-    const newBasic = {
-      profile_image: URL.createObjectURL(imageData),
-      hero_image: basicData.heroPhoto,
-    };
+    console.log(file);
 
     const token = sessionStorage.getItem("token");
 
-    axios
-      .put(`${process.env.REACT_APP_API_BASE_URL}/api/user/setup`, newBasic, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    try {
+      const result = await axios.put(
+        `${process.env.REACT_APP_API_BASE_URL}/api/user/setup`,
+        newBasic,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+      setImageName(result.data.imageName);
+      setTimeout(() => {
+        navigate("/social-links");
+      }, 1000);
+      console.log(result.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleFileChange = (event) => {
+    setFile(event.target.files[0]);
+  };
+
+  const handleChange = (event) => {
+    setHeroPhotoData(event.target.value);
   };
 
   return (
@@ -96,24 +72,22 @@ const AddProfileImage = () => {
         </p>
 
         <div className="basic__form">
-          <form onSubmit={handleBasic}>
-            <div className="upload-area">
-              <label htmlFor="inputfile">upload your spotlight picture</label>
-              <img className="upload-icon" src={uploadIcon} alt="" />
+          <form onSubmit={handleSubmit}>
+            <div className="upload-area ">
+              <label htmlFor="inputfile">
+                upload your spotlight picture
+                <img className="upload-icon" src={uploadIcon} />
+              </label>
               <input
                 type="file"
                 id="inputfile"
-                name="profile_image"
-                accept="image/png, image/jpeg, image/jpg"
-                onChange={(event) => fileChange(event)}
                 className={`inputfile ${
                   formErrors.error_pageTitle ? "input--error" : ""
                 }`}
+                accept="image/png, image/jpeg, image/jpg"
+                onChange={handleFileChange}
               />
             </div>
-            {formErrors.error_pageTitle && (
-              <p className="form-error">This field is required</p>
-            )}
 
             <div className="choose-hero">
               <h2 className="basic__subtitle basic__subtitle--bold">
