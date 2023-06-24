@@ -41,7 +41,6 @@ const AddImageCards = () => {
     newBasic.append("ic_link4", basicData.link4);
     newBasic.append("ic_title4", basicData.title4);
 
-
     const token = sessionStorage.getItem("token");
 
     try {
