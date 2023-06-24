@@ -17,15 +17,17 @@ button {
 
 .primary-button {
   padding: 1rem 1.5rem;
-  background-color: #1a120b;
-  color: #ffffff;
+  background-color: white;
+  color: black;
   width: 13rem;
   justify-content: center;
 }
 
 .secondary-button {
   display: flex;
-  color: #1a120b;
+  color: white;
+  background-color: black;
+  border: 1px solid white;
 }
 
 a {

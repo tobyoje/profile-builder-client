@@ -1,16 +1,59 @@
+@use "../../styles/partials/mixins" as *;
+
 .main {
   display: flex;
   flex-direction: column;
   padding: 4rem 2rem;
+  align-items: center;
+  background-color: black;
+
+  @include media-desktop {
+    flex-direction: row;
+    justify-content: center;
+  }
 
   &__image {
-    max-height: 150px;
+    margin-top: -10rem;
+    object-fit: cover;
     display: flex;
+    width: 30rem;
+
+    @include media-tablet {
+      width: 55rem;
+    }
+
+    @include media-desktop {
+      width: 70rem;
+      margin-right: 4rem;
+    }
   }
-&__buttons {
+  &__buttons {
     display: flex;
     justify-content: space-between;
-    padding-top: 4rem;
-}
+    padding: 4rem 2rem 0rem 2rem;
 
+    @include media-desktop {
+      flex-direction: column;
+      margin-left: 2rem;
+    }
+
+    &--right {
+      margin-left: 1rem;
+
+      @include media-desktop {
+        margin-left: 0rem;
+        margin-top: 1rem;
+        width: 25rem;
+      }
+    }
+
+    &--left {
+      margin-right: 1rem;
+      @include media-desktop {
+        margin-right: 0rem;
+        margin-bottom: 1rem;
+        width: 25rem;
+      }
+    }
+  }
 }

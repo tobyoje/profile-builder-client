@@ -1,10 +1,12 @@
 import "../../components/Hero/Hero.scss";
+import mainLOGO from "../../assets/images/logo.svg"
 
 const Hero = () => {
   return (
     <>
       <div className="hero">
         <div className="hero__content">
+          <img className="hero__logo" src={mainLOGO} alt="" />
           <h2 className="hero__heading">
             Create Personal Profile Pages Easily!
           </h2>

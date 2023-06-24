@@ -1,7 +1,9 @@
+import "./Footer.scss"
+
 const Footer = () => {
   return (
     <>
-      <div>Footer component</div>
+      <div className="footer">Created with ❤️ by Toby </div>
     </>
   );
 };

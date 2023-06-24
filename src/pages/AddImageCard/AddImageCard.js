@@ -28,18 +28,18 @@ const AddImageCards = () => {
     event.preventDefault();
 
     const newBasic = new FormData();
-    newBasic.append("image1", file1);
-    newBasic.append("ic_link1", basicData.link1);
-    newBasic.append("ic_title1", basicData.title1);
-    newBasic.append("image2", file2);
-    newBasic.append("ic_link2", basicData.link2);
-    newBasic.append("ic_title2", basicData.title2);
-    newBasic.append("image3", file3);
-    newBasic.append("ic_link3", basicData.link3);
-    newBasic.append("ic_title3", basicData.title3);
-    newBasic.append("image4", file4);
-    newBasic.append("ic_link4", basicData.link4);
-    newBasic.append("ic_title4", basicData.title4);
+    newBasic.append("image1", file1 || "");
+    newBasic.append("ic_link1", basicData.link1 || "");
+    newBasic.append("ic_title1", basicData.title1 || "");
+    newBasic.append("image2", file2 || "");
+    newBasic.append("ic_link2", basicData.link2 || "");
+    newBasic.append("ic_title2", basicData.title2 || "");
+    newBasic.append("image3", file3 || "");
+    newBasic.append("ic_link3", basicData.link3 || "");
+    newBasic.append("ic_title3", basicData.title3 || "");
+    newBasic.append("image4", file4 || "");
+    newBasic.append("ic_link4", basicData.link4 || "");
+    newBasic.append("ic_title4", basicData.title4 || "");
 
     const token = sessionStorage.getItem("token");
 

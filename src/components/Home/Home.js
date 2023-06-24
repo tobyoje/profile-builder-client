@@ -8,8 +8,8 @@ const Home = () => {
       <div className="main">
         <img className="main__image" src={SampleIMG} alt="Featured" />
         <div className="main__buttons">
-         <Link to="/login"><button className="primary-button">TRY BETA</button></Link>
-          <button className="secondary-button">VIEW DEMOS</button>
+         <Link to="/login"><button className="primary-button main__buttons--left">TRY BETA</button></Link>
+          <button className="secondary-button main__buttons--right">VIEW DEMOS</button>
         </div>
       </div>
     </>

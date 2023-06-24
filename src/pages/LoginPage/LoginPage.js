@@ -83,16 +83,16 @@ const LoginPage = () => {
         <h2 className="hero__heading">Sign In</h2>
       </div>
 
-      <div className="signup">
-        <h2 className="signup__title">Your Login details</h2>
-        <p className="signup__subtitle">
+      <div className="login">
+        <h2 className="login__title">Your Login details</h2>
+        <p className="login__subtitle">
           Don’t have an account yet?
           <Link to="/join">
-            <p className="signup__subtitle--cta">SIGN UP</p>{" "}
+            <p className="login__subtitle--cta">SIGN UP</p>{" "}
           </Link>
         </p>
 
-        <div className="signup__form">
+        <div className="login__form">
           <form onSubmit={handleLogin}>
             <input
               type="text"
@@ -122,7 +122,7 @@ const LoginPage = () => {
               <p className="form-error">This field is required</p>
             )}
 
-            <button className="signup__button">SIGN IN</button>
+            <button className="login__button">SIGN IN</button>
           </form>
         </div>
       </div>

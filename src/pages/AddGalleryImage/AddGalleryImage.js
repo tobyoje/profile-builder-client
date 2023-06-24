@@ -7,8 +7,12 @@ import addICON from "../../assets/icons/plus.svg";
 import uploadIcon from "../../assets/icons/upload.svg";
 
 const AddGalleryImage = () => {
-  const [image1URL, setImage1URL] = useState("");
-  const [image2URL, setImage2URL] = useState("");
+  const [file1, setFile1] = useState(null);
+  const [file2, setFile2] = useState(null);
+  const [file3, setFile3] = useState(null);
+  const [file4, setFile4] = useState(null);
+  const [file5, setFile5] = useState(null);
+  const [file6, setFile6] = useState(null);
   const [formErrors, setFormErrors] = useState({});
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
@@ -20,89 +24,70 @@ const AddGalleryImage = () => {
       return navigate("../login");
     }
 
-    // Get the data from the API
-    axios
-      .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/current`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-        setUser(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
   }, []);
 
-  // const handleChange = (event) => {
-  //   setBasicData({ ...basicData, [event.target.name]: event.target.value });
-  // };
 
-  const handleFileSelect = (event, inputName) => {
-    const file = event.target.files[0];
-    const objectURL = URL.createObjectURL(file);
 
-    if (inputName === "image1") {
-      setImage1URL(objectURL);
-    } else if (inputName === "image2") {
-      setImage2URL(objectURL);
-    }
-  };
-
-  const handleBasic = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setFormErrors({});
 
-    console.log("Form submitted!");
-    console.log("Image 1 URL:", image1URL);
-    console.log("Image 2 URL:", image2URL);
-
-    let formIsValid = true;
-
-    const errors = {};
-
-    // if (!basicData.pageTitle) {
-    //   formIsValid = false;
-    //   errors["error_pageTitle"] = true;
-    // }
-
-    // if (!basicData.fullName) {
-    //   formIsValid = false;
-    //   errors["error_fullName"] = true;
-    // }
-
-    if (!formIsValid) {
-      return setFormErrors(errors);
-    }
-
-    setTimeout(() => {
-      navigate("/styles");
-    }, 1000);
-
-    const newBasic = {
-      g_image1: image1URL,
-      g_image2: image2URL,
-    };
-
-    console.log(newBasic);
+    const newBasic = new FormData();
+    newBasic.append("image1", file1 || "");
+    newBasic.append("image2", file2 || "");
+    newBasic.append("image3", file3 || "");
+    newBasic.append("image4", file4 || "");
 
     const token = sessionStorage.getItem("token");
 
-    axios
-      .post(`${process.env.REACT_APP_API_BASE_URL}/api/user/gallery`, newBasic, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    try {
+      const result = await axios.post(
+        `${process.env.REACT_APP_API_BASE_URL}/api/user/gallery`,
+        newBasic,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      console.log(newBasic);
+      setTimeout(() => {
+        navigate("/styles");
+      }, 1000);
+      console.log(result.data);
+    } catch (error) {
+      console.error(error);
+    }
   };
+
+
+  const handleFileChange1 = (event) => {
+    setFile1(event.target.files[0]);
+  };
+
+  const handleFileChange2 = (event) => {
+    setFile2(event.target.files[0]);
+  };
+
+  const handleFileChange3 = (event) => {
+    setFile3(event.target.files[0]);
+  };
+
+  const handleFileChange4 = (event) => {
+    setFile4(event.target.files[0]);
+  };
+
+  const handleFileChange5 = (event) => {
+    setFile5(event.target.files[0]);
+  };
+  const handleFileChange6 = (event) => {
+    setFile6(event.target.files[0]);
+  };
+
+
+
+
 
   return (
     <>
@@ -112,7 +97,7 @@ const AddGalleryImage = () => {
         <p className="basic__subtitle">Add beautiful images to your gallery</p>
 
         <div className="basic__form">
-          <form onSubmit={handleBasic}>
+          <form onSubmit={handleSubmit}>
             <div className="upload-area1">
               <label htmlFor="inputfile1">Add Image</label>
               <img className="upload-icon" src={uploadIcon} alt="" />
@@ -121,10 +106,10 @@ const AddGalleryImage = () => {
                 id="inputfile1"
                 name="image1"
                 accept="image/png, image/jpeg, image/jpg"
-                onChange={(event) => handleFileSelect(event, "image1")}
-                className={`inputfile ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
+                onChange={handleFileChange1}
+                // className={`inputfile ${
+                //   formErrors.error_pageTitle ? "input--error" : ""
+                // }`}
               />
             </div>
 
@@ -136,12 +121,80 @@ const AddGalleryImage = () => {
                 id="inputfile2"
                 name="image2"
                 accept="image/png, image/jpeg, image/jpg"
-                onChange={(event) => handleFileSelect(event, "image2")}
-                className={`inputfile ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
+                onChange={handleFileChange2}
+                // className={`inputfile ${
+                //   formErrors.error_pageTitle ? "input--error" : ""
+                // }`}
               />
             </div>
+
+
+            <div className="upload-area1">
+              <label htmlFor="inputfile2">Add Image</label>
+              <img className="upload-icon" src={uploadIcon} alt="" />
+              <input
+                type="file"
+                id="inputfile2"
+                name="image2"
+                accept="image/png, image/jpeg, image/jpg"
+                onChange={handleFileChange3}
+                // className={`inputfile ${
+                //   formErrors.error_pageTitle ? "input--error" : ""
+                // }`}
+              />
+            </div>
+
+
+
+            <div className="upload-area1">
+              <label htmlFor="inputfile2">Add Image</label>
+              <img className="upload-icon" src={uploadIcon} alt="" />
+              <input
+                type="file"
+                id="inputfile2"
+                name="image2"
+                accept="image/png, image/jpeg, image/jpg"
+                onChange={handleFileChange4}
+                // className={`inputfile ${
+                //   formErrors.error_pageTitle ? "input--error" : ""
+                // }`}
+              />
+            </div>
+
+
+
+            <div className="upload-area1">
+              <label htmlFor="inputfile2">Add Image</label>
+              <img className="upload-icon" src={uploadIcon} alt="" />
+              <input
+                type="file"
+                id="inputfile2"
+                name="image2"
+                accept="image/png, image/jpeg, image/jpg"
+                onChange={handleFileChange5}
+                // className={`inputfile ${
+                //   formErrors.error_pageTitle ? "input--error" : ""
+                // }`}
+              />
+            </div>
+
+
+            <div className="upload-area1">
+              <label htmlFor="inputfile2">Add Image</label>
+              <img className="upload-icon" src={uploadIcon} alt="" />
+              <input
+                type="file"
+                id="inputfile2"
+                name="image2"
+                accept="image/png, image/jpeg, image/jpg"
+                onChange={handleFileChange6}
+                // className={`inputfile ${
+                //   formErrors.error_pageTitle ? "input--error" : ""
+                // }`}
+              />
+            </div>
+
+
 
             {formErrors.error_pageTitle && (
               <p className="form-error">This field is required</p>
