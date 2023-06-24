@@ -8,7 +8,10 @@ import uploadIcon from "../../assets/icons/upload.svg";
 
 const EditImageCard = () => {
   const [basicData, setBasicData] = useState([]);
-  const [file, setFile] = useState(null);
+  const [file1, setFile1] = useState(null);
+  const [file2, setFile2] = useState(null);
+  const [file3, setFile3] = useState(null);
+  const [file4, setFile4] = useState(null);
   const [formErrors, setFormErrors] = useState({});
   const [user, setUser] = useState({});
   const navigate = useNavigate();
@@ -40,16 +43,16 @@ const EditImageCard = () => {
     event.preventDefault();
 
     const newBasic = new FormData();
-    newBasic.append("image1", file);
+    newBasic.append("image1", file1);
     newBasic.append("ic_link1", basicData.link1);
     newBasic.append("ic_title1", basicData.title1);
-    newBasic.append("image2", file);
+    newBasic.append("image2", file2);
     newBasic.append("ic_link2", basicData.link2);
     newBasic.append("ic_title2", basicData.title2);
-    newBasic.append("image3", file);
+    newBasic.append("image3", file3);
     newBasic.append("ic_link3", basicData.link3);
     newBasic.append("ic_title3", basicData.title3);
-    newBasic.append("image4", file);
+    newBasic.append("image4", file4);
     newBasic.append("ic_link4", basicData.link4);
     newBasic.append("ic_title4", basicData.title4);
 
@@ -75,8 +78,20 @@ const EditImageCard = () => {
     }
   };
 
-  const handleFileChange = (event) => {
-    setFile(event.target.files[0]);
+  const handleFileChange1 = (event) => {
+    setFile1(event.target.files[0]);
+  };
+
+  const handleFileChange2 = (event) => {
+    setFile2(event.target.files[0]);
+  };
+
+  const handleFileChange3 = (event) => {
+    setFile3(event.target.files[0]);
+  };
+
+  const handleFileChange4 = (event) => {
+    setFile4(event.target.files[0]);
   };
 
   const handleChange = (event) => {
@@ -102,13 +117,13 @@ const EditImageCard = () => {
               <img className="upload-icon" src={uploadIcon} alt="" />
               <input
                 type="file"
-                id="inputfile"
+                id="image1"
                 name="image1"
                 accept="image/png, image/jpeg, image/jpg"
-                onChange={handleFileChange}
-                className={`inputfile ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
+                onChange={handleFileChange1}
+                // className={`inputfile ${
+                //   formErrors.error_pageTitle ? "input--error" : ""
+                // }`}
               />
             </div>
             {formErrors.error_pageTitle && (
@@ -142,13 +157,13 @@ const EditImageCard = () => {
               <img className="upload-icon" src={uploadIcon} alt="" />
               <input
                 type="file"
-                id="inputfile"
+                id="image2"
                 name="image2"
                 accept="image/png, image/jpeg, image/jpg"
-                onChange={handleFileChange}
-                className={`inputfile ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
+                onChange={handleFileChange2}
+                // className={`inputfile ${
+                //   formErrors.error_pageTitle ? "input--error" : ""
+                // }`}
               />
             </div>
             <div className="linkfield">
@@ -179,13 +194,13 @@ const EditImageCard = () => {
               <img className="upload-icon" src={uploadIcon} alt="" />
               <input
                 type="file"
-                id="inputfile"
+                id="image3"
                 name="image3"
                 accept="image/png, image/jpeg, image/jpg"
-                onChange={handleFileChange}
-                className={`inputfile ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
+                onChange={handleFileChange3}
+                // className={`inputfile ${
+                //   formErrors.error_pageTitle ? "input--error" : ""
+                // }`}
               />
             </div>
             <div className="linkfield">
@@ -216,13 +231,13 @@ const EditImageCard = () => {
               <img className="upload-icon" src={uploadIcon} alt="" />
               <input
                 type="file"
-                id="inputfile"
+                id="image4"
                 name="image4"
                 accept="image/png, image/jpeg, image/jpg"
-                onChange={handleFileChange}
-                className={`inputfile ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
+                onChange={handleFileChange4}
+                // className={`inputfile ${
+                //   formErrors.error_pageTitle ? "input--error" : ""
+                // }`}
               />
             </div>
             <div className="linkfield">
