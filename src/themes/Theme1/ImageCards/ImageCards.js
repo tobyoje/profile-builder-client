@@ -43,6 +43,9 @@ const ImageCards = ({ profileData }) => {
               }
               console.log(imageData);
               return (
+                
+                <div className="imagecards__box">
+                
                 <Link
                   to={imageData.link}
                   target="_blank"
@@ -66,7 +69,9 @@ const ImageCards = ({ profileData }) => {
                       alt="link"
                     />
                   </div>
+
                 </Link>
+                </div>
               );
             })}
           </div>

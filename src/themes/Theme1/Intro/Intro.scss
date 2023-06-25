@@ -11,14 +11,14 @@
     background-repeat: no-repeat;
     background-position: center center;
     height: 25rem;
-    padding: 2rem 2rem;
+    padding: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
 
     @include media-tablet {
-      height: 25rem;
+      padding: 4rem 4rem;
     }
   }
 
@@ -28,8 +28,12 @@
 
   &__icon {
     width: 2.5rem;
+
+    @include media-tablet {
+      width: 3.5rem;
+    }
+
     &--first {
-      width: 2.5rem;
       margin-right: 2rem;
     }
   }
@@ -44,7 +48,11 @@
     @include media-tablet {
       flex-direction: row;
       margin-top: 0rem;
-      padding: 0 5rem;
+      padding: 0 5rem 2rem 5rem;
+    }
+
+    @include media-desktop {
+      padding: 0 20rem 2rem 20rem;
     }
   }
 
@@ -57,7 +65,7 @@
     object-fit: cover;
 
     @include media-tablet {
-      margin-top: -15rem;
+      margin-top: -7rem;
       width: 25rem;
       height: 25rem;
       border: 12px solid black;
@@ -114,6 +122,10 @@
         right: 5rem;
         top: 20rem;
       }
+@include media-desktop {
+  right: 20rem;
+}
+
     }
   }
 

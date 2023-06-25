@@ -5,6 +5,15 @@
   flex-direction: column;
   padding: 2rem 2rem;
 
+  @include media-tablet {
+    padding: 2rem 4rem;
+  }
+  @include media-desktop {
+    padding: 2rem 20rem;
+
+  }
+
+
   &__heading {
     font-size: 1.4rem;
     margin-bottom: 2rem;
@@ -27,8 +36,14 @@
     @include media-tablet {
       padding: 1.5rem;
       margin: 0 0 1.8rem 0;
-
     }
+
+    @include media-desktop {
+      padding: 1.5rem 2rem;
+      margin: 0 0 2rem 0;
+    }
+
+
   }
 
   &__link-title {

@@ -13,7 +13,7 @@
   }
 
   &__image {
-    margin-top: -10rem;
+    margin-top: -7rem;
     object-fit: cover;
     display: flex;
     width: 30rem;
@@ -25,35 +25,6 @@
     @include media-desktop {
       width: 70rem;
       margin-right: 4rem;
-    }
-  }
-  &__buttons {
-    display: flex;
-    justify-content: space-between;
-    padding: 4rem 2rem 0rem 2rem;
-
-    @include media-desktop {
-      flex-direction: column;
-      margin-left: 2rem;
-    }
-
-    &--right {
-      margin-left: 1rem;
-
-      @include media-desktop {
-        margin-left: 0rem;
-        margin-top: 1rem;
-        width: 25rem;
-      }
-    }
-
-    &--left {
-      margin-right: 1rem;
-      @include media-desktop {
-        margin-right: 0rem;
-        margin-bottom: 1rem;
-        width: 25rem;
-      }
     }
   }
 }

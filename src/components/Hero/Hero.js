@@ -1,5 +1,6 @@
 import "../../components/Hero/Hero.scss";
 import mainLOGO from "../../assets/images/logo.svg"
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -14,6 +15,10 @@ const Hero = () => {
             Make beautiful personal profile pages in no time and share the links
             across your network.
           </p>
+          <div className="hero__buttons">
+         <Link to="/login"><button className="primary-button hero__buttons--left">TRY BETA</button></Link>
+          <button className="secondary-button hero__buttons--right">VIEW DEMOS</button>
+        </div>
         </div>
       </div>
     </>

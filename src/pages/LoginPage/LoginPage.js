@@ -79,51 +79,62 @@ const LoginPage = () => {
 
   return (
     <>
-      <div className="setup-header">
-        <h2 className="hero__heading">Sign In</h2>
-      </div>
+      {" "}
+      <div className="main-container">
+        <div className="login-header">
+          <h2 className="login-header__heading">Sign In</h2>
+        </div>
 
-      <div className="login">
-        <h2 className="login__title">Your Login details</h2>
-        <p className="login__subtitle">
-          Don’t have an account yet?
-          <Link to="/join">
-            <p className="login__subtitle--cta">SIGN UP</p>{" "}
-          </Link>
-        </p>
+        <div className="login">
+          <div className="login__fields">
+            <h2 className="login__title">Your Login details</h2>
+            <p className="login__subtitle">
+              Don’t have an account yet?
+              <Link to="/join">
+                <p className="login__subtitle--cta">SIGN UP</p>{" "}
+              </Link>
+            </p>
 
-        <div className="login__form">
-          <form onSubmit={handleLogin}>
-            <input
-              type="text"
-              name="email"
-              placeholder="Email Address"
-              onChange={(event) => handleChange(event)}
-              className={`input ${
-                formErrors.error_email ? "input--error" : ""
-              }`}
-            />
-            {formErrors.error_email && (
-              <p className="form-error">This field is required</p>
-            )}
-            {formErrors.error_emailFormat && (
-              <p className="form-error">Email is not valid</p>
-            )}
-            <input
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={(event) => handleChange(event)}
-              className={`input ${
-                formErrors.error_password ? "input--error" : ""
-              }`}
-            />
-            {formErrors.error_password && (
-              <p className="form-error">This field is required</p>
-            )}
+            <div className="login__form">
+              <form onSubmit={handleLogin}>
+                <div>
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Email Address"
+                    onChange={(event) => handleChange(event)}
+                    className={`input ${
+                      formErrors.error_email ? "input--error" : ""
+                    }`}
+                  />
 
-            <button className="login__button">SIGN IN</button>
-          </form>
+                  {formErrors.error_email && (
+                    <p className="form-error">This field is required</p>
+                  )}
+                  {formErrors.error_emailFormat && (
+                    <p className="form-error">Email is not valid</p>
+                  )}
+                </div>
+
+                <div>
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    onChange={(event) => handleChange(event)}
+                    className={`input ${
+                      formErrors.error_password ? "input--error" : ""
+                    }`}
+                  />
+                  {formErrors.error_password && (
+                    <p className="form-error">This field is required</p>
+                  )}
+                </div>
+
+                <button className="login__button">SIGN IN</button>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
     </>

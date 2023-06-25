@@ -81,11 +81,15 @@ const SignupPage = () => {
 
   return (
     <>
-      <div className="setup-header">
-        <h2 className="hero__heading">Sign Up</h2>
+          <div className="main-container">
+
+      <div className="signup-header">
+        <h2 className="signup-header__heading">Sign Up</h2>
       </div>
 
       <div className="signup">
+      <div className="login__fields">
+
         <h2 className="signup__title">Create your account</h2>
         <p className="signup__subtitle">
           Already have an account?{" "}
@@ -96,6 +100,7 @@ const SignupPage = () => {
 
         <div className="signup__form">
           <form onSubmit={handleRegister}>
+            <div>
             <input
               type="text"
               name="email"
@@ -111,6 +116,9 @@ const SignupPage = () => {
             {formErrors.error_emailFormat && (
               <p className="form-error">Email is not valid</p>
             )}
+            </div>
+
+            <div>
             <input
               type="password"
               name="password"
@@ -123,6 +131,10 @@ const SignupPage = () => {
             {formErrors.error_password && (
               <p className="form-error">This field is required</p>
             )}
+
+</div>
+
+<div>
             <input
               type="password"
               name="confirmPassword"
@@ -135,9 +147,12 @@ const SignupPage = () => {
             {formErrors.error_password && (
               <p className="form-error">This field is required</p>
             )}
+            </div>
             <button className="signup__button">CREATE ACCOUNT</button>
           </form>
         </div>
+        </div>
+      </div>
       </div>
     </>
   );

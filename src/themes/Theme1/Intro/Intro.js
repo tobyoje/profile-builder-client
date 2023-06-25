@@ -49,7 +49,7 @@ const Intro = ({ profileData, currentUserId }) => {
                 <Link to="/settings">
                   {" "}
                   <img
-                    className="intro__icon--first"
+                    className="intro__icon intro__icon--first"
                     src={settingsICON}
                     alt="settings"
                   />

@@ -10,7 +10,7 @@ const PhotoGalleryComponent = ({ profileData }) => {
     profileData.g_image5,
     profileData.g_image6,
   ];
-console.log(galleryImages);
+  console.log(galleryImages);
   return (
     <div className="photogallery">
       {galleryImages.length && (
@@ -22,9 +22,7 @@ console.log(galleryImages);
                 // Skip rendering if link is empty
                 return null;
               }
-
               return (
-                // <div className="photogallery__container">
                 <img
                   key={index}
                   className="photogallery__image"
