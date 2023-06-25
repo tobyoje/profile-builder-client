@@ -36,6 +36,9 @@ const AddGalleryImage = () => {
     newBasic.append("image2", file2 || "");
     newBasic.append("image3", file3 || "");
     newBasic.append("image4", file4 || "");
+    newBasic.append("image5", file5 || "");
+    newBasic.append("image6", file6 || "");
+
 
     const token = sessionStorage.getItem("token");
 
@@ -92,12 +95,14 @@ const AddGalleryImage = () => {
   return (
     <>
       <SetupHeader />
-      <div className="basic">
-        <h2 className="basic__title">Add Image to Gallery</h2>
-        <p className="basic__subtitle">Add beautiful images to your gallery</p>
+      <div className="gallerycreate">
+        <h2 className="gallerycreate__title">Add Image to Gallery</h2>
+        <p className="gallerycreate__subtitle">Add beautiful images to your gallery</p>
 
-        <div className="basic__form">
-          <form onSubmit={handleSubmit}>
+        <div className="gallerycreate__form">
+          <form className="gallerycreate__form-container" onSubmit={handleSubmit}>
+          <div className="imagecards__form-col">
+
             <div className="upload-area1">
               <label htmlFor="inputfile1">Add Image</label>
               <img className="upload-icon" src={uploadIcon} alt="" />
@@ -144,7 +149,10 @@ const AddGalleryImage = () => {
               />
             </div>
 
+</div>
 
+
+<div className="imagecards__form-col">
 
             <div className="upload-area1">
               <label htmlFor="inputfile2">Add Image</label>
@@ -199,17 +207,18 @@ const AddGalleryImage = () => {
             {formErrors.error_pageTitle && (
               <p className="form-error">This field is required</p>
             )}
-
-            <div className="basic__formadd">
-              <img className="basic__formadd--image" src={addICON} alt="" />
+{/* 
+            <div className="gallerycreate__formadd">
+              <img className="gallerycreate__formadd--image" src={addICON} alt="" />
               <p> Add New</p>
-            </div>
+            </div> */}
 
             {formErrors.error_pageTitle && (
               <p className="form-error">This field is required</p>
             )}
 
-            <button className="basic__button">NEXT</button>
+            <button className="gallerycreate__button">NEXT</button>
+            </div>
           </form>
         </div>
       </div>

@@ -51,7 +51,6 @@ const EditGalleryImage = () => {
     newBasic.append("image5", file5);
     newBasic.append("image6", file6);
 
-
     const token = sessionStorage.getItem("token");
 
     try {
@@ -97,129 +96,128 @@ const EditGalleryImage = () => {
     setFile6(event.target.files[0]);
   };
 
-
   return (
     <>
       <SettingsHeader />
-      <div className="basic">
-        <h2 className="basic__title">Edit Image to Gallery</h2>
-        <p className="basic__subtitle">
+      <div className="gallerycreate">
+        <h2 className="gallerycreate__title">Edit Image to Gallery</h2>
+        <p className="gallerycreate__subtitle">
           Edit and add new beautiful images to your gallery
         </p>
 
-        <div className="basic__form">
-          <form onSubmit={handleSubmit}>
-            <div className="upload-area1">
-              <label htmlFor="inputfile1">Add Image</label>
-              <img className="upload-icon" src={uploadIcon} alt="" />
-              <input
-                type="file"
-                id="inputfile1"
-                name="image1"
-                accept="image/png, image/jpeg, image/jpg"
-                onChange={handleFileChange1}
-                // className={`inputfile ${
-                //   formErrors.error_pageTitle ? "input--error" : ""
-                // }`}
-              />
+        <div className="gallerycreate__form">
+          <form
+            className="gallerycreate__form-container"
+            onSubmit={handleSubmit}
+          >
+            <div className="imagecards__form-col">
+              <div className="upload-area1">
+                <label htmlFor="inputfile1">Add Image</label>
+                <img className="upload-icon" src={uploadIcon} alt="" />
+                <input
+                  type="file"
+                  id="inputfile1"
+                  name="image1"
+                  accept="image/png, image/jpeg, image/jpg"
+                  onChange={handleFileChange1}
+                  // className={`inputfile ${
+                  //   formErrors.error_pageTitle ? "input--error" : ""
+                  // }`}
+                />
+              </div>
+
+              <div className="upload-area1">
+                <label htmlFor="inputfile2">Add Image</label>
+                <img className="upload-icon" src={uploadIcon} alt="" />
+                <input
+                  type="file"
+                  id="inputfile2"
+                  name="image2"
+                  accept="image/png, image/jpeg, image/jpg"
+                  onChange={handleFileChange2}
+                  // className={`inputfile ${
+                  //   formErrors.error_pageTitle ? "input--error" : ""
+                  // }`}
+                />
+              </div>
+
+              <div className="upload-area1">
+                <label htmlFor="inputfile2">Add Image</label>
+                <img className="upload-icon" src={uploadIcon} alt="" />
+                <input
+                  type="file"
+                  id="inputfile2"
+                  name="image2"
+                  accept="image/png, image/jpeg, image/jpg"
+                  onChange={handleFileChange3}
+                  // className={`inputfile ${
+                  //   formErrors.error_pageTitle ? "input--error" : ""
+                  // }`}
+                />
+              </div>
             </div>
 
-            <div className="upload-area1">
-              <label htmlFor="inputfile2">Add Image</label>
-              <img className="upload-icon" src={uploadIcon} alt="" />
-              <input
-                type="file"
-                id="inputfile2"
-                name="image2"
-                accept="image/png, image/jpeg, image/jpg"
-                onChange={handleFileChange2}
-                // className={`inputfile ${
-                //   formErrors.error_pageTitle ? "input--error" : ""
-                // }`}
-              />
-            </div>
+            <div className="imagecards__form-col">
+              <div className="upload-area1">
+                <label htmlFor="inputfile2">Add Image</label>
+                <img className="upload-icon" src={uploadIcon} alt="" />
+                <input
+                  type="file"
+                  id="inputfile2"
+                  name="image2"
+                  accept="image/png, image/jpeg, image/jpg"
+                  onChange={handleFileChange4}
+                  // className={`inputfile ${
+                  //   formErrors.error_pageTitle ? "input--error" : ""
+                  // }`}
+                />
+              </div>
 
+              <div className="upload-area1">
+                <label htmlFor="inputfile2">Add Image</label>
+                <img className="upload-icon" src={uploadIcon} alt="" />
+                <input
+                  type="file"
+                  id="inputfile2"
+                  name="image2"
+                  accept="image/png, image/jpeg, image/jpg"
+                  onChange={handleFileChange5}
+                  // className={`inputfile ${
+                  //   formErrors.error_pageTitle ? "input--error" : ""
+                  // }`}
+                />
+              </div>
 
-            <div className="upload-area1">
-              <label htmlFor="inputfile2">Add Image</label>
-              <img className="upload-icon" src={uploadIcon} alt="" />
-              <input
-                type="file"
-                id="inputfile2"
-                name="image2"
-                accept="image/png, image/jpeg, image/jpg"
-                onChange={handleFileChange3}
-                // className={`inputfile ${
-                //   formErrors.error_pageTitle ? "input--error" : ""
-                // }`}
-              />
-            </div>
+              <div className="upload-area1">
+                <label htmlFor="inputfile2">Add Image</label>
+                <img className="upload-icon" src={uploadIcon} alt="" />
+                <input
+                  type="file"
+                  id="inputfile2"
+                  name="image2"
+                  accept="image/png, image/jpeg, image/jpg"
+                  onChange={handleFileChange6}
+                  // className={`inputfile ${
+                  //   formErrors.error_pageTitle ? "input--error" : ""
+                  // }`}
+                />
+              </div>
 
+              {formErrors.error_pageTitle && (
+                <p className="form-error">This field is required</p>
+              )}
 
-
-            <div className="upload-area1">
-              <label htmlFor="inputfile2">Add Image</label>
-              <img className="upload-icon" src={uploadIcon} alt="" />
-              <input
-                type="file"
-                id="inputfile2"
-                name="image2"
-                accept="image/png, image/jpeg, image/jpg"
-                onChange={handleFileChange4}
-                // className={`inputfile ${
-                //   formErrors.error_pageTitle ? "input--error" : ""
-                // }`}
-              />
-            </div>
-
-
-
-            <div className="upload-area1">
-              <label htmlFor="inputfile2">Add Image</label>
-              <img className="upload-icon" src={uploadIcon} alt="" />
-              <input
-                type="file"
-                id="inputfile2"
-                name="image2"
-                accept="image/png, image/jpeg, image/jpg"
-                onChange={handleFileChange5}
-                // className={`inputfile ${
-                //   formErrors.error_pageTitle ? "input--error" : ""
-                // }`}
-              />
-            </div>
-
-
-            <div className="upload-area1">
-              <label htmlFor="inputfile2">Add Image</label>
-              <img className="upload-icon" src={uploadIcon} alt="" />
-              <input
-                type="file"
-                id="inputfile2"
-                name="image2"
-                accept="image/png, image/jpeg, image/jpg"
-                onChange={handleFileChange6}
-                // className={`inputfile ${
-                //   formErrors.error_pageTitle ? "input--error" : ""
-                // }`}
-              />
-            </div>
-
-
-            {formErrors.error_pageTitle && (
-              <p className="form-error">This field is required</p>
-            )}
-
-            {/* <div className="basic__formadd">
-              <img className="basic__formadd--image" src={addICON} alt="" />
+              {/* <div className="gallerycreate__formadd">
+              <img className="gallerycreate__formadd--image" src={addICON} alt="" />
               <p> Add New</p>
             </div> */}
 
-            {formErrors.error_pageTitle && (
-              <p className="form-error">This field is required</p>
-            )}
+              {formErrors.error_pageTitle && (
+                <p className="form-error">This field is required</p>
+              )}
 
-            <button className="basic__button">NEXT</button>
+              <button className="gallerycreate__button">NEXT</button>
+            </div>
           </form>
         </div>
       </div>

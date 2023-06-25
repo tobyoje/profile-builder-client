@@ -104,175 +104,187 @@ const EditImageCard = () => {
   return (
     <>
       <SettingsHeader />
-      <div className="basic">
-        <h2 className="basic__title">Edit Image Cards</h2>
-        <p className="basic__subtitle">
+      <div className="imagecards">
+        <h2 className="imagecards__title">Edit Image Cards</h2>
+        <p className="imagecards__subtitle">
           Edit and add some link cards to your page
         </p>
 
-        <div className="basic__form">
-          <form onSubmit={handleSubmit}>
-            <div className="upload-area1">
-              <label htmlFor="inputfile">Add Image</label>
-              <img className="upload-icon" src={uploadIcon} alt="" />
-              <input
-                type="file"
-                id="image1"
-                name="image1"
-                accept="image/png, image/jpeg, image/jpg"
-                onChange={handleFileChange1}
-                // className={`inputfile ${
-                //   formErrors.error_pageTitle ? "input--error" : ""
-                // }`}
-              />
-            </div>
-            {formErrors.error_pageTitle && (
-              <p className="form-error">This field is required</p>
-            )}
-            <div className="linkfield">
-              <input
-                type="text"
-                placeholder="https://new-link.com"
-                name="link1"
-                defaultValue={user.ic_link1}
-                onChange={(event) => handleChange(event)}
-                className={`input ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
-              />
-            </div>
-            <input
-              type="text"
-              placeholder="Link title"
-              name="title1"
-              defaultValue={user.ic_title1}
-              onChange={(event) => handleChange(event)}
-              className={`input ${
-                formErrors.error_pageTitle ? "input--error" : ""
-              }`}
-            />
+        <div className="imagecards__form">
+          <form className="imagecards__form-container" onSubmit={handleSubmit}>
+            <div className="imagecards__form-col">
+              <div className="imagecards__form-box">
+                <div className="upload-area1">
+                  <label htmlFor="inputfile">Add Image</label>
+                  <img className="upload-icon" src={uploadIcon} alt="" />
+                  <input
+                    type="file"
+                    id="image1"
+                    name="image1"
+                    accept="image/png, image/jpeg, image/jpg"
+                    onChange={handleFileChange1}
+                    // className={`inputfile ${
+                    //   formErrors.error_pageTitle ? "input--error" : ""
+                    // }`}
+                  />
+                </div>
+                {formErrors.error_pageTitle && (
+                  <p className="form-error">This field is required</p>
+                )}
+                <div className="linkfield">
+                  <input
+                    type="text"
+                    placeholder="https://new-link.com"
+                    name="link1"
+                    defaultValue={user.ic_link1}
+                    onChange={(event) => handleChange(event)}
+                    className={`input ${
+                      formErrors.error_pageTitle ? "input--error" : ""
+                    }`}
+                  />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Link title"
+                  name="title1"
+                  defaultValue={user.ic_title1}
+                  onChange={(event) => handleChange(event)}
+                  className={`input ${
+                    formErrors.error_pageTitle ? "input--error" : ""
+                  }`}
+                />
+              </div>
 
-            <div className="upload-area1">
-              <label htmlFor="inputfile">Add Image</label>
-              <img className="upload-icon" src={uploadIcon} alt="" />
-              <input
-                type="file"
-                id="image2"
-                name="image2"
-                accept="image/png, image/jpeg, image/jpg"
-                onChange={handleFileChange2}
-                // className={`inputfile ${
-                //   formErrors.error_pageTitle ? "input--error" : ""
-                // }`}
-              />
+              <div className="imagecards__form-box">
+                <div className="upload-area1">
+                  <label htmlFor="inputfile">Add Image</label>
+                  <img className="upload-icon" src={uploadIcon} alt="" />
+                  <input
+                    type="file"
+                    id="image2"
+                    name="image2"
+                    accept="image/png, image/jpeg, image/jpg"
+                    onChange={handleFileChange2}
+                    // className={`inputfile ${
+                    //   formErrors.error_pageTitle ? "input--error" : ""
+                    // }`}
+                  />
+                </div>
+                <div className="linkfield">
+                  <input
+                    type="text"
+                    placeholder="https://new-link.com"
+                    name="link2"
+                    defaultValue={user.ic_link2}
+                    onChange={(event) => handleChange(event)}
+                    className={`input ${
+                      formErrors.error_pageTitle ? "input--error" : ""
+                    }`}
+                  />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Link title"
+                  name="title2"
+                  defaultValue={user.ic_title2}
+                  onChange={(event) => handleChange(event)}
+                  className={`input ${
+                    formErrors.error_pageTitle ? "input--error" : ""
+                  }`}
+                />
+              </div>
             </div>
-            <div className="linkfield">
-              <input
-                type="text"
-                placeholder="https://new-link.com"
-                name="link2"
-                defaultValue={user.ic_link2}
-                onChange={(event) => handleChange(event)}
-                className={`input ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
-              />
-            </div>
-            <input
-              type="text"
-              placeholder="Link title"
-              name="title2"
-              defaultValue={user.ic_title2}
-              onChange={(event) => handleChange(event)}
-              className={`input ${
-                formErrors.error_pageTitle ? "input--error" : ""
-              }`}
-            />
 
-            <div className="upload-area1">
-              <label htmlFor="inputfile">Add Image</label>
-              <img className="upload-icon" src={uploadIcon} alt="" />
-              <input
-                type="file"
-                id="image3"
-                name="image3"
-                accept="image/png, image/jpeg, image/jpg"
-                onChange={handleFileChange3}
-                // className={`inputfile ${
-                //   formErrors.error_pageTitle ? "input--error" : ""
-                // }`}
-              />
-            </div>
-            <div className="linkfield">
-              <input
-                type="text"
-                placeholder="https://new-link.com"
-                name="link3"
-                defaultValue={user.ic_link3}
-                onChange={(event) => handleChange(event)}
-                className={`input ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
-              />
-            </div>
-            <input
-              type="text"
-              placeholder="Link title"
-              name="title3"
-              defaultValue={user.ic_title3}
-              onChange={(event) => handleChange(event)}
-              className={`input ${
-                formErrors.error_pageTitle ? "input--error" : ""
-              }`}
-            />
+            <div className="imagecards__form-col">
+              <div className="imagecards__form-box">
+                <div className="upload-area1">
+                  <label htmlFor="inputfile">Add Image</label>
+                  <img className="upload-icon" src={uploadIcon} alt="" />
+                  <input
+                    type="file"
+                    id="image3"
+                    name="image3"
+                    accept="image/png, image/jpeg, image/jpg"
+                    onChange={handleFileChange3}
+                    // className={`inputfile ${
+                    //   formErrors.error_pageTitle ? "input--error" : ""
+                    // }`}
+                  />
+                </div>
+                <div className="linkfield">
+                  <input
+                    type="text"
+                    placeholder="https://new-link.com"
+                    name="link3"
+                    defaultValue={user.ic_link3}
+                    onChange={(event) => handleChange(event)}
+                    className={`input ${
+                      formErrors.error_pageTitle ? "input--error" : ""
+                    }`}
+                  />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Link title"
+                  name="title3"
+                  defaultValue={user.ic_title3}
+                  onChange={(event) => handleChange(event)}
+                  className={`input ${
+                    formErrors.error_pageTitle ? "input--error" : ""
+                  }`}
+                />
+              </div>
 
-            <div className="upload-area1">
-              <label htmlFor="inputfile">Add Image</label>
-              <img className="upload-icon" src={uploadIcon} alt="" />
-              <input
-                type="file"
-                id="image4"
-                name="image4"
-                accept="image/png, image/jpeg, image/jpg"
-                onChange={handleFileChange4}
-                // className={`inputfile ${
-                //   formErrors.error_pageTitle ? "input--error" : ""
-                // }`}
-              />
-            </div>
-            <div className="linkfield">
-              <input
-                type="text"
-                placeholder="https://new-link.com"
-                name="link4"
-                defaultValue={user.ic_link4}
-                onChange={(event) => handleChange(event)}
-                className={`input ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
-              />
-            </div>
-            <input
-              type="text"
-              placeholder="Link title"
-              name="title4"
-              defaultValue={user.ic_title4}
-              onChange={(event) => handleChange(event)}
-              className={`input ${
-                formErrors.error_pageTitle ? "input--error" : ""
-              }`}
-            />
+              <div className="imagecards__form-box">
+                <div className="upload-area1">
+                  <label htmlFor="inputfile">Add Image</label>
+                  <img className="upload-icon" src={uploadIcon} alt="" />
+                  <input
+                    type="file"
+                    id="image4"
+                    name="image4"
+                    accept="image/png, image/jpeg, image/jpg"
+                    onChange={handleFileChange4}
+                    // className={`inputfile ${
+                    //   formErrors.error_pageTitle ? "input--error" : ""
+                    // }`}
+                  />
+                </div>
+                <div className="linkfield">
+                  <input
+                    type="text"
+                    placeholder="https://new-link.com"
+                    name="link4"
+                    defaultValue={user.ic_link4}
+                    onChange={(event) => handleChange(event)}
+                    className={`input ${
+                      formErrors.error_pageTitle ? "input--error" : ""
+                    }`}
+                  />
+                </div>
+                <input
+                  type="text"
+                  placeholder="Link title"
+                  name="title4"
+                  defaultValue={user.ic_title4}
+                  onChange={(event) => handleChange(event)}
+                  className={`input ${
+                    formErrors.error_pageTitle ? "input--error" : ""
+                  }`}
+                />
+              </div>
 
-            <div className="basic__formadd">
-              <img className="basic__formadd--image" src={addICON} alt="" />
+              {/* <div className="imagecards__formadd">
+              <img className="imagecards__formadd--image" src={addICON} alt="" />
               <p> Add New</p>
+            </div> */}
+
+              {formErrors.error_pageTitle && (
+                <p className="form-error">This field is required</p>
+              )}
+
+              <button className="imagecards__button">NEXT</button>
             </div>
-
-            {formErrors.error_pageTitle && (
-              <p className="form-error">This field is required</p>
-            )}
-
-            <button className="basic__button">NEXT</button>
           </form>
         </div>
       </div>

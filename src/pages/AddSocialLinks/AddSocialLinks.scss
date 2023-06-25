@@ -39,7 +39,6 @@
   &__form {
     display: flex;
     flex-direction: column;
-
     padding-top: 2rem;
 
     input {
@@ -195,15 +194,14 @@
   }
 }
 
-
 .githubfield {
-    input {
-      background-image: url(../../assets/icons/github.svg);
-      background-position: center left 1.5rem;
-      background-repeat: no-repeat;
-      padding-left: 4rem;
-    }
+  input {
+    background-image: url(../../assets/icons/github.svg);
+    background-position: center left 1.5rem;
+    background-repeat: no-repeat;
+    padding-left: 4rem;
   }
+}
 
 .emailfield {
   input {

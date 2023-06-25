@@ -1,13 +1,39 @@
-.basic {
+@use "../../styles/partials/mixins" as *;
+
+.imagecards {
   padding: 3rem 2rem;
+
+  @include media-tablet {
+    padding: 5rem 5rem;
+  }
+
+  @include media-desktop {
+    padding: 5rem 25rem;
+  }
 
   &__title {
     font-size: 1.6rem;
     padding-bottom: 0.4rem;
+
+    @include media-tablet {
+      font-size: 2rem;
+    }
+
+    @include media-desktop {
+      font-size: 2.4rem;
+    }
   }
   &__subtitle {
     font-size: 1rem;
     color: #9b9b9b;
+
+    @include media-tablet {
+      font-size: 1.4rem;
+    }
+
+    @include media-desktop {
+      font-size: 1.8rem;
+    }
   }
 
   &__formadd {
@@ -33,6 +59,7 @@
 
   &__form {
     display: flex;
+    flex-direction: column;
     padding-top: 2rem;
 
     input {
@@ -44,17 +71,12 @@
       font-family: Poppins;
       color: black;
       background-color: #f9f9f9;
-      width: 28rem;
+      width: 100%;
       margin-bottom: 1.5rem;
 
-      // @include media-tablet {
-      //   width: 100%;
-      //   height: 4rem;
-      //   border: 1px solid black;
-      //   border-radius: 5rem;
-      //   padding-left: 1.5rem;
-      //   color: black;
-      // }
+      @include media-tablet {
+        width: 100%;
+      }
     }
 
     input::placeholder {
@@ -110,6 +132,25 @@
         margin: 0;
       }
     }
+  }
+
+  &__form-container {
+    @include media-tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__form-col {
+    @include media-tablet {
+      display: flex;
+      flex-direction: column;
+      width: 48.5%;
+    }
+  }
+
+  &__form-box {
+    padding-bottom: 2.5rem;
   }
 
   &__button {

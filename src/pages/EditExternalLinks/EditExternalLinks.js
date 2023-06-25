@@ -117,114 +117,118 @@ const EditExternalLinks = () => {
   return (
     <>
       <SettingsHeader />
-      <div className="basic">
-        <h2 className="basic__title">Edit External Links</h2>
-        <p className="basic__subtitle">Edit and add links to your page</p>
+      <div className="extlink">
+        <h2 className="extlink__title">Edit External Links</h2>
+        <p className="extlink__subtitle">Edit and add links to your page</p>
 
-        <div className="basic__form">
-          <form onSubmit={handleUpdate}>
-            <div className="linkfield">
+        <div className="extlink__form">
+          <form className="extlink__form-container " onSubmit={handleUpdate}>
+            <div className="extlink__form-col">
+              <div className="linkfield">
+                <input
+                  type="text"
+                  placeholder="Add your external url"
+                  name="link1"
+                  defaultValue={user.ext_link1}
+                  onChange={(event) => handleChange(event)}
+                  className={`input ${
+                    formErrors.error_pageTitle ? "input--error" : ""
+                  }`}
+                />
+              </div>
               <input
                 type="text"
-                placeholder="Add your external url"
-                name="link1"
-                defaultValue={user.ext_link1}
+                placeholder="Link title"
+                name="title1"
+                defaultValue={user.ext_title1}
+                onChange={(event) => handleChange(event)}
+                className={`input ${
+                  formErrors.error_pageTitle ? "input--error" : ""
+                }`}
+              />
+
+              <div className="linkfield">
+                <input
+                  type="text"
+                  placeholder="Add your external url"
+                  name="link2"
+                  defaultValue={user.ext_link2}
+                  onChange={(event) => handleChange(event)}
+                  className={`input ${
+                    formErrors.error_pageTitle ? "input--error" : ""
+                  }`}
+                />
+              </div>
+              <input
+                type="text"
+                placeholder="Link title"
+                name="title2"
+                defaultValue={user.ext_title2}
                 onChange={(event) => handleChange(event)}
                 className={`input ${
                   formErrors.error_pageTitle ? "input--error" : ""
                 }`}
               />
             </div>
-            <input
-              type="text"
-              placeholder="Link title"
-              name="title1"
-              defaultValue={user.ext_title1}
-              onChange={(event) => handleChange(event)}
-              className={`input ${
-                formErrors.error_pageTitle ? "input--error" : ""
-              }`}
-            />
 
-            <div className="linkfield">
+            <div className="extlink__form-col">
+              <div className="linkfield">
+                <input
+                  type="text"
+                  placeholder="Add your external url"
+                  name="link3"
+                  defaultValue={user.ext_link3}
+                  onChange={(event) => handleChange(event)}
+                  className={`input ${
+                    formErrors.error_pageTitle ? "input--error" : ""
+                  }`}
+                />
+              </div>
               <input
                 type="text"
-                placeholder="Add your external url"
-                name="link2"
-                defaultValue={user.ext_link2}
+                placeholder="Link title"
+                name="title3"
+                defaultValue={user.ext_title3}
                 onChange={(event) => handleChange(event)}
                 className={`input ${
                   formErrors.error_pageTitle ? "input--error" : ""
                 }`}
               />
-            </div>
-            <input
-              type="text"
-              placeholder="Link title"
-              name="title2"
-              defaultValue={user.ext_title2}
-              onChange={(event) => handleChange(event)}
-              className={`input ${
-                formErrors.error_pageTitle ? "input--error" : ""
-              }`}
-            />
 
-            <div className="linkfield">
+              <div className="linkfield">
+                <input
+                  type="text"
+                  placeholder="Add your external url"
+                  name="link4"
+                  defaultValue={user.ext_link4}
+                  onChange={(event) => handleChange(event)}
+                  className={`input ${
+                    formErrors.error_pageTitle ? "input--error" : ""
+                  }`}
+                />
+              </div>
               <input
                 type="text"
-                placeholder="Add your external url"
-                name="link3"
-                defaultValue={user.ext_link3}
+                placeholder="Link title"
+                name="title2"
+                defaultValue={user.ext_title4}
                 onChange={(event) => handleChange(event)}
                 className={`input ${
                   formErrors.error_pageTitle ? "input--error" : ""
                 }`}
               />
-            </div>
-            <input
-              type="text"
-              placeholder="Link title"
-              name="title3"
-              defaultValue={user.ext_title3}
-              onChange={(event) => handleChange(event)}
-              className={`input ${
-                formErrors.error_pageTitle ? "input--error" : ""
-              }`}
-            />
 
-            <div className="linkfield">
-              <input
-                type="text"
-                placeholder="Add your external url"
-                name="link4"
-                defaultValue={user.ext_link4}
-                onChange={(event) => handleChange(event)}
-                className={`input ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
-              />
-            </div>
-            <input
-              type="text"
-              placeholder="Link title"
-              name="title2"
-              defaultValue={user.ext_title4}
-              onChange={(event) => handleChange(event)}
-              className={`input ${
-                formErrors.error_pageTitle ? "input--error" : ""
-              }`}
-            />
-
-            {/* <div className="basic__formadd">
-              <img className="basic__formadd--image" src={addICON} alt="" />
+              {/* <div className="extlink__formadd">
+              <img className="extlink__formadd--image" src={addICON} alt="" />
               <p> Add New</p>
             </div> */}
 
-            {formErrors.error_pageTitle && (
-              <p className="form-error">This field is required</p>
-            )}
+              {formErrors.error_pageTitle && (
+                <p className="form-error">This field is required</p>
+              )}
 
-            <button className="basic__button">NEXT</button>
+              <button className="extlink__button">NEXT</button>
+            </div>
           </form>
         </div>
       </div>

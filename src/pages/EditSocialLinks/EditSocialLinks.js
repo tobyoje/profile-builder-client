@@ -93,111 +93,108 @@ const EditSocialLinks = () => {
 
         <div className="social__form">
           <form className="social__form-container" onSubmit={handleUpdate}>
-          <div className="social__form-col">
+            <div className="social__form-col">
+              <div className="twitterfield">
+                <input
+                  type="text"
+                  placeholder="https://twitter.com/username"
+                  name="twitter"
+                  defaultValue={user.twitter}
+                  onChange={(event) => handleChange(event)}
+                  className={`input ${
+                    formErrors.error_pageTitle ? "input--error" : ""
+                  }`}
+                />
+              </div>
 
-            <div className="twitterfield">
-              <input
-                type="text"
-                placeholder="https://twitter.com/username"
-                name="twitter"
-                defaultValue={user.twitter}
-                onChange={(event) => handleChange(event)}
-                className={`input ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
-              />
-            </div>
+              {formErrors.error_pageTitle && (
+                <p className="form-error">This field is required</p>
+              )}
 
-            {formErrors.error_pageTitle && (
-              <p className="form-error">This field is required</p>
-            )}
+              <div className="instagramfield">
+                <input
+                  type="text"
+                  placeholder="https://instagram.com/username"
+                  name="instagram"
+                  defaultValue={user.instagram}
+                  onChange={(event) => handleChange(event)}
+                  className={`input ${
+                    formErrors.error_pageTitle ? "input--error" : ""
+                  }`}
+                />
+              </div>
+              {formErrors.error_fullName && (
+                <p className="form-error">This field is required</p>
+              )}
 
-            <div className="instagramfield">
-              <input
-                type="text"
-                placeholder="https://instagram.com/username"
-                name="instagram"
-                defaultValue={user.instagram}
-                onChange={(event) => handleChange(event)}
-                className={`input ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
-              />
-            </div>
-            {formErrors.error_fullName && (
-              <p className="form-error">This field is required</p>
-            )}
+              <div className="facebookfield">
+                <input
+                  type="text"
+                  placeholder="https://facebook.com/username"
+                  name="facebook"
+                  defaultValue={user.facebook}
+                  onChange={(event) => handleChange(event)}
+                  className={`input ${
+                    formErrors.error_pageTitle ? "input--error" : ""
+                  }`}
+                />
+              </div>
 
-            <div className="facebookfield">
-              <input
-                type="text"
-                placeholder="https://facebook.com/username"
-                name="facebook"
-                defaultValue={user.facebook}
-                onChange={(event) => handleChange(event)}
-                className={`input ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
-              />
-            </div>
-
-            <div className="linkedinfield">
-              <input
-                type="text"
-                placeholder="https://linkedin.com/username"
-                name="linkedin"
-                defaultValue={user.linkedin}
-                onChange={(event) => handleChange(event)}
-                className={`input ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
-              />
-            </div>
+              <div className="linkedinfield">
+                <input
+                  type="text"
+                  placeholder="https://linkedin.com/username"
+                  name="linkedin"
+                  defaultValue={user.linkedin}
+                  onChange={(event) => handleChange(event)}
+                  className={`input ${
+                    formErrors.error_pageTitle ? "input--error" : ""
+                  }`}
+                />
+              </div>
             </div>
 
             <div className="social__form-col">
+              <div className="youtubefield">
+                <input
+                  type="text"
+                  placeholder="https://youtube.com/username"
+                  name="youtube"
+                  defaultValue={user.youtube}
+                  onChange={(event) => handleChange(event)}
+                  className={`input ${
+                    formErrors.error_pageTitle ? "input--error" : ""
+                  }`}
+                />
+              </div>
 
+              <div className="githubfield">
+                <input
+                  type="text"
+                  placeholder="https://github.com/username"
+                  name="github"
+                  defaultValue={user.github}
+                  onChange={(event) => handleChange(event)}
+                  className={`input ${
+                    formErrors.error_pageTitle ? "input--error" : ""
+                  }`}
+                />
+              </div>
 
-            <div className="youtubefield">
-              <input
-                type="text"
-                placeholder="https://youtube.com/username"
-                name="youtube"
-                defaultValue={user.youtube}
-                onChange={(event) => handleChange(event)}
-                className={`input ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
-              />
-            </div>
+              <div className="emailfield">
+                <input
+                  type="text"
+                  placeholder="example@email.com"
+                  name="email"
+                  defaultValue={user.email}
+                  onChange={(event) => handleChange(event)}
+                  className={`input ${
+                    formErrors.error_pageTitle ? "input--error" : ""
+                  }`}
+                />
+              </div>
 
-            <div className="githubfield">
-              <input
-                type="text"
-                placeholder="https://github.com/username"
-                name="github"
-                defaultValue={user.github}
-                onChange={(event) => handleChange(event)}
-                className={`input ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
-              />
-            </div>
-
-            <div className="emailfield">
-              <input
-                type="text"
-                placeholder="example@email.com"
-                name="email"
-                defaultValue={user.email}
-                onChange={(event) => handleChange(event)}
-                className={`input ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
-              />
-            </div>
-
-            <button className="social__button">NEXT</button>
+              <button className="social__button">NEXT</button>
             </div>
           </form>
         </div>
