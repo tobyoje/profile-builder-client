@@ -65,15 +65,17 @@ const AddProfileImage = () => {
     <>
       <SetupHeader />
 
-      <div className="basic">
-        <h2 className="basic__title">Photo</h2>
-        <p className="basic__subtitle">
+      <div className="profileimage">
+        <h2 className="profileimage__title">Photo</h2>
+        <p className="profileimage__subtitle">
           Add your profile image and a beautiful banner picture
         </p>
 
-        <div className="basic__form">
-          <form onSubmit={handleSubmit}>
-            <div className="upload-area ">
+        <div className="profileimage__form">
+          <form className="profileimage__form-container" onSubmit={handleSubmit}>
+          <div className="profileimage__form-col">
+
+            <div className="profileimage__upload-area ">
               <label htmlFor="inputfile">
                 upload your spotlight picture
                 <img className="upload-icon" src={uploadIcon} />
@@ -88,10 +90,12 @@ const AddProfileImage = () => {
                 onChange={handleFileChange}
               />
             </div>
+            </div>
+            <div className="profileimage__form-col">
 
             <div className="choose-hero">
-              <h2 className="basic__subtitle basic__subtitle--bold">
-                Choose your hero photo or upload yours
+              <h2 className="profileimage__subtitle profileimage__subtitle--bold">
+                Choose your hero photo
               </h2>
 
               <div className="hero-samples">
@@ -154,7 +158,8 @@ const AddProfileImage = () => {
               </div>
             </div>
 
-            <button className="basic__button">NEXT</button>
+            <button className="profileimage__button">NEXT</button>
+            </div>
           </form>
         </div>
       </div>

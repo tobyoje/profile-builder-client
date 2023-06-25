@@ -92,7 +92,9 @@ const EditSocialLinks = () => {
         </p>
 
         <div className="social__form">
-          <form onSubmit={handleUpdate}>
+          <form className="social__form-container" onSubmit={handleUpdate}>
+          <div className="social__form-col">
+
             <div className="twitterfield">
               <input
                 type="text"
@@ -151,6 +153,10 @@ const EditSocialLinks = () => {
                 }`}
               />
             </div>
+            </div>
+
+            <div className="social__form-col">
+
 
             <div className="youtubefield">
               <input
@@ -192,6 +198,7 @@ const EditSocialLinks = () => {
             </div>
 
             <button className="social__button">NEXT</button>
+            </div>
           </form>
         </div>
       </div>

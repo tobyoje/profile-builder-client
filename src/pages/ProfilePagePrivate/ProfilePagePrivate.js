@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Theme1 from "../../themes/Theme1/Theme1";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import Theme2 from "../../themes/Theme2/Theme2";
 
 const ProfilePagePrivate = () => {
   const [profileData, setProfileData] = useState(null);
@@ -45,7 +46,17 @@ const ProfilePagePrivate = () => {
 
   return (
     <>
-      <Theme1 currentUserId={currentUserId} profileData={profileData} />
+
+    {
+profileData.style == "style1" && (
+        <Theme1 profileData={profileData} />
+)
+    }
+      {
+profileData.style == "style2" && (
+        <Theme2 profileData={profileData} />
+)
+    }
     </>
   );
 };

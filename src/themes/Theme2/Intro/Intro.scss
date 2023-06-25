@@ -1,0 +1,146 @@
+@use "../../../styles/partials/mixins" as *;
+
+.intro2 {
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  padding: 2rem 0;
+
+  &__icons {
+    justify-content: space-between;
+    display: flex;
+    padding: 0 2rem;
+
+    @include media-tablet {
+      padding: 0rem 4em;
+    }
+  }
+
+  &__icons-col {
+    display: flex;
+  }
+
+  &__icon {
+    width: 2.5rem;
+
+    @include media-tablet {
+      width: 3rem;
+    }
+
+    &--first {
+      margin-right: 2rem;
+    }
+  }
+
+  &__details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 2rem;
+
+    @include media-tablet {
+      padding: 10rem 5rem 2rem 5rem;
+    }
+
+    @include media-desktop {
+      padding: 10 20rem 2rem 20rem;
+    }
+  }
+
+  &__profileimg {
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    border: 6px solid black;
+    margin-bottom: 1rem;
+    object-fit: cover;
+
+    @include media-tablet {
+      margin-top: -7rem;
+      width: 25rem;
+      height: 25rem;
+      border: 12px solid black;
+    }
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+
+    @include media-tablet {
+      padding: 1rem 10rem;
+    }
+
+    @include media-desktop {
+      padding: 1rem 25rem;
+    }
+  }
+
+  &__name {
+    font-size: 2rem;
+
+    @include media-tablet {
+      font-size: 3rem;
+    }
+  }
+
+  &__bio {
+    padding-top: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+
+    @include media-tablet {
+      font-size: 1.6rem;
+    }
+    @include media-desktop {
+      font-size: 1.8rem;
+    }
+  }
+
+  &__socials {
+    display: flex;
+    justify-content: center;
+    padding: 1.5rem 3rem;
+    width: 100%;
+
+    @include media-tablet {
+      // display: none;
+    }
+    &--tab {
+      display: none;
+
+      @include media-tablet {
+        display: flex;
+        padding-bottom: 4rem;
+        position: absolute;
+        right: 5rem;
+        top: 20rem;
+      }
+      @include media-desktop {
+        right: 20rem;
+      }
+    }
+  }
+
+  &__social-container {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    height: 3rem;
+    width: 3rem;
+    border-radius: 2rem;
+    margin: 0 0.5rem;
+  }
+
+  &__social-icon {
+    width: 1.5rem;
+
+    &--facebook {
+      width: 0.8rem;
+    }
+  }
+}

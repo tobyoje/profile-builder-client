@@ -112,65 +112,75 @@ const EditBasicInfo = () => {
     <>
       <SettingsHeader />
 
-      <div className="basic">
-        <h2 className="basic__title">Edit Basic Information</h2>
-        <p className="basic__subtitle">Add some information for your page</p>
+      <div className="basicinfo">
+        <h2 className="basicinfo__title">Edit Basic Information</h2>
+        <p className="basicinfo__subtitle">
+          Add some information for your page
+        </p>
 
-        <div className="basic__form">
-          <form onSubmit={handleUpdate}>
-            <input
-              type="text"
-              placeholder="Page title"
-              name="page_title"
-              defaultValue={user.page_title}
-              onChange={(event) => handleChange(event)}
-              className={`input ${
-                formErrors.error_pageTitle ? "input--error" : ""
-              }`}
-            />
-            {formErrors.error_pageTitle && (
-              <p className="form-error">This field is required</p>
-            )}
-            <input
-              type="text"
-              placeholder="Your name"
-              name="full_name"
-              defaultValue={user.full_name}
-              onChange={(event) => handleChange(event)}
-              className={`input ${
-                formErrors.error_fullName ? "input--error" : ""
-              }`}
-            />
-            {formErrors.error_fullName && (
-              <p className="form-error">This field is required</p>
-            )}
+        <div className="basicinfo__form">
+          <form className="basicinfo__form-container" onSubmit={handleUpdate}>
+          <div className="basicinfo__form-col">
+              <input
+                type="text"
+                placeholder="Page title"
+                name="page_title"
+                defaultValue={user.page_title}
+                onChange={(event) => handleChange(event)}
+                className={`input ${
+                  formErrors.error_pageTitle ? "input--error" : ""
+                }`}
+              />
+              {formErrors.error_pageTitle && (
+                <p className="form-error">This field is required</p>
+              )}
+              <input
+                type="text"
+                placeholder="Your name"
+                name="full_name"
+                defaultValue={user.full_name}
+                onChange={(event) => handleChange(event)}
+                className={`input ${
+                  formErrors.error_fullName ? "input--error" : ""
+                }`}
+              />
+              {formErrors.error_fullName && (
+                <p className="form-error">This field is required</p>
+              )}
 
-            <input
-              type="text"
-              placeholder="Page link"
-              name="link"
-              defaultValue={user.page_link}
-              onChange={(event) => handleChange(event)}
-              className={`input ${formErrors.error_link ? "input--error" : ""}`}
-            />
-            {formErrors.error_link && (
-              <p className="form-error">This field is required</p>
-            )}
-            <textarea
-              type=""
-              placeholder="Biography or introtext ..."
-              name="biography"
-              defaultValue={user.biography}
-              onChange={(event) => handleChange(event)}
-              className={`input ${
-                formErrors.error_biography ? "input--error" : ""
-              }`}
-            />
-            {formErrors.error_biography && (
-              <p className="form-error">This field is required</p>
-            )}
+              <input
+                type="text"
+                placeholder="Page link"
+                name="link"
+                defaultValue={user.page_link}
+                onChange={(event) => handleChange(event)}
+                className={`input ${
+                  formErrors.error_link ? "input--error" : ""
+                }`}
+              />
+              {formErrors.error_link && (
+                <p className="form-error">This field is required</p>
+              )}
+            </div>
 
-            <button className="basic__button">SAVE</button>
+            <div className="basicinfo__form-col">
+              <textarea
+                type=""
+                placeholder="Biography or introtext ..."
+                name="biography"
+                defaultValue={user.biography}
+                onChange={(event) => handleChange(event)}
+                className={`input ${
+                  formErrors.error_biography ? "input--error" : ""
+                }`}
+              />
+              {formErrors.error_biography && (
+                <p className="form-error">This field is required</p>
+              )}
+                          <button className="basicinfo__button">SAVE</button>
+
+            </div>
+
           </form>
         </div>
       </div>

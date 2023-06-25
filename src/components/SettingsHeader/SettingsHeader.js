@@ -9,7 +9,7 @@ const SettingsHeader = () => {
         <Link to="/settings">
           <img src={arrowLeft} />
         </Link>
-        <h2 className="hero__heading">Your Settings</h2>
+        <h2 className="settings-heading">Your Settings</h2>
       </div>
     </>
   );

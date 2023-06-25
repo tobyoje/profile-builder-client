@@ -1,322 +1,358 @@
-.basic {
-    padding: 3rem 2rem;
-  
-    &__title {
-      font-size: 1.6rem;
-      padding-bottom: 0.4rem;
+@use "../../styles/partials/mixins" as *;
+
+.profileimage {
+  padding: 3rem 2rem;
+
+  @include media-tablet {
+    padding: 5rem 5rem;
+  }
+
+  @include media-desktop {
+    padding: 5rem 25rem;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    padding-bottom: 0.4rem;
+
+    @include media-tablet {
+      font-size: 2rem;
     }
-    &__subtitle {
-      font-size: 1rem;
-      color: #9b9b9b;
-  
-      &--bold {
-        font-weight: 500;
-        color: black;
-      }
+
+    @include media-desktop {
+      font-size: 2.4rem;
     }
-  
-    &__form {
+  }
+  &__subtitle {
+    font-size: 1rem;
+    color: #9b9b9b;
+
+    @include media-tablet {
+      font-size: 1.4rem;
+    }
+
+    @include media-desktop {
+      font-size: 1.8rem;
+    }
+
+    &--bold {
+      font-weight: 500;
+      color: black;
+    }
+  }
+
+
+
+
+
+  &__form-container {
+    @include media-tablet {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__form-col {
+    @include media-tablet {
       display: flex;
       flex-direction: column;
-      padding-top: 2rem;
-  
-      input {
-        font-size: 1.3rem;
-        height: 4.5rem;
-        border-radius: 1rem;
-        border: 0;
-        padding-left: 1.5rem;
-        font-family: Poppins;
-        color: black;
-        background-color: #f9f9f9;
-        width: 28rem;
-        margin-bottom: 1.5rem;
-  
-        // @include media-tablet {
-        //   width: 100%;
-        //   height: 4rem;
-        //   border: 1px solid black;
-        //   border-radius: 5rem;
-        //   padding-left: 1.5rem;
-        //   color: black;
-        // }
-      }
-  
-      input::placeholder {
-        color: #9b9b9b;
-      }
-  
-      input:focus {
-        border: 1px solid black;
-        outline: none;
-      }
-      input:invalid {
-        border: 1px solid red;
-      }
-  
-      textarea {
-        font-size: 1.3rem;
-        height: 12rem;
-        border-radius: 1rem;
-        border: 0;
-        padding-top: 1.5rem;
-        padding-left: 1.5rem;
-        font-family: Poppins;
-        color: black;
-        background-color: #f9f9f9;
-        width: 28rem;
-        margin-bottom: 1.5rem;
-      }
-  
-      textarea::placeholder {
-        color: #9b9b9b;
-      }
-  
-      textarea:focus {
-        border: 1px solid black;
-        outline: none;
-      }
-      textarea:invalid {
-        border: 1px solid red;
-      }
-  
-      input::file-selector-button {
-        display: none;
-        font-weight: bold;
-        color: dodgerblue;
-        padding: 0.5em;
-        border: thin solid grey;
-        border-radius: 3px;
-      }
-  
-      input[type="radio"] {
-        display: none;
-      }
-  
-      input#hero1[type="radio"] + label {
-        background-image: url("../../assets/images/hero-1.jpg");
-        background-size: cover;
-        border-color: white;
-        border-style: solid;
-        border-radius: 1rem;
-        height: 7rem;
-        width: 8rem;
-        display: inline-block;
-        padding: 0 0 0 0px;
-      }
-  
-      input#hero1[type="radio"]:checked + label {
-        background: linear-gradient(
-            0deg,
-            rgba(255, 255, 255, 0.66),
-            rgba(255, 255, 255, 0.66)
-          ),
-          url("../../assets/images/hero-1.jpg");
-        background-size: cover;
-        border-color: white;
-        border-style: solid;
-        border-radius: 1rem;
-        height: 7rem;
-        width: 8rem;
-        display: inline-block;
-        padding: 0 0 0 0px;
-        border: 0.3px solid black;
-      }
-  
-      input#hero2[type="radio"] + label {
-        background-image: url("../../assets/images/hero-2.jpg");
-        background-size: cover;
-        border-color: white;
-        border-style: solid;
-        border-radius: 1rem;
-        height: 7rem;
-        width: 8rem;
-        display: inline-block;
-        padding: 0 0 0 0px;
-      }
-  
-      input#hero2[type="radio"]:checked + label {
-        background: linear-gradient(
-            0deg,
-            rgba(255, 255, 255, 0.66),
-            rgba(255, 255, 255, 0.66)
-          ),
-          url("../../assets/images/hero-2.jpg");
-        background-size: cover;
-        border-color: white;
-        border-style: solid;
-        border-radius: 1rem;
-        height: 7rem;
-        width: 8rem;
-        display: inline-block;
-        padding: 0 0 0 0px;
-        border: 0.3px solid black;
-      }
-  
-      input#hero3[type="radio"] + label {
-        background-image: url("../../assets/images/hero-3.jpg");
-        background-size: cover;
-        border-color: white;
-        border-style: solid;
-        border-radius: 1rem;
-        height: 7rem;
-        width: 8rem;
-        display: inline-block;
-        padding: 0 0 0 0px;
-      }
-  
-      input#hero3[type="radio"]:checked + label {
-        background: linear-gradient(
-            0deg,
-            rgba(255, 255, 255, 0.66),
-            rgba(255, 255, 255, 0.66)
-          ),
-          url("../../assets/images/hero-3.jpg");
-        background-size: cover;
-        border-color: white;
-        border-style: solid;
-        border-radius: 1rem;
-        height: 7rem;
-        width: 8rem;
-        display: inline-block;
-        padding: 0 0 0 0px;
-        border: 0.3px solid black;
-      }
-  
-      input#hero4[type="radio"] + label {
-        background-image: url("../../assets/images/hero-4.jpg");
-        background-size: cover;
-        border-color: white;
-        border-style: solid;
-        border-radius: 1rem;
-        height: 7rem;
-        width: 8rem;
-        display: inline-block;
-        padding: 0 0 0 0px;
-      }
-  
-      input#hero4[type="radio"]:checked + label {
-        background: linear-gradient(
-            0deg,
-            rgba(255, 255, 255, 0.66),
-            rgba(255, 255, 255, 0.66)
-          ),
-          url("../../assets/images/hero-4.jpg");
-        background-size: cover;
-        border-color: white;
-        border-style: solid;
-        border-radius: 1rem;
-        height: 7rem;
-        width: 8rem;
-        display: inline-block;
-        padding: 0 0 0 0px;
-        border: 0.3px solid black;
-      }
-  
-      input#hero5[type="radio"] + label {
-        background-image: url("../../assets/images/hero-5.jpg");
-        background-size: cover;
-        border-color: white;
-        border-style: solid;
-        border-radius: 1rem;
-        height: 7rem;
-        width: 8rem;
-        display: inline-block;
-        padding: 0 0 0 0px;
-      }
-  
-      input#hero5[type="radio"]:checked + label {
-        background: linear-gradient(
-            0deg,
-            rgba(255, 255, 255, 0.66),
-            rgba(255, 255, 255, 0.66)
-          ),
-          url("../../assets/images/hero-5.jpg");
-        background-size: cover;
-        border-color: white;
-        border-style: solid;
-        border-radius: 1rem;
-        height: 7rem;
-        width: 8rem;
-        display: inline-block;
-        padding: 0 0 0 0px;
-        border: 0.3px solid black;
-      }
-  
-      input#hero6[type="radio"] + label {
-        background-image: url("../../assets/images/hero-1.jpg");
-        background-size: cover;
-        border-color: white;
-        border-style: solid;
-        border-radius: 1rem;
-        height: 7rem;
-        width: 8rem;
-        display: inline-block;
-        padding: 0 0 0 0px;
-      }
-  
-      input#hero6[type="radio"]:checked + label {
-        background: linear-gradient(
-            0deg,
-            rgba(255, 255, 255, 0.66),
-            rgba(255, 255, 255, 0.66)
-          ),
-          url("../../assets/images/hero-1.jpg");
-        background-size: cover;
-        border-color: white;
-        border-style: solid;
-        border-radius: 1rem;
-        height: 7rem;
-        width: 8rem;
-        display: inline-block;
-        padding: 0 0 0 0px;
-        border: 0.3px solid black;
-      }
-  
-      &__error {
-        color: red;
-        padding-top: 1rem;
-        &::before {
-          content: "";
-          background-image: url("");
-          background-repeat: no-repeat;
-          background-size: 1.5rem;
-          display: block;
-          width: 2rem;
-          height: 2rem;
-          float: left;
-          margin: 0;
-        }
-      }
-    }
-  
-    &__button {
-      width: 100%;
-      background-color: black;
-      color: white;
+      width: 48.5%;
     }
   }
-  
-  .choose-hero {
-    margin-top: 2rem;
+
+  &__form {
     display: flex;
     flex-direction: column;
+    padding-top: 2rem;
+
+    input {
+      font-size: 1.3rem;
+      height: 4.5rem;
+      border-radius: 1rem;
+      border: 0;
+      padding-left: 1.5rem;
+      font-family: Poppins;
+      color: black;
+      background-color: #f9f9f9;
+      width: 28rem;
+      margin-bottom: 1.5rem;
+
+      // @include media-tablet {
+      //   width: 100%;
+      //   height: 4rem;
+      //   border: 1px solid black;
+      //   border-radius: 5rem;
+      //   padding-left: 1.5rem;
+      //   color: black;
+      // }
+    }
+
+    input::placeholder {
+      color: #9b9b9b;
+    }
+
+    input:focus {
+      border: 1px solid black;
+      outline: none;
+    }
+    input:invalid {
+      border: 1px solid red;
+    }
+
+    textarea {
+      font-size: 1.3rem;
+      height: 12rem;
+      border-radius: 1rem;
+      border: 0;
+      padding-top: 1.5rem;
+      padding-left: 1.5rem;
+      font-family: Poppins;
+      color: black;
+      background-color: #f9f9f9;
+      width: 28rem;
+      margin-bottom: 1.5rem;
+    }
+
+    textarea::placeholder {
+      color: #9b9b9b;
+    }
+
+    textarea:focus {
+      border: 1px solid black;
+      outline: none;
+    }
+    textarea:invalid {
+      border: 1px solid red;
+    }
+
+    input::file-selector-button {
+      display: none;
+      font-weight: bold;
+      color: dodgerblue;
+      padding: 0.5em;
+      border: thin solid grey;
+      border-radius: 3px;
+    }
+
+    input[type="radio"] {
+      display: none;
+    }
+
+    input#hero1[type="radio"] + label {
+      background-image: url("../../assets/images/hero-1.jpg");
+      background-size: cover;
+      border-color: white;
+      border-style: solid;
+      border-radius: 1rem;
+      height: 7rem;
+      width: 8rem;
+      display: inline-block;
+      padding: 0 0 0 0px;
+    }
+
+    input#hero1[type="radio"]:checked + label {
+      background: linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.66),
+          rgba(255, 255, 255, 0.66)
+        ),
+        url("../../assets/images/hero-1.jpg");
+      background-size: cover;
+      border-color: white;
+      border-style: solid;
+      border-radius: 1rem;
+      height: 7rem;
+      width: 8rem;
+      display: inline-block;
+      padding: 0 0 0 0px;
+      border: 0.3px solid black;
+    }
+
+    input#hero2[type="radio"] + label {
+      background-image: url("../../assets/images/hero-2.jpg");
+      background-size: cover;
+      border-color: white;
+      border-style: solid;
+      border-radius: 1rem;
+      height: 7rem;
+      width: 8rem;
+      display: inline-block;
+      padding: 0 0 0 0px;
+    }
+
+    input#hero2[type="radio"]:checked + label {
+      background: linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.66),
+          rgba(255, 255, 255, 0.66)
+        ),
+        url("../../assets/images/hero-2.jpg");
+      background-size: cover;
+      border-color: white;
+      border-style: solid;
+      border-radius: 1rem;
+      height: 7rem;
+      width: 8rem;
+      display: inline-block;
+      padding: 0 0 0 0px;
+      border: 0.3px solid black;
+    }
+
+    input#hero3[type="radio"] + label {
+      background-image: url("../../assets/images/hero-3.jpg");
+      background-size: cover;
+      border-color: white;
+      border-style: solid;
+      border-radius: 1rem;
+      height: 7rem;
+      width: 8rem;
+      display: inline-block;
+      padding: 0 0 0 0px;
+    }
+
+    input#hero3[type="radio"]:checked + label {
+      background: linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.66),
+          rgba(255, 255, 255, 0.66)
+        ),
+        url("../../assets/images/hero-3.jpg");
+      background-size: cover;
+      border-color: white;
+      border-style: solid;
+      border-radius: 1rem;
+      height: 7rem;
+      width: 8rem;
+      display: inline-block;
+      padding: 0 0 0 0px;
+      border: 0.3px solid black;
+    }
+
+    input#hero4[type="radio"] + label {
+      background-image: url("../../assets/images/hero-4.jpg");
+      background-size: cover;
+      border-color: white;
+      border-style: solid;
+      border-radius: 1rem;
+      height: 7rem;
+      width: 8rem;
+      display: inline-block;
+      padding: 0 0 0 0px;
+    }
+
+    input#hero4[type="radio"]:checked + label {
+      background: linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.66),
+          rgba(255, 255, 255, 0.66)
+        ),
+        url("../../assets/images/hero-4.jpg");
+      background-size: cover;
+      border-color: white;
+      border-style: solid;
+      border-radius: 1rem;
+      height: 7rem;
+      width: 8rem;
+      display: inline-block;
+      padding: 0 0 0 0px;
+      border: 0.3px solid black;
+    }
+
+    input#hero5[type="radio"] + label {
+      background-image: url("../../assets/images/hero-5.jpg");
+      background-size: cover;
+      border-color: white;
+      border-style: solid;
+      border-radius: 1rem;
+      height: 7rem;
+      width: 8rem;
+      display: inline-block;
+      padding: 0 0 0 0px;
+    }
+
+    input#hero5[type="radio"]:checked + label {
+      background: linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.66),
+          rgba(255, 255, 255, 0.66)
+        ),
+        url("../../assets/images/hero-5.jpg");
+      background-size: cover;
+      border-color: white;
+      border-style: solid;
+      border-radius: 1rem;
+      height: 7rem;
+      width: 8rem;
+      display: inline-block;
+      padding: 0 0 0 0px;
+      border: 0.3px solid black;
+    }
+
+    input#hero6[type="radio"] + label {
+      background-image: url("../../assets/images/hero-6.jpg");
+      background-size: cover;
+      border-color: white;
+      border-style: solid;
+      border-radius: 1rem;
+      height: 7rem;
+      width: 8rem;
+      display: inline-block;
+      padding: 0 0 0 0px;
+    }
+
+    input#hero6[type="radio"]:checked + label {
+      background: linear-gradient(
+          0deg,
+          rgba(255, 255, 255, 0.66),
+          rgba(255, 255, 255, 0.66)
+        ),
+        url("../../assets/images/hero-6.jpg");
+      background-size: cover;
+      border-color: white;
+      border-style: solid;
+      border-radius: 1rem;
+      height: 7rem;
+      width: 8rem;
+      display: inline-block;
+      padding: 0 0 0 0px;
+      border: 0.3px solid black;
+    }
+
+    &__error {
+      color: red;
+      padding-top: 1rem;
+      &::before {
+        content: "";
+        background-image: url("");
+        background-repeat: no-repeat;
+        background-size: 1.5rem;
+        display: block;
+        width: 2rem;
+        height: 2rem;
+        float: left;
+        margin: 0;
+      }
+    }
   }
-  
-  .inputfile {
-    opacity: 0;
-    position: absolute;
-    z-index: -1;
+
+  &__button {
+    width: 100%;
+    background-color: black;
+    color: white;
   }
-  
-  .upload-area {
+  &__upload-area {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 3rem;
+    padding: 6rem 3rem;
     background-color: #f9f9f9;
     color: #9b9b9b;
     border-radius: 1rem;
+
+    @include media-desktop {
+      padding: 12rem 3rem;
+
+    }
   
     label {
       display: flex;
@@ -324,19 +360,34 @@
       align-items: center;
     }
   }
-  
-  .upload-icon {
+
+}
+
+.choose-hero {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.inputfile {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+
+
+.upload-icon {
+  padding-top: 1.5rem;
+  width: 2rem;
+}
+
+.hero-samples {
+  padding-bottom: 2rem;
+
+  &__col {
     padding-top: 1.5rem;
-    width: 2rem;
+    display: flex;
+    justify-content: space-between;
   }
-  
-  .hero-samples {
-    padding-bottom: 2rem;
-  
-    &__col {
-      padding-top: 1.5rem;
-      display: flex;
-      justify-content: space-between;
-    }
-  }
-  
+}

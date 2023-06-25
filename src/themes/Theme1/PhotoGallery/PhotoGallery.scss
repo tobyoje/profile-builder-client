@@ -44,12 +44,11 @@
       width: 33rem;
       height: 33rem;
       margin-bottom: 3rem;
-
     }
 
     @include media-desktop {
       width: 28rem;
-      height: 30rem;
+      height: 28rem;
     }
 
     &:hover {

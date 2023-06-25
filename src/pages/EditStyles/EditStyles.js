@@ -66,21 +66,6 @@ const EditStyles = () => {
       errors["error_themeColor"] = true;
     }
 
-    // if (!basicData.biography) {
-    //   formIsValid = false;
-    //   errors["error_biography"] = true;
-    // }
-
-    // if (
-    //   !basicData.pageTitle ||
-    //   !basicData.fullName ||
-    //   !basicData.link ||
-    //   !basicData.biography
-    // ) {
-    //   formIsValid = false;
-    //   errors["error_noEntry"] = true;
-    // }
-
     if (!formIsValid) {
       return setFormErrors(errors);
     }
@@ -141,6 +126,7 @@ const EditStyles = () => {
               </option>
               <option value="Poppins">Font Style 1</option>
               <option value="Lato">Font Style 2</option>
+              
             </select>
             {formErrors.error_fonts && (
               <p className="form-error">You must select an option</p>

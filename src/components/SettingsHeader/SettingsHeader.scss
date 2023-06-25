@@ -1,3 +1,5 @@
+@use "../../styles/partials/mixins" as *;
+
 .settings-header {
   display: flex;
   flex-direction: column;
@@ -8,8 +10,16 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  height: 20em;
+  height: 25rem;
   padding: 3rem 2rem 5rem 2rem;
+
+  @include media-tablet {
+    padding: 5rem 5rem;
+  }
+
+  @include media-desktop {
+    padding: 5rem 5rem 5rem 15rem;
+  }
 
   &--onpage {
     justify-content: flex-end;

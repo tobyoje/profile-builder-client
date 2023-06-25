@@ -30,7 +30,7 @@
     width: 2.5rem;
 
     @include media-tablet {
-      width: 3.5rem;
+      width: 3rem;
     }
 
     &--first {
@@ -100,6 +100,10 @@
 
     @include media-tablet {
       text-align: left;
+      font-size: 1.6rem;
+    }
+    @include media-desktop {
+      font-size: 1.8rem;
     }
   }
 
@@ -122,10 +126,9 @@
         right: 5rem;
         top: 20rem;
       }
-@include media-desktop {
-  right: 20rem;
-}
-
+      @include media-desktop {
+        right: 20rem;
+      }
     }
   }
 

@@ -117,7 +117,9 @@ const AddSocialLinks = () => {
         <p className="social__subtitle">Add some information for your page</p>
 
         <div className="social__form">
-          <form onSubmit={handleUpdate}>
+          <form className="social__form-container" onSubmit={handleUpdate}>
+          <div className="social__form-col">
+
             <div className="twitterfield">
               <input
                 type="text"
@@ -172,6 +174,10 @@ const AddSocialLinks = () => {
                 }`}
               />
             </div>
+            </div>
+
+
+          <div className="social__form-col">
 
             <div className="youtubefield">
               <input
@@ -210,6 +216,7 @@ const AddSocialLinks = () => {
             </div>
 
             <button className="social__button">NEXT</button>
+            </div>
           </form>
         </div>
       </div>

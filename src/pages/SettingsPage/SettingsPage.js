@@ -31,15 +31,16 @@ const SettingsPage = () => {
 
   return (
     <>
-      <div className="settings-header settings-header--onpage">
-        <h2 className="hero__heading">Your Settings</h2>
+      <div className="settings-container">
+        <h2 className="settings-heading">Your Settings</h2>
       </div>
       <div className="settings">
-        <h2 className="settings__title">
-          Switch-up your page content and styles to suit your audience
-        </h2>
+       
 
         <div className="settings__basic">
+        <h2 className="settings__title">
+          Basic information and styles
+        </h2>
           <Link to={`/private/${page_link}`}>
             <div className="settings__container">
               <p>My Page</p>
@@ -69,9 +70,10 @@ const SettingsPage = () => {
           </Link>
         </div>
 
-        <h2 className="settings__title">Page Sections</h2>
 
         <div className="settings__basic">
+        <h2 className="settings__title">Page Sections</h2>
+
           <Link to={`/edit-socials/${page_link}`}>
             <div className="settings__container">
               <div className="settings__container--left">
