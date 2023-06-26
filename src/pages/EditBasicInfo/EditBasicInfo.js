@@ -36,7 +36,6 @@ const EditBasicInfo = () => {
     setBasicData({ ...basicData, [event.target.name]: event.target.value });
   };
 
-  //   console.log(basicData);
 
   const updatedLink = basicData.link || user.page_link;
 
@@ -47,7 +46,6 @@ const EditBasicInfo = () => {
     biography: basicData.biography || user.biography,
   };
 
-  console.log(newBasic);
 
   const handleUpdate = (event) => {
     event.preventDefault();
@@ -81,7 +79,6 @@ const EditBasicInfo = () => {
       return setFormErrors(errors);
     }
 
-    console.log(user);
 
     const token = sessionStorage.getItem("token");
 
@@ -97,7 +94,6 @@ const EditBasicInfo = () => {
       )
       .then((response) => {
         sessionStorage.setItem("page_link", updatedLink);
-        console.log(response.data);
         setTimeout(() => {
           navigate(`/settings/${pageLink}`);
         }, 1000);

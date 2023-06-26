@@ -1,6 +1,5 @@
 import React from "react";
 import "./ImageCards.scss";
-import extlinkICON from "../../../assets/icons/ext-link.svg";
 import { Link } from "react-router-dom";
 
 const ImageCards = ({ profileData }) => {
@@ -27,8 +26,6 @@ const ImageCards = ({ profileData }) => {
     },
   ];
 
-  console.log(imageDatas);
-
   return (
     <div className="imagecards2">
       {profileData.ic_link1 && profileData.ic_title1 && (
@@ -40,7 +37,6 @@ const ImageCards = ({ profileData }) => {
               if (!imageData.link || !imageData.title) {
                 return null;
               }
-              console.log(imageData);
               return (
                 <div className="imagecards2__box">
                   <Link

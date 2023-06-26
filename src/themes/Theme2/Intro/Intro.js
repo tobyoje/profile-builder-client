@@ -16,9 +16,7 @@ const Intro = ({ profileData, currentUserId }) => {
   const { pageLink } = useParams();
 
 
-  console.log(currentUserId);
 
-  console.log(profileData.user_id);
 
   const showButtons = token && profileData.user_id == userId;
 
@@ -32,7 +30,6 @@ const Intro = ({ profileData, currentUserId }) => {
     }, 1000);
   };
 
-  console.log(profileData);
 
   return (
     <>
@@ -74,7 +71,7 @@ const Intro = ({ profileData, currentUserId }) => {
             style={{ borderColor: `${profileData.color}` }}
             className="intro2__profileimg"
             src={`${process.env.REACT_APP_API_BASE_URL}/public-images/${profileData.profile_image}`}
-            alt="profile Picture"
+            alt="spotlight"
           />
 
           <div className="intro2__info">

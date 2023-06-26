@@ -28,20 +28,10 @@ const ProfilePage = () => {
     );
   }
 
-
   return (
     <>
-
-    {
-profileData.style == "style1" && (
-        <Theme1 profileData={profileData} />
-)
-    }
-      {
-profileData.style == "style2" && (
-        <Theme2 profileData={profileData} />
-)
-    }
+      {profileData.style == "style1" && <Theme1 profileData={profileData} />}
+      {profileData.style == "style2" && <Theme2 profileData={profileData} />}
     </>
   );
 };

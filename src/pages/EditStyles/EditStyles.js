@@ -1,5 +1,5 @@
 import SettingsHeader from "../../components/SettingsHeader/SettingsHeader";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import "./EditStyles.scss";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -26,7 +26,6 @@ const EditStyles = () => {
       })
       .then((response) => {
         setUser(response.data);
-        console.log(user);
       })
       .catch((error) => {
         console.log(error);
@@ -83,7 +82,6 @@ const EditStyles = () => {
         }
       )
       .then((response) => {
-        console.log(response.data);
         setTimeout(() => {
           navigate(`/settings/${pageLink}`);
         }, 1000);

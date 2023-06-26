@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import SetupHeader from "../../components/SetupHeader/SetupHeader";
 import "./AddBasicInfo.scss";
 import { useEffect, useState } from "react";
@@ -9,6 +9,7 @@ const AddBasicInfo = () => {
   const [formErrors, setFormErrors] = useState({});
   // const [user, setUser] = useState(null);
   const navigate = useNavigate();
+  const { pageLink } = useParams();
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
@@ -19,7 +20,7 @@ const AddBasicInfo = () => {
     } else if (page_link === "null" || page_link === "undefined") {
       navigate("/basic");
     } else if (page_link && token) {
-      navigate("/settings");
+      navigate(`/settings/${pageLink}`);
     }
   }, []);
 

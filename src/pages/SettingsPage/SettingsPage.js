@@ -1,20 +1,14 @@
-import SettingsHeader from "../../components/SettingsHeader/SettingsHeader";
 import "./SettingsPage.scss";
 import rightArrow from "../../assets/icons/arrow-right.svg";
-import { Link, useNavigate, useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { Link } from "react-router-dom";
 import copyICON from "../../assets/icons/copy.svg";
 
 const SettingsPage = () => {
-  const [user, setUser] = useState({});
-  const navigate = useNavigate();
   const page_link = sessionStorage.getItem("page_link");
-  const { pageLink } = useParams();
 
   const handleCopy = () => {
     navigator.clipboard
-      .writeText(`https://quickprofile.me/${pageLink}`)
+      .writeText(`https://quickprofile.me/${page_link}`)
       .then(() => {
         console.log("Text copied to clipboard");
       })
@@ -22,27 +16,6 @@ const SettingsPage = () => {
         console.error("Failed to copy text: ", error);
       });
   };
-
-  useEffect(() => {
-    const token = sessionStorage.getItem("token");
-
-    if (!token) {
-      return navigate("../login");
-    }
-
-    axios
-      .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/${pageLink}`, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((response) => {
-        setUser(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
 
   return (
     <>
@@ -57,7 +30,8 @@ const SettingsPage = () => {
           className="settings__clipboard"
         ></input>
         <div className="settings__clip-button" onClick={handleCopy}>
-          <img className="settings__clip-icon" src={copyICON} /> Copy Link
+          <img className="settings__clip-icon" src={copyICON} alt="icon" /> Copy
+          Link
         </div>
       </div>
 
@@ -67,28 +41,28 @@ const SettingsPage = () => {
           <Link to={`/private/${page_link}`}>
             <div className="settings__container">
               <p>My Page</p>
-              <img src={rightArrow} />
+              <img src={rightArrow} alt="icon" />
             </div>
           </Link>
 
           <Link to={`/edit-basic/${page_link}`}>
             <div className="settings__container">
               <p>Basic Information</p>
-              <img src={rightArrow} />
+              <img src={rightArrow} alt="icon" />
             </div>
           </Link>
 
           <Link to={`/edit-styles/${page_link}`}>
             <div className="settings__container">
               <p>Styles and Customization</p>
-              <img src={rightArrow} />
+              <img src={rightArrow} alt="icon" />
             </div>
           </Link>
 
           <Link to={`/edit-profile-images/${page_link}`}>
             <div className="settings__container">
               <p>Spotlight and Hero Photo</p>
-              <img src={rightArrow} />
+              <img src={rightArrow} alt="icon" />
             </div>
           </Link>
         </div>
@@ -102,7 +76,7 @@ const SettingsPage = () => {
                 <div className="settings__container--counter">5</div>
                 <p>Social Links</p>
               </div>
-              <img src={rightArrow} />
+              <img src={rightArrow} alt="icon" />
             </div>
           </Link>
 
@@ -112,7 +86,7 @@ const SettingsPage = () => {
                 <div className="settings__container--counter">5</div>
                 <p>External Links</p>
               </div>
-              <img src={rightArrow} />
+              <img src={rightArrow} alt="icon" />
             </div>
           </Link>
 
@@ -122,7 +96,7 @@ const SettingsPage = () => {
                 <div className="settings__container--counter">6</div>
                 <p>Image Cards</p>
               </div>
-              <img src={rightArrow} />
+              <img src={rightArrow} alt="icon" />
             </div>
           </Link>
 
@@ -132,7 +106,7 @@ const SettingsPage = () => {
                 <div className="settings__container--counter">10</div>
                 <p>Gallery Images</p>
               </div>
-              <img src={rightArrow} />
+              <img src={rightArrow} alt="icon" />
             </div>
           </Link>
         </div>

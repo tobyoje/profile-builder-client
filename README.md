@@ -1,70 +1,60 @@
-# Getting Started with Create React App
+# QuickProfile
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+It is a profile/bio page making app where users can make beautiful personal profile pages in no time with different designs to choose from and share the links across their network.
 
-In the project directory, you can run:
+### Problem
 
-### `npm start`
+Professionals from various sectors occasionally find it challenging to set up a personal profile website due to the technical requirements and associated costs of setup and maintenance.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The majority of them only require something unique and beautiful to demonstrate their persona, which they can then share with their network together with any pertinent work links, social media accounts, and other crucial information.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### User Profile
 
-### `npm test`
+Professionals from different fields can use my app
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Features
 
-### `npm run build`
+1.  Create an account on the app
+2.  Setup your profile page by filling up required fields; Bio text, name among others.
+3.  Choose from the available design styles, colors and fonts
+4.  Add a profile and hero image
+5.  Add social links
+6.  Add external links and image cards
+7.  Add a gallery.
+8.  Get a share link
+9.  You can sign in anytime to edit, switch-up designs and page content
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### How to install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Git pull repository for both forntend and back end
+2. "npm install" all node modules
+3. "npm run migrate", "npm run seed" on backend terminal
+4. "npm start" on frontend and backend
+5. After seed data has been added, you can view pre-made page-links to see what the fields you will be inputting at setup looks like: http://localhost:3000/my-link1, http://localhost:3000/my-link2, http://localhost:3000/my-link3
+6. You can sign up and create yours by following the setup prompts.
+   (See screenshot attached to see what the setup sections look like)
+   ![Sections Setup Guide](https://i.ibb.co/vqWVDMP/setup-sections-guide.jpg)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Tech Stack
 
-### `npm run eject`
+React js, JSX, Axios, Node js, Express js, SASS, MySQL, KNEX
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### APIs
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Persoanl API
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Auth
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Users will need to sign up on the app to be able to create pages. If they are signed in , they will be able to create pages, customize styles and edit thier contents.
 
-## Learn More
+## More things to add in the future
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Profile barcode which they can share to thier networks. This will be scanned to access thier pages.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+On-page styling live edits
 
-### Code Splitting
+More styles and compostions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Subscriptions plans with different level of features.

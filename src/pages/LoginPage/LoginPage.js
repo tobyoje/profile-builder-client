@@ -6,7 +6,6 @@ import axios from "axios";
 const LoginPage = () => {
   const [loginData, setLoginData] = useState([]);
   const [formErrors, setFormErrors] = useState({});
-  const [success, setSuccess] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -70,10 +69,9 @@ const LoginPage = () => {
         sessionStorage.setItem("page_link", response.data.page_link);
         sessionStorage.setItem("token", response.data.token);
         sessionStorage.setItem("user_id", response.data.user_id);
-        console.log(response.data);
       })
       .catch((error) => {
-        // setFormErrors(error.response.data);
+        setFormErrors(error.response.data);
       });
   };
 

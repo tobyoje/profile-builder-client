@@ -10,7 +10,6 @@ const PhotoGalleryComponent = ({ profileData }) => {
     profileData.g_image5,
     profileData.g_image6,
   ];
-  console.log(galleryImages);
   return (
     <div className="photogallery">
       {galleryImages.length && (
@@ -27,7 +26,7 @@ const PhotoGalleryComponent = ({ profileData }) => {
                   key={index}
                   className="photogallery__image"
                   src={`${process.env.REACT_APP_API_BASE_URL}/public-images/${galleryImage}`}
-                  alt="photo"
+                  alt="Gallery"
                 />
               );
             })}

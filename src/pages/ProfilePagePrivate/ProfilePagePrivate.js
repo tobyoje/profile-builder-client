@@ -6,7 +6,6 @@ import Theme2 from "../../themes/Theme2/Theme2";
 
 const ProfilePagePrivate = () => {
   const [profileData, setProfileData] = useState(null);
-  const [currentUserId, setCurrentUserId] = useState(null);
 
   const { pageLink } = useParams();
   const navigate = useNavigate();
@@ -27,7 +26,6 @@ const ProfilePagePrivate = () => {
       })
       .then(async (response) => {
         await setProfileData(response.data);
-        setCurrentUserId(response.data.user_id);
       })
       .catch((error) => {
         console.log(error);
@@ -42,21 +40,10 @@ const ProfilePagePrivate = () => {
     );
   }
 
-  console.log(profileData);
-
   return (
     <>
-
-    {
-profileData.style == "style1" && (
-        <Theme1 profileData={profileData} />
-)
-    }
-      {
-profileData.style == "style2" && (
-        <Theme2 profileData={profileData} />
-)
-    }
+      {profileData.style == "style1" && <Theme1 profileData={profileData} />}
+      {profileData.style == "style2" && <Theme2 profileData={profileData} />}
     </>
   );
 };

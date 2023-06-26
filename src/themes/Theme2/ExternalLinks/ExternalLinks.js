@@ -1,5 +1,4 @@
 import "./ExternalLinks.scss";
-import extlinkICON from "../../../assets/icons/ext-link.svg";
 import { Link } from "react-router-dom";
 
 const ExternalLinks = ({ profileData }) => {

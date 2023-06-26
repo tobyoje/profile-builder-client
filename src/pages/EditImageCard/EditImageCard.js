@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import SettingsHeader from "../../components/SettingsHeader/SettingsHeader";
 import "./EditImageCard.scss";
 import { useEffect, useState } from "react";
@@ -24,7 +24,6 @@ const EditImageCard = () => {
       return navigate("../login");
     }
 
-    // Get the data from the API
     axios
       .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/${pageLink}`, {
         headers: {
@@ -72,7 +71,6 @@ const EditImageCard = () => {
       setTimeout(() => {
         navigate(`/settings/${pageLink}`);
       }, 1000);
-      console.log(result.data);
     } catch (error) {
       console.error(error);
     }

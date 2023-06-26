@@ -27,7 +27,6 @@ const EditExternalLinks = () => {
       })
       .then((response) => {
         setUser(response.data);
-        console.log(user);
       })
       .catch((error) => {
         console.log(error);
@@ -104,7 +103,6 @@ const EditExternalLinks = () => {
         }
       )
       .then((response) => {
-        console.log(response.data);
         setTimeout(() => {
           navigate(`/settings/${pageLink}`);
         }, 1000);

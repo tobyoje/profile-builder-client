@@ -15,11 +15,6 @@ const Intro = ({ profileData, currentUserId }) => {
   const navigate = useNavigate();
   const { pageLink } = useParams();
 
-
-  console.log(currentUserId);
-
-  console.log(profileData.user_id);
-
   const showButtons = token && profileData.user_id == userId;
 
   const handleLogout = () => {
@@ -31,8 +26,6 @@ const Intro = ({ profileData, currentUserId }) => {
       navigate("/login");
     }, 1000);
   };
-
-  console.log(profileData);
 
   return (
     <>
@@ -75,7 +68,7 @@ const Intro = ({ profileData, currentUserId }) => {
               style={{ borderColor: `${profileData.color}` }}
               className="intro__profileimg"
               src={`${process.env.REACT_APP_API_BASE_URL}/public-images/${profileData.profile_image}`}
-              alt="profile Picture"
+              alt="Spotlight"
             />
           </div>
           <div className="intro__socials--tab">

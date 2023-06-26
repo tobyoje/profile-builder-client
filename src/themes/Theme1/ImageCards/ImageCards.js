@@ -27,8 +27,6 @@ const ImageCards = ({ profileData }) => {
     },
   ];
 
-  console.log(imageDatas);
-
   return (
     <div className="image-cards">
       {profileData.ic_link1 && profileData.ic_title1 && (
@@ -41,36 +39,34 @@ const ImageCards = ({ profileData }) => {
                 // Skip rendering if link or title is empty
                 return null;
               }
-              console.log(imageData);
               return (
-                
                 <div className="image-cards__box">
-                
-                <Link
-                  to={imageData.link}
-                  target="_blank"
-                  rel="noreferrer"
-                  key={index}
-                >
-                  <div
-                    className="image-cards__container"
-                    style={{
-                      backgroundImage: `linear-gradient(
+                  <Link
+                    to={imageData.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    key={index}
+                  >
+                    <div
+                      className="image-cards__container"
+                      style={{
+                        backgroundImage: `linear-gradient(
                       0deg,
                       rgba(0, 0, 0, 0.893),
                       rgba(0, 0, 0, 0.553)
                     ), url("${process.env.REACT_APP_API_BASE_URL}/public-images/${imageData.image}")`,
-                    }}
-                  >
-                    <p className="image-cards__link-title">{imageData.title}</p>
-                    <img
-                      className="image-cards__link-icon"
-                      src={extlinkICON}
-                      alt="link"
-                    />
-                  </div>
-
-                </Link>
+                      }}
+                    >
+                      <p className="image-cards__link-title">
+                        {imageData.title}
+                      </p>
+                      <img
+                        className="image-cards__link-icon"
+                        src={extlinkICON}
+                        alt="link"
+                      />
+                    </div>
+                  </Link>
                 </div>
               );
             })}

@@ -76,7 +76,7 @@ const AddProfileImage = () => {
             <div className="profileimage__upload-area ">
               <label htmlFor="inputfile">
                 upload your spotlight picture
-                <img className="upload-icon" src={uploadIcon} />
+                <img className="upload-icon" src={uploadIcon} alt="icon"/>
               </label>
               <input
                 type="file"

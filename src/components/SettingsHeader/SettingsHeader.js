@@ -9,7 +9,7 @@ const SettingsHeader = () => {
     <>
       <div className="settings-header">
       <Link to={`/settings/${pageLink}`}>
-          <img src={arrowLeft} />
+          <img src={arrowLeft} alt="icon" />
         </Link>
         <h2 className="settings-heading">Your Settings</h2>
       </div>

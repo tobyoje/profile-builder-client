@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import SettingsHeader from "../../components/SettingsHeader/SettingsHeader";
 import "./EditSocialLinks.scss";
 import { useEffect, useState } from "react";
@@ -26,7 +26,6 @@ const EditSocialLinks = () => {
       })
       .then((response) => {
         setUser(response.data);
-        console.log(user);
       })
       .catch((error) => {
         console.log(error);
@@ -72,7 +71,6 @@ const EditSocialLinks = () => {
         }
       )
       .then((response) => {
-        console.log(response.data);
         setTimeout(() => {
           navigate(`/settings/${pageLink}`);
         }, 1000);

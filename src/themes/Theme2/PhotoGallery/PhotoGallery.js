@@ -10,7 +10,6 @@ const PhotoGalleryComponent = ({ profileData }) => {
     profileData.g_image5,
     profileData.g_image6,
   ];
-  console.log(galleryImages);
   return (
     <div className="photogallery2">
       {galleryImages.length && (
@@ -19,7 +18,6 @@ const PhotoGalleryComponent = ({ profileData }) => {
           <div className="photogallery2__container">
             {galleryImages.map((galleryImage, index) => {
               if (!galleryImage) {
-                // Skip rendering if link is empty
                 return null;
               }
               return (
@@ -27,7 +25,7 @@ const PhotoGalleryComponent = ({ profileData }) => {
                   key={index}
                   className="photogallery2__image"
                   src={`${process.env.REACT_APP_API_BASE_URL}/public-images/${galleryImage}`}
-                  alt="photo"
+                  alt="Gallery"
                 />
               );
             })}

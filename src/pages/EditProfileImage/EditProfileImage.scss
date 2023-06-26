@@ -41,10 +41,6 @@
     }
   }
 
-
-
-
-
   &__form-container {
     @include media-tablet {
       display: flex;
@@ -323,7 +319,6 @@
       padding-top: 1rem;
       &::before {
         content: "";
-        background-image: url("");
         background-repeat: no-repeat;
         background-size: 1.5rem;
         display: block;
@@ -351,16 +346,14 @@
 
     @include media-desktop {
       padding: 12rem 3rem;
-
     }
-  
+
     label {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
   }
-
 }
 
 .choose-hero {
@@ -374,8 +367,6 @@
   position: absolute;
   z-index: -1;
 }
-
-
 
 .upload-icon {
   padding-top: 1.5rem;

@@ -33,7 +33,6 @@ const EditGalleryImage = () => {
       })
       .then((response) => {
         setUser(response.data);
-        console.log(user);
       })
       .catch((error) => {
         console.log(error);
@@ -67,7 +66,6 @@ const EditGalleryImage = () => {
       setTimeout(() => {
         navigate(`/settings/${pageLink}`);
       }, 1000);
-      console.log(result.data);
     } catch (error) {
       console.error(error);
     }

@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import SettingsHeader from "../../components/SettingsHeader/SettingsHeader";
 import "./EditProfileImage.scss";
 import { useEffect, useState } from "react";
@@ -9,8 +9,6 @@ const EditProfileImage = () => {
   const [heroPhotoData, setHeroPhotoData] = useState("");
   const [file, setFile] = useState(null);
   const [imageName, setImageName] = useState("");
-  const [basicData, setBasicData] = useState({});
-  const [imageData, setImageData] = useState(null);
   const [formErrors, setFormErrors] = useState({});
   const [user, setUser] = useState({});
   const navigate = useNavigate();
@@ -31,7 +29,6 @@ const EditProfileImage = () => {
       })
       .then((response) => {
         setUser(response.data);
-        console.log(user);
       })
       .catch((error) => {
         console.log(error);
@@ -62,7 +59,6 @@ const EditProfileImage = () => {
       setTimeout(() => {
         navigate(`/settings/${pageLink}`);
       }, 1000);
-      console.log(result.data);
     } catch (error) {
       console.error(error);
     }
@@ -95,7 +91,7 @@ const EditProfileImage = () => {
               <div className="profileimage__upload-area ">
                 <label htmlFor="inputfile">
                   upload your spotlight picture
-                  <img className="upload-icon" src={uploadIcon} />
+                  <img className="upload-icon" src={uploadIcon} alt="icon" />
                 </label>
                 <input
                   type="file"
