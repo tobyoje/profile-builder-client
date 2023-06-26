@@ -26,7 +26,6 @@ const EditBasicInfo = () => {
       })
       .then((response) => {
         setUser(response.data);
-        console.log(user);
       })
       .catch((error) => {
         console.log(error);
@@ -100,7 +99,7 @@ const EditBasicInfo = () => {
         sessionStorage.setItem("page_link", updatedLink);
         console.log(response.data);
         setTimeout(() => {
-          navigate("/settings");
+          navigate(`/settings/${pageLink}`);
         }, 1000);
       })
       .catch((error) => {
@@ -120,7 +119,7 @@ const EditBasicInfo = () => {
 
         <div className="basicinfo__form">
           <form className="basicinfo__form-container" onSubmit={handleUpdate}>
-          <div className="basicinfo__form-col">
+            <div className="basicinfo__form-col">
               <input
                 type="text"
                 placeholder="Page title"
@@ -177,10 +176,8 @@ const EditBasicInfo = () => {
               {formErrors.error_biography && (
                 <p className="form-error">This field is required</p>
               )}
-                          <button className="basicinfo__button">SAVE</button>
-
+              <button className="basicinfo__button">SAVE</button>
             </div>
-
           </form>
         </div>
       </div>

@@ -28,7 +28,6 @@ const AddProfileImage = () => {
     newBasic.append("hero_image", heroPhotoData);
 
 
-    console.log(file);
 
     const token = sessionStorage.getItem("token");
 
@@ -47,7 +46,6 @@ const AddProfileImage = () => {
       setTimeout(() => {
         navigate("/social-links");
       }, 1000);
-      console.log(result.data);
     } catch (error) {
       console.error(error);
     }

@@ -7,12 +7,14 @@ import facebookICON from "../../../assets/icons/facebook-white.svg";
 import linkedinICON from "../../../assets/icons/linkedin-white.svg";
 import youtubeICON from "../../../assets/icons/youtube-white.svg";
 import emailICON from "../../../assets/icons/email-white.svg";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Intro = ({ profileData, currentUserId }) => {
   const token = sessionStorage.getItem("token");
   const userId = sessionStorage.getItem("user_id");
   const navigate = useNavigate();
+  const { pageLink } = useParams();
+
 
   console.log(currentUserId);
 
@@ -46,7 +48,7 @@ const Intro = ({ profileData, currentUserId }) => {
           {showButtons && (
             <>
               <div className="intro__icons-col">
-                <Link to="/settings">
+                <Link to={`/settings/${pageLink}`}>
                   {" "}
                   <img
                     className="intro__icon intro__icon--first"
@@ -68,12 +70,14 @@ const Intro = ({ profileData, currentUserId }) => {
         </div>
 
         <div className="intro__details">
-          <img
-            style={{ borderColor: `${profileData.color}` }}
-            className="intro__profileimg"
-            src={`${process.env.REACT_APP_API_BASE_URL}/public-images/${profileData.profile_image}`}
-            alt="profile Picture"
-          />
+          <div>
+            <img
+              style={{ borderColor: `${profileData.color}` }}
+              className="intro__profileimg"
+              src={`${process.env.REACT_APP_API_BASE_URL}/public-images/${profileData.profile_image}`}
+              alt="profile Picture"
+            />
+          </div>
           <div className="intro__socials--tab">
             {profileData.twitter && (
               <Link to={profileData.twitter} target="_blank" rel="noreferrer">

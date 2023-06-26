@@ -55,11 +55,9 @@ const AddImageCards = () => {
         }
       );
 
-      console.log(newBasic);
       setTimeout(() => {
         navigate("/gallery");
       }, 1000);
-      console.log(result.data);
     } catch (error) {
       console.error(error);
     }

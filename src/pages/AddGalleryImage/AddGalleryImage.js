@@ -54,11 +54,9 @@ const AddGalleryImage = () => {
         }
       );
 
-      console.log(newBasic);
       setTimeout(() => {
         navigate("/styles");
       }, 1000);
-      console.log(result.data);
     } catch (error) {
       console.error(error);
     }

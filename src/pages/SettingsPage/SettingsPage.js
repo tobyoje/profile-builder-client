@@ -1,13 +1,27 @@
 import SettingsHeader from "../../components/SettingsHeader/SettingsHeader";
 import "./SettingsPage.scss";
 import rightArrow from "../../assets/icons/arrow-right.svg";
-import { Link, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 import axios from "axios";
+import copyICON from "../../assets/icons/copy.svg";
 
 const SettingsPage = () => {
+  const [user, setUser] = useState({});
   const navigate = useNavigate();
   const page_link = sessionStorage.getItem("page_link");
+  const { pageLink } = useParams();
+
+  const handleCopy = () => {
+    navigator.clipboard
+      .writeText(`https://quickprofile.me/${pageLink}`)
+      .then(() => {
+        console.log("Text copied to clipboard");
+      })
+      .catch((error) => {
+        console.error("Failed to copy text: ", error);
+      });
+  };
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
@@ -16,14 +30,15 @@ const SettingsPage = () => {
       return navigate("../login");
     }
 
-    // Get the data from the API
     axios
-      .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/current`, {
+      .get(`${process.env.REACT_APP_API_BASE_URL}/api/user/${pageLink}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       })
-      .then((response) => {})
+      .then((response) => {
+        setUser(response.data);
+      })
       .catch((error) => {
         console.log(error);
       });
@@ -34,13 +49,21 @@ const SettingsPage = () => {
       <div className="settings-container">
         <h2 className="settings-heading">Your Settings</h2>
       </div>
-      <div className="settings">
-       
+      <div className="settings-publink">
+        <input
+          type="text"
+          value={`https://quickprofile.me/${page_link}`}
+          id="myInput"
+          className="settings__clipboard"
+        ></input>
+        <div className="settings__clip-button" onClick={handleCopy}>
+          <img className="settings__clip-icon" src={copyICON} /> Copy Link
+        </div>
+      </div>
 
+      <div className="settings">
         <div className="settings__basic">
-        <h2 className="settings__title">
-          Basic information and styles
-        </h2>
+          <h2 className="settings__title">Basic information and styles</h2>
           <Link to={`/private/${page_link}`}>
             <div className="settings__container">
               <p>My Page</p>
@@ -70,9 +93,8 @@ const SettingsPage = () => {
           </Link>
         </div>
 
-
         <div className="settings__basic">
-        <h2 className="settings__title">Page Sections</h2>
+          <h2 className="settings__title">Page Sections</h2>
 
           <Link to={`/edit-socials/${page_link}`}>
             <div className="settings__container">

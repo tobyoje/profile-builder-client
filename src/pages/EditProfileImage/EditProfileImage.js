@@ -60,7 +60,7 @@ const EditProfileImage = () => {
       );
       setImageName(result.data.imageName);
       setTimeout(() => {
-        navigate("/settings");
+        navigate(`/settings/${pageLink}`);
       }, 1000);
       console.log(result.data);
     } catch (error) {
@@ -87,97 +87,98 @@ const EditProfileImage = () => {
         </p>
 
         <div className="profileimage__form">
-          <form className="profileimage__form-container" onSubmit={handleSubmit}>
-          <div className="profileimage__form-col">
-
-          <div className="profileimage__upload-area ">
-              <label htmlFor="inputfile">
-                upload your spotlight picture
-                <img className="upload-icon" src={uploadIcon} />
-              </label>
-              <input
-                type="file"
-                id="inputfile"
-                className={`inputfile ${
-                  formErrors.error_pageTitle ? "input--error" : ""
-                }`}
-                accept="image/png, image/jpeg, image/jpg"
-                onChange={handleFileChange}
-              />
-            </div>
-            {formErrors.error_pageTitle && (
-              <p className="form-error">This field is required</p>
-            )}
+          <form
+            className="profileimage__form-container"
+            onSubmit={handleSubmit}
+          >
+            <div className="profileimage__form-col">
+              <div className="profileimage__upload-area ">
+                <label htmlFor="inputfile">
+                  upload your spotlight picture
+                  <img className="upload-icon" src={uploadIcon} />
+                </label>
+                <input
+                  type="file"
+                  id="inputfile"
+                  className={`inputfile ${
+                    formErrors.error_pageTitle ? "input--error" : ""
+                  }`}
+                  accept="image/png, image/jpeg, image/jpg"
+                  onChange={handleFileChange}
+                />
+              </div>
+              {formErrors.error_pageTitle && (
+                <p className="form-error">This field is required</p>
+              )}
             </div>
 
             <div className="profileimage__form-col">
+              <div className="choose-hero">
+                <h2 className="profileimage__subtitle profileimage__subtitle--bold">
+                  Choose your hero photo
+                </h2>
 
-            <div className="choose-hero">
-              <h2 className="profileimage__subtitle profileimage__subtitle--bold">
-                Choose your hero photo
-              </h2>
+                <div className="hero-samples">
+                  <div className="hero-samples__col">
+                    <input
+                      type="radio"
+                      name="heroPhoto"
+                      id="hero1"
+                      value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-1.jpg`}
+                      onChange={(event) => handleChange(event)}
+                    />
+                    <label htmlFor="hero1"></label>
 
-              <div className="hero-samples">
-                <div className="hero-samples__col">
-                  <input
-                    type="radio"
-                    name="heroPhoto"
-                    id="hero1"
-                    value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-1.jpg`}
-                    onChange={(event) => handleChange(event)}
-                  />
-                  <label htmlFor="hero1"></label>
+                    <input
+                      type="radio"
+                      name="heroPhoto"
+                      id="hero2"
+                      value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-2.jpg`}
+                      onChange={(event) => handleChange(event)}
+                    />
+                    <label htmlFor="hero2"></label>
 
-                  <input
-                    type="radio"
-                    name="heroPhoto"
-                    id="hero2"
-                    value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-2.jpg`}
-                    onChange={(event) => handleChange(event)}
-                  />
-                  <label htmlFor="hero2"></label>
+                    <input
+                      type="radio"
+                      name="heroPhoto"
+                      id="hero3"
+                      value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-3.jpg`}
+                      onChange={(event) => handleChange(event)}
+                    />
+                    <label htmlFor="hero3"></label>
+                  </div>
 
-                  <input
-                    type="radio"
-                    name="heroPhoto"
-                    id="hero3"
-                    value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-3.jpg`}
-                    onChange={(event) => handleChange(event)}
-                  />
-                  <label htmlFor="hero3"></label>
-                </div>
+                  <div className="hero-samples__col">
+                    <input
+                      type="radio"
+                      name="heroPhoto"
+                      id="hero4"
+                      value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-4.jpg`}
+                      onChange={(event) => handleChange(event)}
+                    />
+                    <label htmlFor="hero4"></label>
+                    <input
+                      type="radio"
+                      name="heroPhoto"
+                      id="hero5"
+                      value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-5.jpg`}
+                      onChange={(event) => handleChange(event)}
+                    />
+                    <label htmlFor="hero5"></label>
 
-                <div className="hero-samples__col">
-                  <input
-                    type="radio"
-                    name="heroPhoto"
-                    id="hero4"
-                    value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-4.jpg`}
-                    onChange={(event) => handleChange(event)}
-                  />
-                  <label htmlFor="hero4"></label>
-                  <input
-                    type="radio"
-                    name="heroPhoto"
-                    id="hero5"
-                    value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-5.jpg`}
-                    onChange={(event) => handleChange(event)}
-                  />
-                  <label htmlFor="hero5"></label>
-
-                  <input
-                    type="radio"
-                    name="heroPhoto"
-                    id="hero6"
-                    value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-6.jpg`}
-                    onChange={(event) => handleChange(event)}
-                  />
-                  <label htmlFor="hero6"></label>
+                    <input
+                      type="radio"
+                      name="heroPhoto"
+                      id="hero6"
+                      value={`${process.env.REACT_APP_API_BASE_URL}/images/hero-6.jpg`}
+                      onChange={(event) => handleChange(event)}
+                    />
+                    <label htmlFor="hero6"></label>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <button className="profileimage__button">NEXT</button>
+              <button className="profileimage__button">NEXT</button>
             </div>
           </form>
         </div>

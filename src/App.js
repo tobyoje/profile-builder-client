@@ -20,7 +20,6 @@ import EditExternalLinks from "./pages/EditExternalLinks/EditExternalLinks";
 import EditImageCard from "./pages/EditImageCard/EditImageCard";
 import EditGalleryImage from "./pages/EditGalleryImage/EditGalleryImage";
 import EditStyles from "./pages/EditStyles/EditStyles";
-import UploadTest from "./components/UploadTest/UploadTest";
 
 function App() {
   return (
@@ -37,20 +36,26 @@ function App() {
           <Route path="/image-cards" element={<AddImageCard />} />
           <Route path="/gallery" element={<AddGalleryImage />} />
           <Route path="/styles" element={<AddStyles />} />
-          <Route path="/settings" element={<SettingsPage />} />
+          <Route path="/settings/:pageLink" element={<SettingsPage />} />
           <Route path="/edit-basic/:pageLink" element={<EditBasicInfo />} />
-          <Route path="/edit-profile-images/:pageLink" element={<EditProfileImage />} />
+          <Route
+            path="/edit-profile-images/:pageLink"
+            element={<EditProfileImage />}
+          />
           <Route path="/edit-socials/:pageLink" element={<EditSocialLinks />} />
-          <Route path="/edit-external/:pageLink" element={<EditExternalLinks />} />
-          <Route path="/edit-image-cards/:pageLink" element={<EditImageCard />} />
-          <Route path="/edit-gallery/:pageLink" element={<EditGalleryImage />} />
+          <Route
+            path="/edit-external/:pageLink"
+            element={<EditExternalLinks />}
+          />
+          <Route
+            path="/edit-image-cards/:pageLink"
+            element={<EditImageCard />}
+          />
+          <Route
+            path="/edit-gallery/:pageLink"
+            element={<EditGalleryImage />}
+          />
           <Route path="/edit-styles/:pageLink" element={<EditStyles />} />
-          <Route path="/upload" element={<UploadTest />} />
-
-
-
-
-
           <Route path="/private/:pageLink" element={<ProfilePagePrivate />} />
           <Route path="/:pageLink" element={<ProfilePage />} />
         </Routes>

@@ -27,7 +27,6 @@ const AddStyles = () => {
         },
       })
       .then((response) => {
-        console.log(response.data);
         setUser(response.data);
       })
       .catch((error) => {
@@ -96,7 +95,6 @@ const AddStyles = () => {
         },
       })
       .then((response) => {
-        console.log(response.data);
         setTimeout(() => {
           // store profile link in local storage
           // get the profile link form local storage

@@ -106,7 +106,7 @@ const EditExternalLinks = () => {
       .then((response) => {
         console.log(response.data);
         setTimeout(() => {
-          navigate("/settings");
+          navigate(`/settings/${pageLink}`);
         }, 1000);
       })
       .catch((error) => {

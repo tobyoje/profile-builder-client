@@ -25,7 +25,6 @@ const AddSocialLinks = () => {
         },
       })
       .then((response) => {
-        console.log(response.data);
         setUser(response.data);
       })
       .catch((error) => {
@@ -102,7 +101,6 @@ const AddSocialLinks = () => {
         },
       })
       .then((response) => {
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);

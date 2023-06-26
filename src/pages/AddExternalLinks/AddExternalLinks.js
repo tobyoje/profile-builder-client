@@ -26,7 +26,6 @@ const AddExternalLinks = () => {
         },
       })
       .then((response) => {
-        console.log(response.data);
         setUser(response.data);
       })
       .catch((error) => {
@@ -104,7 +103,6 @@ const AddExternalLinks = () => {
         },
       })
       .then((response) => {
-        console.log(response.data);
       })
       .catch((error) => {
         console.log(error);

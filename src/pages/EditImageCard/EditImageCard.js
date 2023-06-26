@@ -70,7 +70,7 @@ const EditImageCard = () => {
         }
       );
       setTimeout(() => {
-        navigate("/settings");
+        navigate(`/settings/${pageLink}`);
       }, 1000);
       console.log(result.data);
     } catch (error) {

@@ -30,12 +30,12 @@ const ImageCards = ({ profileData }) => {
   console.log(imageDatas);
 
   return (
-    <div className="imagecards">
+    <div className="image-cards">
       {profileData.ic_link1 && profileData.ic_title1 && (
         <>
-          <h2 className="imagecards__heading">My Image Cards</h2>
+          <h2 className="image-cards__heading">My Image Cards</h2>
 
-          <div className="imagecards__list">
+          <div className="image-cards__list">
             {imageDatas.map((imageData, index) => {
               if (!imageData.link || !imageData.title) {
                 // Skip rendering if link or title is empty
@@ -44,7 +44,7 @@ const ImageCards = ({ profileData }) => {
               console.log(imageData);
               return (
                 
-                <div className="imagecards__box">
+                <div className="image-cards__box">
                 
                 <Link
                   to={imageData.link}
@@ -53,7 +53,7 @@ const ImageCards = ({ profileData }) => {
                   key={index}
                 >
                   <div
-                    className="imagecards__container"
+                    className="image-cards__container"
                     style={{
                       backgroundImage: `linear-gradient(
                       0deg,
@@ -62,9 +62,9 @@ const ImageCards = ({ profileData }) => {
                     ), url("${process.env.REACT_APP_API_BASE_URL}/public-images/${imageData.image}")`,
                     }}
                   >
-                    <p className="imagecards__link-title">{imageData.title}</p>
+                    <p className="image-cards__link-title">{imageData.title}</p>
                     <img
-                      className="imagecards__link-icon"
+                      className="image-cards__link-icon"
                       src={extlinkICON}
                       alt="link"
                     />
