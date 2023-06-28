@@ -49,6 +49,8 @@
 
 .login {
   padding: 3rem 2rem;
+  display: flex;
+    justify-content: center;
 
   @include media-tablet {
     padding: 7rem 15rem;

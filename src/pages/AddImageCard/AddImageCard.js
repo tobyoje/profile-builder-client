@@ -12,9 +12,22 @@ const AddImageCards = () => {
   const [file2, setFile2] = useState(null);
   const [file3, setFile3] = useState(null);
   const [file4, setFile4] = useState(null);
+  const [newField3, setNewField3] = useState(false);
+  const [newField4, setNewField4] = useState(false);
+  const [addBtn, setAddBtn] = useState(true);
 
   const [formErrors, setFormErrors] = useState({});
   const navigate = useNavigate();
+
+  const addNewField = () => {
+    console.log("hiii");
+    setNewField3(true);
+
+    if (newField3) {
+      setNewField4(true);
+      setAddBtn(false);
+    }
+  };
 
   useEffect(() => {
     const token = sessionStorage.getItem("token");
@@ -249,10 +262,18 @@ const AddImageCards = () => {
                 />
               </div>
 
-              {/* <div className="imagecards__formadd">
-                <img className="imagecards__formadd--image" src={addICON} alt="" />
+              <div
+                className="imagecards__formadd"
+                onClick={addNewField}
+                style={{ display: addBtn ? "flex" : "none" }}
+              >
+                <img
+                  className="imagecards__formadd--image"
+                  src={addICON}
+                  alt=""
+                />
                 <p> Add New</p>
-              </div> */}
+              </div>
 
               {formErrors.error_pageTitle && (
                 <p className="form-error">This field is required</p>
