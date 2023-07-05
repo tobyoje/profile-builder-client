@@ -75,7 +75,7 @@ const AddExternalLinks = () => {
       ext_link3: basicData.link3,
       ext_title3: basicData.title3,
       ext_link4: basicData.link4,
-      ext_titl4: basicData.title4,
+      ext_title4: basicData.title4,
     };
 
     const token = sessionStorage.getItem("token");

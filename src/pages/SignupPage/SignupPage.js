@@ -43,11 +43,11 @@ const SignupPage = () => {
       formIsValid = false;
       errors["error_wrongPasswordMatch"] = true;
     }
-    // const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-    // if (!signUpData.email.match(mailformat)) {
-    //   formIsValid = false;
-    //   errors["error_emailFormat"] = true;
-    // }
+    const mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (!signUpData.email.match(mailformat)) {
+      formIsValid = false;
+      errors["error_emailFormat"] = true;
+    }
 
     if (
       !signUpData.email ||
